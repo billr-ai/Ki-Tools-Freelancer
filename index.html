@@ -11,9 +11,9 @@
     body { 
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
       line-height: 1.8; 
-      /* Cool Gray/Blue Background */
-      background-color: #f0f4f8; 
-      color: #4a5568; /* Slate Gray Text */
+      /* DARK MODE BACKGROUND: Deep Slate */
+      background-color: #0f172a; 
+      color: #e2e8f0; /* Light Gray Text */
       font-size: 16px;
     }
     
@@ -24,35 +24,37 @@
       padding: 40px 20px; 
     }
 
-    /* Hero Section - THEME CHANGE: Baby Blue */
+    /* Hero Section */
     .hero { 
-      /* Soft Baby Blue Gradient */
-      background: linear-gradient(135deg, #bfdbfe 0%, #e0f2fe 100%); 
-      color: #2d3748; /* Dark Gray text for contrast on light blue */
+      /* Dark Gradient with subtle blue tint */
+      background: linear-gradient(135deg, #1e293b 0%, #172554 100%); 
+      color: #f8fafc; 
       text-align: center; 
       padding: 80px 30px; 
       border-radius: 24px; 
       margin-bottom: 60px; 
-      box-shadow: 0 20px 40px rgba(164, 202, 254, 0.25); 
-      border: 1px solid #daeefc;
+      border: 1px solid #334155; /* Subtle border */
+      box-shadow: 0 0 50px rgba(59, 130, 246, 0.15); /* Soft Blue Glow */
     }
     .hero h1 { 
       font-size: 2.8em; 
       margin-bottom: 20px; 
       line-height: 1.2;
       font-weight: 800;
-      color: #1e3a8a; /* Darker Blue for Headline */
+      /* Glowing Text Effect */
+      background: linear-gradient(to right, #60a5fa, #93c5fd);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     .hero p {
       font-size: 1.2em;
       opacity: 0.9;
       max-width: 600px;
       margin: 0 auto;
-      color: #475569;
+      color: #cbd5e1;
     }
     .cta-button { 
-      /* CTA is now Dark Slate Gray for contrast */
-      background: #475569; 
+      background: #3b82f6; /* Bright Blue Button */
       color: white; 
       padding: 18px 40px; 
       border: none; 
@@ -62,13 +64,13 @@
       text-decoration: none; 
       display: inline-block; 
       margin-top: 30px; 
-      box-shadow: 0 10px 20px rgba(71, 85, 105, 0.2); 
+      box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3); 
       transition: all 0.3s ease;
     }
     .cta-button:hover { 
       transform: translateY(-3px); 
-      background: #334155;
-      box-shadow: 0 15px 30px rgba(71, 85, 105, 0.3); 
+      background: #2563eb;
+      box-shadow: 0 15px 30px rgba(59, 130, 246, 0.5); 
     }
 
     /* Section Headers */
@@ -76,7 +78,7 @@
       font-size: 1.8em; 
       margin-bottom: 30px; 
       text-align: center; 
-      color: #334155; /* Slate 800 */
+      color: #f1f5f9; /* Almost White */
     }
 
     /* "Why AI" Section */
@@ -87,19 +89,19 @@
       margin-bottom: 80px;
     }
     .benefit {
-      background: white;
+      background: #1e293b; /* Dark Card Bg */
       padding: 30px;
       border-radius: 16px;
       text-align: center;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #334155;
       transition: transform 0.2s;
     }
-    .benefit:hover { transform: translateY(-5px); border-color: #bfdbfe; }
+    .benefit:hover { transform: translateY(-5px); border-color: #60a5fa; }
     .benefit-icon { font-size: 2.5em; margin-bottom: 15px; display: block; }
-    .benefit h3 { font-size: 1.2em; margin-bottom: 10px; color: #475569; }
-    .benefit p { font-size: 0.95em; color: #718096; }
+    .benefit h3 { font-size: 1.2em; margin-bottom: 10px; color: #e2e8f0; }
+    .benefit p { font-size: 0.95em; color: #94a3b8; }
 
-    /* Top 3 Cards - THEME CHANGE: Blue/Gray Accents */
+    /* Top 3 Cards */
     .cards { 
       display: grid; 
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -107,63 +109,71 @@
       margin-bottom: 80px; 
     }
     .card { 
-      background: white; 
+      background: #1e293b; /* Dark Card Bg */
       padding: 35px; 
       border-radius: 20px; 
-      box-shadow: 0 10px 30px rgba(0,0,0,0.03); 
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2); 
       border-top: 6px solid; 
       transition: transform 0.3s ease; 
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      border-left: 1px solid #334155; /* Subtle borders */
+      border-right: 1px solid #334155;
+      border-bottom: 1px solid #334155;
     }
-    .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.06); }
+    .card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.4); }
     
-    /* Adjusted colors to fit Baby Blue/Gray theme */
-    .card.light-blue { border-top-color: #93c5fd; } /* Baby Blue */
-    .card.steel { border-top-color: #64748b; }      /* Steel Gray */
-    .card.dark-blue { border-top-color: #3b82f6; }  /* Stronger Blue */
+    /* Card Accent Colors */
+    .card.light-blue { border-top-color: #60a5fa; } 
+    .card.steel { border-top-color: #94a3b8; }     
+    .card.dark-blue { border-top-color: #3b82f6; }  
 
-    .card h3 { margin-bottom: 15px; color: #334155; font-size: 1.4em; }
-    .card p { margin-bottom: 20px; color: #64748b; }
+    .card h3 { margin-bottom: 15px; color: #f1f5f9; font-size: 1.4em; }
+    .card p { margin-bottom: 20px; color: #94a3b8; }
+    
     .card-links a { 
-      color: #3b82f6; /* Link Blue */
+      color: #60a5fa; /* Light Blue Link */
       font-weight: 700; 
       text-decoration: none; 
       margin-right: 10px;
     }
-    .card-links a:hover { text-decoration: underline; color: #2563eb; }
+    .card-links a:hover { text-decoration: underline; color: #93c5fd; }
 
     /* Table */
     .table-wrapper {
-      background: white;
+      background: #1e293b;
       border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.2);
       padding: 10px;
       overflow-x: auto; 
       margin-bottom: 80px;
-      border: 1px solid #e2e8f0;
+      border: 1px solid #334155;
     }
     table { 
       width: 100%; 
       border-collapse: collapse; 
       min-width: 600px;
     }
-    th, td { padding: 20px; text-align: left; border-bottom: 1px solid #f1f5f9; }
-    th { background: #f8fafc; font-weight: 700; color: #64748b; text-transform: uppercase; font-size: 0.85em; letter-spacing: 0.05em; }
+    th, td { padding: 20px; text-align: left; border-bottom: 1px solid #334155; }
+    th { background: #0f172a; font-weight: 700; color: #94a3b8; text-transform: uppercase; font-size: 0.85em; letter-spacing: 0.05em; }
     tr:last-child td { border-bottom: none; }
-    td a { color: #3b82f6; font-weight: 600; text-decoration: none; }
-    tr:hover td { background-color: #f8fafc; }
+    td { color: #e2e8f0; }
+    td a { color: #60a5fa; font-weight: 600; text-decoration: none; }
+    tr:hover td { background-color: #2d3e56; }
 
     /* Decision Helper Section */
     .decision-helper {
-      background: #e2e8f0; /* Light Gray */
+      background: #172033; /* Slightly darker than cards */
       border-radius: 20px;
       padding: 50px;
       text-align: center;
       margin-bottom: 60px;
+      border: 1px solid #334155;
     }
-    .decision-helper h2 { color: #334155; }
+    .decision-helper h2 { color: #e2e8f0; }
+    .decision-helper p { color: #94a3b8; }
+    
     .decision-grid {
       display: flex;
       flex-wrap: wrap;
@@ -172,25 +182,27 @@
       margin-top: 30px;
     }
     .decision-item {
-      background: white;
+      background: #1e293b;
       padding: 15px 25px;
       border-radius: 12px;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
       font-weight: 500;
-      color: #475569;
+      color: #cbd5e1;
+      border: 1px solid #334155;
     }
-    .decision-item strong { display: block; color: #3b82f6; margin-bottom: 5px; font-size: 0.9em; text-transform: uppercase;}
-    .decision-item a { color: #334155; text-decoration: none; border-bottom: 1px dotted #94a3b8; }
+    .decision-item strong { display: block; color: #60a5fa; margin-bottom: 5px; font-size: 0.9em; text-transform: uppercase;}
+    .decision-item a { color: #f1f5f9; text-decoration: none; border-bottom: 1px dotted #64748b; }
 
     /* Footer */
     footer { 
       text-align: center; 
       padding: 40px; 
-      border-top: 1px solid #cbd5e1;
-      color: #94a3b8;
+      border-top: 1px solid #334155;
+      color: #64748b;
       font-size: 0.9em; 
     }
-    footer a { color: #64748b; }
+    footer a { color: #94a3b8; }
+    footer a:hover { color: #e2e8f0; }
 
     /* Mobile Tweaks */
     @media (max-width: 600px) { 
