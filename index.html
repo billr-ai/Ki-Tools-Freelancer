@@ -2,32 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Best AI Invoicing Software for Freelancers 2026</title>
-  <meta name="description" content="Comparison of the top 7 AI invoicing tools for freelancers: From Free to Premium. Save hours on billing & accounting!">
+  <meta name="description" content="Top 7 AI invoicing tools compared. Smart sorting, personalized recommendations, and cost analysis.">
+  
+  <!-- iOS Native Feel -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#020617">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  
   <style>
-    /* --- RESET & THEME VARIABLES --- */
+    /* --- VARIABLES --- */
     :root {
-      /* Dark Mode Base */
-      --bg-dark: #020617; /* Deepest Navy/Black */
-      --card-bg: rgba(30, 41, 59, 0.6); /* Translucent Slate */
-      
-      /* Colors */
-      --primary: #3b82f6; /* Blue */
-      --accent: #38bdf8; /* Baby Blue / Cyan (Requested) */
-      --text-main: #ffffff; /* Pure White */
-      --text-muted: #cbd5e1; /* Light Gray */
-      --success: #34d399; /* Emerald Green */
-      
-      /* Effects */
+      --bg-dark: #020617;
+      --card-bg: rgba(30, 41, 59, 0.4);
+      --primary: #3b82f6;
+      --accent: #38bdf8; /* Baby Blue */
+      --text-main: #ffffff;
+      --text-muted: #cbd5e1;
+      --success: #34d399;
       --glass-border: 1px solid rgba(255, 255, 255, 0.08);
-      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+      --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
     }
 
-    * { margin:0; padding:0; box-sizing:border-box; }
+    /* --- RESET & BASE --- */
+    * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color: transparent; }
+    
+    html { scroll-behavior: smooth; }
     
     body { 
       font-family: 'Inter', sans-serif; 
@@ -36,251 +41,236 @@
       color: var(--text-main); 
       font-size: 16px;
       overflow-x: hidden;
-      /* Ambient Background Glow (Baby Blue) */
       background-image: 
-        radial-gradient(circle at 15% 25%, rgba(56, 189, 248, 0.1) 0%, transparent 45%),
-        radial-gradient(circle at 85% 75%, rgba(59, 130, 246, 0.1) 0%, transparent 45%);
+        radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 100% 100%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
     }
-
-    /* --- ANIMATIONS --- */
-    @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-10px); } 100% { transform: translateY(0px); } }
-    @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-    @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(56, 189, 248, 0); } 100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); } }
 
     .container { max-width: 1100px; margin: 0 auto; padding: 20px; }
 
-    /* --- HERO SECTION --- */
+    /* --- HERO --- */
     .hero { 
       text-align: center; 
-      padding: 120px 20px 80px; 
+      padding: 140px 20px 80px; 
       position: relative;
     }
-    .badge {
-      background: rgba(56, 189, 248, 0.15);
+    .greeting {
+      font-size: 0.9em;
       color: var(--accent);
-      padding: 6px 18px;
-      border-radius: 50px;
-      font-size: 0.85em;
-      font-weight: 700;
-      text-transform: uppercase;
+      font-weight: 600;
       letter-spacing: 1px;
-      display: inline-block;
-      margin-bottom: 25px;
-      border: 1px solid rgba(56, 189, 248, 0.3);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      opacity: 0;
+      animation: fadeIn 1s forwards 0.2s;
     }
     .hero h1 { 
-      font-size: 3.8em; 
+      font-size: clamp(2.5rem, 5vw, 4.5rem); 
       margin-bottom: 25px; 
-      line-height: 1.1; 
+      line-height: 1.05; 
       font-weight: 800;
-      letter-spacing: -1.5px;
-      color: white;
+      letter-spacing: -1px;
     }
     .hero h1 span {
-      /* Gradient Text: White to Baby Blue */
-      background: linear-gradient(to right, #ffffff, var(--accent));
+      background: linear-gradient(120deg, #fff 30%, var(--accent));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .hero p { 
-      font-size: 1.3em; 
+      font-size: 1.25em; 
       color: var(--text-muted); 
-      max-width: 650px; 
-      margin: 0 auto 50px; 
+      max-width: 600px; 
+      margin: 0 auto 40px; 
       font-weight: 300;
     }
     
     .cta-button { 
       background: linear-gradient(135deg, var(--primary), var(--accent)); 
       color: white; 
-      padding: 20px 50px; 
-      border-radius: 50px; 
-      font-size: 1.15em; 
+      padding: 22px 55px; 
+      border-radius: 100px; 
+      font-size: 1.1em; 
       font-weight: 700; 
       text-decoration: none; 
       display: inline-block; 
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
-      animation: pulseGlow 3s infinite;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 10px 40px rgba(56, 189, 248, 0.25);
+      position: relative;
+      overflow: hidden;
     }
     .cta-button:hover { 
-      transform: translateY(-4px) scale(1.02); 
-      box-shadow: 0 20px 40px rgba(56, 189, 248, 0.5); 
+      transform: scale(1.03); 
+      box-shadow: 0 20px 50px rgba(56, 189, 248, 0.4); 
     }
+    .cta-button::after {
+      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(rgba(255,255,255,0.2), transparent);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .cta-button:hover::after { opacity: 1; }
 
-    /* --- QUIZ SECTION --- */
+    /* --- INTELLIGENT QUIZ --- */
     .quiz-section {
       background: rgba(15, 23, 42, 0.6);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      padding: 50px;
-      border-radius: 30px;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: 50px 30px;
+      border-radius: 32px;
       text-align: center;
-      margin: 60px 0;
+      margin: 80px 0;
       border: var(--glass-border);
       box-shadow: var(--glass-shadow);
+      position: relative;
+      overflow: hidden;
     }
-    .quiz-options { display: flex; gap: 15px; justify-content: center; flex-wrap: wrap; margin-top: 35px; }
-    .quiz-btn {
-      background: rgba(30, 41, 59, 0.5);
-      border: 1px solid rgba(255,255,255,0.1);
-      color: var(--text-muted);
-      padding: 18px 28px;
-      border-radius: 16px;
-      cursor: pointer;
-      font-size: 1em;
-      font-weight: 600;
-      transition: all 0.2s ease;
-      flex: 1 1 200px;
-      max-width: 260px;
-    }
-    .quiz-btn:hover, .quiz-btn.active {
-      background: var(--primary);
-      border-color: var(--accent);
-      color: white;
-      transform: translateY(-3px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-    }
-    #recommendation {
-      margin-top: 40px;
-      padding: 30px;
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(56, 189, 248, 0.1));
-      border-radius: 20px;
-      display: none;
-      border: 1px solid rgba(56, 189, 248, 0.3);
-      animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Subtle glowing orb in background */
+    .quiz-section::before {
+      content:''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle, rgba(56,189,248,0.05) 0%, transparent 60%);
+      pointer-events: none;
     }
 
-    /* --- CARDS GRID --- */
-    .section-title { 
-      text-align: center; 
-      margin-bottom: 50px; 
-      font-size: 2.2em; 
-      font-weight: 800; 
-      color: white;
+    .quiz-options { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 35px; }
+    .quiz-btn {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-muted);
+      padding: 16px 24px;
+      border-radius: 16px;
+      cursor: pointer;
+      font-size: 0.95em;
+      font-weight: 600;
+      transition: all 0.25s ease;
+      flex: 1 1 180px;
+      max-width: 240px;
     }
+    .quiz-btn:hover { background: rgba(255, 255, 255, 0.08); }
+    .quiz-btn.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      color: #0f172a; /* Dark text on bright button for readability */
+      transform: scale(1.02);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    }
+
+    #recommendation {
+      margin-top: 40px;
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 24px;
+      display: none;
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* --- SMART SORTING --- */
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .sort-options button {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: var(--text-muted);
+      padding: 8px 16px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.9em;
+      margin-left: 10px;
+      transition: all 0.2s;
+    }
+    .sort-options button:hover, .sort-options button.active-sort {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* --- CARDS --- */
     .cards { 
       display: grid; 
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
-      gap: 30px; 
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+      gap: 25px; 
       margin-bottom: 100px; 
     }
     .card { 
       background: var(--card-bg);
       backdrop-filter: blur(12px);
-      padding: 35px; 
+      padding: 30px; 
       border-radius: 24px; 
       border: var(--glass-border);
-      transition: all 0.4s ease;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       position: relative;
-      overflow: hidden;
-    }
-    /* Baby Blue Top Border */
-    .card::before {
-      content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      opacity: 0.7;
+      display: flex;
+      flex-direction: column;
     }
     .card:hover { 
-      transform: translateY(-10px); 
-      border-color: rgba(56, 189, 248, 0.4); 
-      box-shadow: 0 20px 50px rgba(0,0,0,0.5); 
+      transform: translateY(-8px); 
+      border-color: rgba(56, 189, 248, 0.3); 
     }
-    .card h3 { 
-      color: white; 
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; }
+    .card h3 { font-size: 1.4em; color: white; }
+    .rating-badge { font-size: 0.8em; color: #fbbf24; font-weight: bold; display: flex; align-items: center; gap: 4px; }
+    .price-tag { 
+      font-size: 0.85em; 
+      color: var(--accent); 
       margin-bottom: 15px; 
-      font-size: 1.5em; 
-      display: flex; 
-      align-items: center; 
-      justify-content: space-between;
+      font-weight: 600; 
+      background: rgba(56, 189, 248, 0.1);
+      padding: 5px 12px;
+      border-radius: 8px;
+      display: inline-block;
     }
-    .card .tag { 
-      font-size: 0.6em; 
-      padding: 6px 12px; 
-      border-radius: 50px; 
-      background: rgba(56, 189, 248, 0.15); 
-      color: var(--accent); 
-      text-transform: uppercase; 
-      letter-spacing: 0.5px; 
-      border: 1px solid rgba(56, 189, 248, 0.2);
-    }
-    .card p { 
-      color: var(--text-muted); 
-      margin-bottom: 25px; 
-      font-size: 1em; 
-      line-height: 1.7; 
-      min-height: 60px; 
-    }
+    .card p { color: var(--text-muted); font-size: 0.95em; flex-grow: 1; margin-bottom: 25px; }
     .card-link { 
-      color: var(--accent); 
-      font-weight: 700; 
-      text-decoration: none; 
-      display: flex; 
-      align-items: center; 
-      gap: 8px; 
-      transition: gap 0.2s; 
+      text-align: center;
+      width: 100%;
+      padding: 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.05);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s;
     }
-    .card-link:hover { gap: 12px; color: white; }
+    .card-link:hover { background: var(--accent); color: #0f172a; }
 
-    /* --- COMPARISON TABLE --- */
+    /* --- TABLE --- */
     .table-container { 
       overflow-x: auto; 
-      background: rgba(15, 23, 42, 0.8); 
+      background: rgba(15, 23, 42, 0.5); 
       border-radius: 24px; 
       border: var(--glass-border); 
       margin-bottom: 100px; 
-      box-shadow: var(--glass-shadow); 
     }
-    table { width: 100%; border-collapse: collapse; min-width: 850px; }
-    th, td { 
-      padding: 25px; 
-      text-align: left; 
-      border-bottom: 1px solid rgba(255,255,255,0.05); 
-      color: var(--text-muted); 
-    }
-    th { 
-      color: var(--accent); 
-      background: rgba(56, 189, 248, 0.05); 
-      font-weight: 700; 
-      text-transform: uppercase; 
-      font-size: 0.85em; 
-      letter-spacing: 1px; 
-    }
-    tr:last-child td { border-bottom: none; }
-    tr:hover td { background: rgba(255,255,255,0.02); color: white; }
-    .check { color: var(--success); font-weight: bold; }
+    table { width: 100%; border-collapse: collapse; min-width: 800px; }
+    th, td { padding: 20px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.05); color: var(--text-muted); }
+    th { color: var(--accent); font-weight: 700; text-transform: uppercase; font-size: 0.8em; letter-spacing: 1px; }
 
-    /* --- FAQ SECTION --- */
-    .faq { max-width: 800px; margin: 0 auto 100px; }
+    /* --- FAQ --- */
     .faq-item { 
       background: var(--card-bg); 
       border-radius: 16px; 
-      margin-bottom: 20px; 
+      margin-bottom: 15px; 
       border: var(--glass-border); 
-      overflow: hidden; 
     }
     .faq-question { 
       padding: 25px; 
       cursor: pointer; 
       display: flex; 
       justify-content: space-between; 
-      align-items: center; 
       font-weight: 600; 
-      color: white;
-      transition: background 0.2s;
+      color: white; 
     }
-    .faq-question:hover { background: rgba(255,255,255,0.03); }
     .faq-answer { 
       padding: 0 25px 25px; 
       display: none; 
       color: var(--text-muted); 
-      line-height: 1.7;
-      border-top: 1px solid rgba(255,255,255,0.05); 
-      padding-top: 20px; 
+      font-size: 0.95em; 
     }
-    .faq-icon { color: var(--accent); font-size: 1.2em; font-weight: bold; }
 
-    /* --- FOOTER --- */
     footer { 
       text-align: center; 
       color: #64748b; 
@@ -288,15 +278,19 @@
       font-size: 0.9em; 
       border-top: 1px solid rgba(255,255,255,0.05); 
     }
-    footer a { color: var(--accent); text-decoration: none; transition: color 0.2s; }
-    footer a:hover { color: white; }
+    footer a { color: var(--accent); text-decoration: none; }
 
-    /* --- MOBILE --- */
+    /* Animation Keyframes */
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Mobile Tweaks */
     @media (max-width: 600px) {
-      .hero h1 { font-size: 2.8em; }
-      .quiz-btn { width: 100%; max-width: none; }
-      .hero { padding-top: 80px; }
-      .card { padding: 25px; }
+      .hero { padding-top: 100px; }
+      .quiz-section { padding: 30px 20px; }
+      .controls { flex-direction: column; align-items: flex-start; }
+      .sort-options { width: 100%; display: flex; justify-content: space-between; }
+      .sort-options button { flex: 1; margin: 0 5px; }
     }
   </style>
 </head>
@@ -304,173 +298,261 @@
 
 <div class="container">
 
-  <!-- HERO -->
+  <!-- INTELLIGENT HERO -->
   <div class="hero">
-    <div class="badge">🚀 Updated for 2026</div>
+    <div id="greeting" class="greeting">Hello Freelancer</div>
     <h1>Invoicing.<br><span>Done in 10 Seconds.</span></h1>
-    <p>Forget spreadsheets. These 7 AI tools automate your entire billing process. Tested for Freelancers, Digital Nomads & Agencies.</p>
-    <a href="#quiz" class="cta-button" onclick="document.getElementById('quiz').scrollIntoView({behavior: 'smooth'})">Find My Perfect Tool →</a>
+    <p>Forget spreadsheets. These 7 AI tools automate your entire billing process. Smartly compared for 2026.</p>
+    <!-- Javascript Void prevents URL jump -->
+    <a href="javascript:void(0)" class="cta-button" onclick="scrollToSection('quiz')">Find My Perfect Tool</a>
   </div>
 
-  <!-- INTERACTIVE QUIZ -->
+  <!-- MEMORY QUIZ -->
   <div id="quiz" class="quiz-section">
-    <h2>🎯 Which Freelancer Type Are You?</h2>
-    <p style="color:#94a3b8; margin-bottom:25px; font-size:0.95em;">Click an option to get your personal AI recommendation.</p>
+    <h2>🎯 The Intelligence Engine</h2>
+    <p style="color:#94a3b8; margin-bottom:25px;">Select your profile. We remember your choice.</p>
     <div class="quiz-options">
-      <button class="quiz-btn" onclick="showResult('starter')">🐣 Starter ($0 Budget)</button>
-      <button class="quiz-btn" onclick="showResult('pro')">💼 Pro (Scaling Up)</button>
-      <button class="quiz-btn" onclick="showResult('nomad')">🌍 Digital Nomad</button>
-      <button class="quiz-btn" onclick="showResult('agency')">🏢 Small Agency</button>
-      <button class="quiz-btn" onclick="showResult('intl')">🌐 Global/International</button>
+      <button class="quiz-btn" onclick="runQuiz('starter', this)">🐣 Starter ($0)</button>
+      <button class="quiz-btn" onclick="runQuiz('pro', this)">💼 Pro (Scaling)</button>
+      <button class="quiz-btn" onclick="runQuiz('nomad', this)">🌍 Nomad</button>
+      <button class="quiz-btn" onclick="runQuiz('intl', this)">🌐 Global</button>
     </div>
 
     <div id="recommendation">
       <h3 id="rec-title" style="color:white; margin-bottom:10px; font-size:1.5em;"></h3>
       <p id="rec-text" style="color:#cbd5e1; margin-bottom:25px;"></p>
-      <a id="rec-link" href="#" target="_blank" class="cta-button" style="padding:14px 35px; font-size:1em;">Try it for Free →</a>
+      <a id="rec-link" href="#" target="_blank" class="cta-button" style="padding:14px 40px; font-size:1em; background:var(--accent); color:#0f172a;">Launch Tool</a>
     </div>
   </div>
 
-  <!-- TOOL CARDS GRID -->
-  <h2 class="section-title">🔥 Top 7 AI Tools Reviewed</h2>
-  <div class="cards">
+  <!-- SMART GRID -->
+  <div class="controls">
+    <h2 class="section-title" style="margin:0; font-size:1.8em;">🔥 AI Tools Analysis</h2>
+    <div class="sort-options">
+      <span style="color:#64748b; font-size:0.9em; margin-right:5px;">Sort by:</span>
+      <button onclick="sortCards('rating')" class="active-sort">⭐ Rating</button>
+      <button onclick="sortCards('price')">💰 Price</button>
+    </div>
+  </div>
+
+  <div class="cards" id="tools-grid">
+    <!-- DATA ATTRIBUTES FOR SORTING -->
+    
     <!-- 1. FreshBooks -->
-    <div class="card">
-      <h3>FreshBooks <span class="tag">The All-Rounder</span></h3>
-      <p>Top choice for pros. Time tracking, accounting & billing in one ecosystem. Official affiliate program.</p>
-      <a href="https://freshbooks.com/?ref=YOURID" class="card-link">Try Now <span style="font-size:1.2em">→</span></a>
+    <div class="card" data-rating="4.8" data-price="19">
+      <div class="card-header">
+        <h3>FreshBooks</h3>
+        <div class="rating-badge">⭐ 4.8</div>
+      </div>
+      <div class="price-tag">from $19/mo</div>
+      <p>The industry standard. Best for automation, time tracking, and professional client portals.</p>
+      <a href="https://freshbooks.com/?ref=YOURID" class="card-link">Visit Site</a>
     </div>
+
     <!-- 2. Wave -->
-    <div class="card">
-      <h3>Wave <span class="tag">Free Forever</span></h3>
-      <p>Perfect for starting out. 100% free invoicing & basic accounting. No hidden subscription costs.</p>
-      <a href="https://waveapps.com/?ref=YOURID" class="card-link">View Tool <span style="font-size:1.2em">→</span></a>
+    <div class="card" data-rating="4.5" data-price="0">
+      <div class="card-header">
+        <h3>Wave</h3>
+        <div class="rating-badge">⭐ 4.5</div>
+      </div>
+      <div class="price-tag">Free Forever</div>
+      <p>Unbeatable for starters. 100% free invoicing without hidden subscription costs.</p>
+      <a href="https://waveapps.com/?ref=YOURID" class="card-link">Visit Site</a>
     </div>
+
     <!-- 3. Invoyce -->
-    <div class="card">
-      <h3>Invoyce <span class="tag">Mobile AI</span></h3>
-      <p>AI-powered & mobile-first. The platform fee is passed to the client – essentially free for you.</p>
-      <a href="https://invoyce.ai/?ref=YOURID" class="card-link">Get App <span style="font-size:1.2em">→</span></a>
+    <div class="card" data-rating="4.7" data-price="1">
+      <div class="card-header">
+        <h3>Invoyce</h3>
+        <div class="rating-badge">⭐ 4.7</div>
+      </div>
+      <div class="price-tag">~1% Fee</div>
+      <p>Mobile-first AI. Perfect for creating invoices on the go via your phone.</p>
+      <a href="https://invoyce.ai/?ref=YOURID" class="card-link">Get App</a>
     </div>
-    <!-- 4. Zoho Invoice -->
-    <div class="card">
-      <h3>Zoho Invoice <span class="tag">Global Player</span></h3>
-      <p>Powerful automation, multi-currency support & completely free. Part of the massive Zoho ecosystem.</p>
-      <a href="https://zoho.com/?ref=YOURID" class="card-link">Explore <span style="font-size:1.2em">→</span></a>
+
+    <!-- 4. Zoho -->
+    <div class="card" data-rating="4.4" data-price="0">
+      <div class="card-header">
+        <h3>Zoho Invoice</h3>
+        <div class="rating-badge">⭐ 4.4</div>
+      </div>
+      <div class="price-tag">Free Forever</div>
+      <p>Best for international freelancers. Multi-currency and multi-language support.</p>
+      <a href="https://zoho.com/?ref=YOURID" class="card-link">Visit Site</a>
     </div>
-    <!-- 5. Hello Bonsai -->
-    <div class="card">
-      <h3>Hello Bonsai <span class="tag">The Suite</span></h3>
-      <p>More than just invoices: Contracts, projects & CRM in one beautiful suite for creatives.</p>
-      <a href="https://hellobonsai.com/?ref=YOURID" class="card-link">Start Free <span style="font-size:1.2em">→</span></a>
+
+    <!-- 5. Bonsai -->
+    <div class="card" data-rating="4.9" data-price="17">
+      <div class="card-header">
+        <h3>Bonsai</h3>
+        <div class="rating-badge">⭐ 4.9</div>
+      </div>
+      <div class="price-tag">from $17/mo</div>
+      <p>The premium suite. Contracts, proposals, and tax/accounting all in one place.</p>
+      <a href="https://hellobonsai.com/?ref=YOURID" class="card-link">Visit Site</a>
     </div>
+
     <!-- 6. Invoicer.ai -->
-    <div class="card">
-      <h3>Invoicer.ai <span class="tag">Speed Demon</span></h3>
-      <p>AI generator for lightning-fast invoices. Unlimited clients. Focus on speed and simplicity.</p>
-      <a href="https://invoicer.ai/?ref=YOURID" class="card-link">Try Now <span style="font-size:1.2em">→</span></a>
+    <div class="card" data-rating="4.6" data-price="10">
+      <div class="card-header">
+        <h3>Invoicer.ai</h3>
+        <div class="rating-badge">⭐ 4.6</div>
+      </div>
+      <div class="price-tag">Low Cost</div>
+      <p>Pure speed. Generates invoices instantly with AI assistance. Unlimited clients.</p>
+      <a href="https://invoicer.ai/?ref=YOURID" class="card-link">Visit Site</a>
     </div>
-     <!-- 7. QuickBooks -->
-     <div class="card">
-      <h3>QuickBooks <span class="tag">Market Leader</span></h3>
-      <p>The industry standard for accounting with AI features. Ideal if you are growing into a business.</p>
-      <a href="https://quickbooks.com/?ref=YOURID" class="card-link">View Details <span style="font-size:1.2em">→</span></a>
+
+    <!-- 7. QuickBooks -->
+    <div class="card" data-rating="4.7" data-price="25">
+      <div class="card-header">
+        <h3>QuickBooks</h3>
+        <div class="rating-badge">⭐ 4.7</div>
+      </div>
+      <div class="price-tag">from $25/mo</div>
+      <p>For growing businesses. Heavy-duty accounting and tax preparation features.</p>
+      <a href="https://quickbooks.com/?ref=YOURID" class="card-link">Visit Site</a>
     </div>
   </div>
 
-  <!-- COMPARISON TABLE -->
-  <h2 class="section-title">📊 The Big Comparison</h2>
+  <!-- TABLE -->
+  <h2 class="section-title" style="margin-bottom:30px;">📊 Comparison Matrix</h2>
   <div class="table-container">
     <table>
       <thead>
-        <tr><th>Tool</th><th>Price</th><th>Key AI Feature</th><th>Best For...</th><th>Affiliate</th></tr>
+        <tr><th>Tool</th><th>Price</th><th>Best Feature</th><th>Affiliate</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>FreshBooks</strong></td><td>from $19/mo</td><td>Auto-Reminders</td><td>Professionals</td><td><span class="check">✔ Yes</span></td></tr>
-        <tr><td><strong>Wave</strong></td><td>$0 (Free)</td><td>Smart Reporting</td><td>Starters</td><td>Referral</td></tr>
-        <tr><td><strong>Invoyce</strong></td><td>~1% Fee</td><td>AI Generation</td><td>Tech Solos</td><td>Indirect</td></tr>
-        <tr><td><strong>Zoho Invoice</strong></td><td>$0</td><td>Auto-Workflows</td><td>International</td><td><span class="check">✔ Yes</span></td></tr>
-        <tr><td><strong>Bonsai</strong></td><td>from $17/mo</td><td>Contract AI</td><td>Creatives</td><td><span class="check">✔ Yes</span></td></tr>
-        <tr><td><strong>Invoicer.ai</strong></td><td>Low Cost</td><td>AI Assistant</td><td>Speed</td><td>Indirect</td></tr>
-        <tr><td><strong>QuickBooks</strong></td><td>from $25/mo</td><td>Tax AI</td><td>Small Biz</td><td>Partner</td></tr>
+        <tr><td>FreshBooks</td><td>$19+</td><td>Automation</td><td>Yes</td></tr>
+        <tr><td>Wave</td><td>Free</td><td>Ease of Use</td><td>Ref</td></tr>
+        <tr><td>Bonsai</td><td>$17+</td><td>Contracts</td><td>Yes</td></tr>
+        <tr><td>Zoho</td><td>Free</td><td>Global</td><td>Yes</td></tr>
+        <tr><td>QuickBooks</td><td>$25+</td><td>Taxes</td><td>Partner</td></tr>
       </tbody>
     </table>
   </div>
 
-  <!-- FAQ SECTION -->
+  <!-- FAQ -->
   <div class="faq">
-    <h2 class="section-title">Frequently Asked Questions</h2>
+    <h2 class="section-title" style="margin-bottom:30px;">FAQs</h2>
     <div class="faq-item">
-      <div class="faq-question" onclick="toggleFaq(this)">Do I really need AI for invoicing? <span class="faq-icon">+</span></div>
-      <div class="faq-answer">Absolutely. AI saves you about 5-10 hours per month by automating data entry, sending payment reminders, and categorizing expenses automatically.</div>
+      <div class="faq-question" onclick="toggleFaq(this)">Do I need AI for invoicing? <span>+</span></div>
+      <div class="faq-answer">Yes. It reduces admin time by 80% and ensures you get paid faster via auto-reminders.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-question" onclick="toggleFaq(this)">Which tool is truly free? <span class="faq-icon">+</span></div>
-      <div class="faq-answer">Wave and Zoho Invoice are permanently free for their core features. Invoyce passes transaction fees to the client, making it free for you as the user.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-question" onclick="toggleFaq(this)">Are these tools compliant worldwide? <span class="faq-icon">+</span></div>
-      <div class="faq-answer">Yes, most tools like FreshBooks and Zoho allow for tax compliance in the US, UK, EU, and Canada. Always check if they support your local tax laws (e.g., VAT/GST).</div>
+      <div class="faq-question" onclick="toggleFaq(this)">Which is truly free? <span>+</span></div>
+      <div class="faq-answer">Wave and Zoho Invoice are permanently free for their core invoicing features.</div>
     </div>
   </div>
 
   <footer>
-    <p>Last Update: January 2026 | <a href="mailto:dukatlogical@gmail.com">Contact</a></p>
-    <p style="font-size:0.8em; margin-top:10px; opacity:0.6;">Disclosure: This page contains affiliate links. At no additional cost to you, we may earn a commission if you make a purchase.</p>
+    <p>Contact: <a href="mailto:dukatlogical@gmail.com">dukatlogical@gmail.com</a></p>
+    <p style="font-size:0.8em; margin-top:15px; opacity:0.5;">© 2026 Freelancer AI Tools. Disclosure: Affiliate links used.</p>
   </footer>
 
 </div>
 
 <script>
-  // Quiz Logic
-  function showResult(type) {
+  // --- 1. SMART GREETING ---
+  function updateGreeting() {
+    const hour = new Date().getHours();
+    const greeting = document.getElementById('greeting');
+    if (hour < 12) greeting.innerText = "Good Morning, Creator";
+    else if (hour < 18) greeting.innerText = "Good Afternoon, Creator";
+    else greeting.innerText = "Good Evening, Creator";
+  }
+  updateGreeting();
+
+  // --- 2. NO-JUMP SCROLLING ---
+  function scrollToSection(id) {
+    vibrate();
+    document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+  }
+
+  // --- 3. HAPTIC FEEDBACK (MOBILE) ---
+  function vibrate() {
+    if (navigator.vibrate) navigator.vibrate(10);
+  }
+
+  // --- 4. INTELLIGENT SORTING ---
+  function sortCards(criteria) {
+    vibrate();
+    const grid = document.getElementById('tools-grid');
+    const cards = Array.from(grid.getElementsByClassName('card'));
+    
+    // Update active button state
+    document.querySelectorAll('.sort-options button').forEach(b => b.classList.remove('active-sort'));
+    event.target.classList.add('active-sort');
+
+    cards.sort((a, b) => {
+      const valA = parseFloat(a.getAttribute(`data-${criteria}`));
+      const valB = parseFloat(b.getAttribute(`data-${criteria}`));
+      
+      if (criteria === 'price') return valA - valB; // Cheapest first
+      return valB - valA; // Highest rating first
+    });
+
+    cards.forEach(card => grid.appendChild(card)); // Re-append in new order
+  }
+
+  // --- 5. PERSISTENT QUIZ (MEMORY) ---
+  function runQuiz(type, btnElement) {
+    vibrate();
     const recBox = document.getElementById('recommendation');
     const title = document.getElementById('rec-title');
     const text = document.getElementById('rec-text');
     const link = document.getElementById('rec-link');
     
-    // Reset active class
+    // UI Updates
     document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
-
+    btnElement.classList.add('active');
     recBox.style.display = 'block';
-    
+
+    // Content Logic
+    let data = {};
     if(type === 'starter') {
-      title.innerHTML = "🏆 Your Match: <span style='color:var(--accent)'>Wave App</span>";
-      text.innerText = "Completely free, covers all basics perfectly, and is super easy to use. Best choice for zero fixed costs.";
-      link.href = "https://waveapps.com/?ref=YOURID";
+      data = { t: "🏆 Match: Wave App", d: "Free forever. Best for keeping costs at zero.", l: "https://waveapps.com/?ref=YOURID" };
     } else if(type === 'pro') {
-      title.innerHTML = "🏆 Your Match: <span style='color:var(--accent)'>FreshBooks</span>";
-      text.innerText = "The industry standard. Automates accounting, time tracking, and chasing clients. Worth every penny for pros.";
-      link.href = "https://freshbooks.com/?ref=YOURID";
+      data = { t: "🏆 Match: FreshBooks", d: "The pro standard. Automation saves you hours.", l: "https://freshbooks.com/?ref=YOURID" };
     } else if(type === 'nomad') {
-      title.innerHTML = "🏆 Your Match: <span style='color:var(--accent)'>Invoyce</span>";
-      text.innerText = "Mobile-optimized, AI-powered, and ideal for travel. No subscription costs for you.";
-      link.href = "https://invoyce.ai/?ref=YOURID";
-    } else if(type === 'agency') {
-      title.innerHTML = "🏆 Your Match: <span style='color:var(--accent)'>Hello Bonsai</span>";
-      text.innerText = "The complete suite: Contracts, projects, CRM, and invoices in one unified system.";
-      link.href = "https://hellobonsai.com/?ref=YOURID";
+      data = { t: "🏆 Match: Invoyce", d: "Mobile-first AI. Invoicing from your pocket.", l: "https://invoyce.ai/?ref=YOURID" };
     } else if(type === 'intl') {
-      title.innerHTML = "🏆 Your Match: <span style='color:var(--accent)'>Zoho Invoice</span>";
-      text.innerText = "Supports multiple currencies and languages perfectly. Powerful automation included for free.";
-      link.href = "https://zoho.com/?ref=YOURID";
+      data = { t: "🏆 Match: Zoho Invoice", d: "Global currencies supported. Free.", l: "https://zoho.com/?ref=YOURID" };
     }
+
+    title.innerHTML = data.t;
+    text.innerText = data.d;
+    link.href = data.l;
+
+    // Save to LocalStorage (Intelligence)
+    localStorage.setItem('freelancerQuizResult', JSON.stringify({type, index: Array.from(btnElement.parentNode.children).indexOf(btnElement)}));
   }
 
-  // FAQ Toggle Logic
-  function toggleFaq(element) {
-    const answer = element.nextElementSibling;
-    const icon = element.querySelector('.faq-icon');
-    const isVisible = answer.style.display === 'block';
-    
-    // Close all others (optional)
-    document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
-    document.querySelectorAll('.faq-icon').forEach(i => i.innerText = '+');
+  // Check Memory on Load
+  window.onload = function() {
+    const saved = localStorage.getItem('freelancerQuizResult');
+    if(saved) {
+      const parsed = JSON.parse(saved);
+      const btns = document.querySelectorAll('.quiz-btn');
+      if(btns[parsed.index]) {
+        // Restore state without scrolling automatically (avoids jump)
+        runQuiz(parsed.type, btns[parsed.index]);
+      }
+    }
+  };
 
-    if(!isVisible) {
-      answer.style.display = 'block';
-      icon.innerText = '-';
+  // --- 6. FAQ TOGGLE ---
+  function toggleFaq(el) {
+    vibrate();
+    const ans = el.nextElementSibling;
+    const isHidden = window.getComputedStyle(ans).display === 'none';
+    document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+    document.querySelectorAll('.faq-question span').forEach(s => s.innerText = '+');
+    
+    if(isHidden) {
+      ans.style.display = 'block';
+      el.querySelector('span').innerText = '-';
     }
   }
 </script>
