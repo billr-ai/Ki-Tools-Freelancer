@@ -62,6 +62,51 @@
 
     @keyframes pulseGlow { 0% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0.4); } 70% { box-shadow: 0 0 0 15px rgba(56, 189, 248, 0); } 100% { box-shadow: 0 0 0 0 rgba(56, 189, 248, 0); } }
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* Language Switcher */
+    .lang-switcher {
+      position: fixed;
+      top: 25px;
+      right: 25px;
+      z-index: 1000;
+      display: flex;
+      gap: 8px;
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(16px);
+      padding: 8px;
+      border-radius: 50px;
+      border: var(--glass-border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+    .lang-btn {
+      background: transparent;
+      border: 2px solid transparent;
+      color: var(--text-muted);
+      padding: 10px 16px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.3em;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+    }
+    .lang-btn:hover {
+      background: rgba(255, 255, 255, 0.05);
+      transform: scale(1.05);
+    }
+    .lang-btn.active-lang {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-color: var(--accent);
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+    }
+    .lang-btn span {
+      font-size: 0.5em;
+      display: none;
+    }
 
     .hero { text-align: center; padding: 140px 20px 60px; position: relative; }
     .badge-pill {
@@ -259,6 +304,8 @@
       .controls-header { flex-direction: column; align-items: flex-start; }
       .sort-btn { flex: 1; margin: 0 5px 0 0; }
       #social-toast { display: none; }
+      .lang-switcher { top: 15px; right: 15px; padding: 6px; }
+      .lang-btn { padding: 8px 12px; font-size: 1.1em; }
     }
   </style>
 </head>
@@ -269,49 +316,57 @@
   <input type="text" name="website" tabindex="-1" value="" autocomplete="off">
 </div>
 
+<!-- Language Switcher -->
+<div class="lang-switcher">
+  <button class="lang-btn active-lang" onclick="switchLanguage('en')" data-lang="en" title="English">🇺🇸</button>
+  <button class="lang-btn" onclick="switchLanguage('es')" data-lang="es" title="Español">🇪🇸</button>
+  <button class="lang-btn" onclick="switchLanguage('fr')" data-lang="fr" title="Français">🇫🇷</button>
+  <button class="lang-btn" onclick="switchLanguage('de')" data-lang="de" title="Deutsch">🇩🇪</button>
+</div>
+
 <div class="container">
 
   <div class="hero">
-    <div class="badge-pill">🚀 Updated for 2026</div>
-    <h1>Invoicing.<br><span>Done in 10 Seconds.</span></h1>
-    <p>Forget manual spreadsheets. These 7 AI tools automate 90% of your billing process. Smartly compared and tested.</p>
-    <a href="javascript:void(0)" class="cta-main" onclick="scrollToSection('quiz')">Find My Perfect Tool</a>
+    <div class="badge-pill" data-i18n="hero.badge">🚀 Updated for 2026</div>
+    <h1 data-i18n="hero.title1">Invoicing.<br><span data-i18n="hero.title2">Done in 10 Seconds.</span></h1>
+    <p data-i18n="hero.subtitle">Forget manual spreadsheets. These 7 AI tools automate 90% of your billing process. Smartly compared and tested.</p>
+    <a href="javascript:void(0)" class="cta-main" onclick="scrollToSection('quiz')" data-i18n="hero.cta">Find My Perfect Tool</a>
   </div>
 
   <div class="calc-widget">
     <div class="calc-content">
-      <div class="calc-title">How many invoices do you send per month?</div>
+      <div class="calc-title" data-i18n="calc.title">How many invoices do you send per month?</div>
       <input type="range" min="1" max="50" value="5" class="calc-slider" id="invoiceRange" oninput="updateCalc()">
-      <div style="margin-bottom:10px; font-weight:bold; color:white;"><span id="invoiceCount">5</span> Invoices</div>
-      <div class="calc-sub">With AI automation, you save approx:</div>
-      <div class="calc-result"><span id="hoursSaved">10</span> Hours / Year</div>
-      <div class="calc-sub" style="margin-top:5px;">That's <span id="moneySaved" style="color:white; font-weight:bold;">$1,000+</span> in billable time!</div>
+      <div style="margin-bottom:10px; font-weight:bold; color:white;"><span id="invoiceCount">5</span> <span data-i18n="calc.invoices">Invoices</span></div>
+      <div class="calc-sub" data-i18n="calc.subtitle">With AI automation, you save approx:</div>
+      <div class="calc-result"><span id="hoursSaved">10</span> <span data-i18n="calc.hours">Hours</span> / <span data-i18n="calc.year">Year</span></div>
+      <div class="calc-sub" style="margin-top:5px;"><span data-i18n="calc.thats">That's</span> <span id="moneySaved" style="color:white; font-weight:bold;">$1,000+</span> <span data-i18n="calc.billable">in billable time!</span></div>
     </div>
   </div>
 
   <div id="quiz" class="quiz-section">
-    <h2>🎯 The Intelligence Engine</h2>
-    <p style="color:#94a3b8; margin-bottom:25px;">Select your profile. We remember your choice.</p>
+    <h2 data-i18n="quiz.title">🎯 The Intelligence Engine</h2>
+    <p style="color:#94a3b8; margin-bottom:25px;" data-i18n="quiz.subtitle">Select your profile. We remember your choice.</p>
     <div class="quiz-options">
-      <button class="quiz-btn" onclick="runQuiz('starter', this)">🐣 Starter ($0)</button>
-      <button class="quiz-btn" onclick="runQuiz('pro', this)">💼 Pro (Scaling)</button>
-      <button class="quiz-btn" onclick="runQuiz('nomad', this)">🌍 Nomad</button>
-      <button class="quiz-btn" onclick="runQuiz('intl', this)">🌐 Global</button>
+      <button class="quiz-btn" onclick="runQuiz('starter', this)" data-i18n="quiz.starter">🐣 Starter ($0)</button>
+      <button class="quiz-btn" onclick="runQuiz('pro', this)" data-i18n="quiz.pro">💼 Pro (Scaling)</button>
+      <button class="quiz-btn" onclick="runQuiz('nomad', this)" data-i18n="quiz.nomad">🌍 Nomad</button>
+      <button class="quiz-btn" onclick="runQuiz('intl', this)" data-i18n="quiz.intl">🌐 Global</button>
     </div>
 
     <div id="recommendation">
       <h3 id="rec-title" style="color:white; margin-bottom:10px; font-size:1.5em;"></h3>
       <p id="rec-text" style="color:#cbd5e1; margin-bottom:25px;"></p>
-      <a id="rec-link" href="#" target="_blank" class="cta-main" style="padding:14px 40px; font-size:1em; color:#0f172a;">Launch Tool</a>
+      <a id="rec-link" href="#" target="_blank" class="cta-main" style="padding:14px 40px; font-size:1em; color:#0f172a;" data-i18n="quiz.launch">Launch Tool</a>
     </div>
   </div>
 
   <div class="controls-header">
-    <h2 class="section-title" style="margin:0; font-size:1.8em; font-weight:800; color:white;">🔥 AI Tools Analysis</h2>
+    <h2 class="section-title" style="margin:0; font-size:1.8em; font-weight:800; color:white;" data-i18n="tools.title">🔥 AI Tools Analysis</h2>
     <div>
-      <span style="color:#64748b; font-size:0.9em; margin-right:5px;">Sort by:</span>
-      <button onclick="sortCards('rating')" class="sort-btn active-sort">⭐ Rating</button>
-      <button onclick="sortCards('price')" class="sort-btn">💰 Price</button>
+      <span style="color:#64748b; font-size:0.9em; margin-right:5px;" data-i18n="tools.sortby">Sort by:</span>
+      <button onclick="sortCards('rating')" class="sort-btn active-sort"><span data-i18n="tools.rating">⭐ Rating</span></button>
+      <button onclick="sortCards('price')" class="sort-btn"><span data-i18n="tools.price">💰 Price</span></button>
     </div>
   </div>
 
@@ -322,9 +377,9 @@
         <h3>FreshBooks</h3>
         <div class="rating-badge">⭐ 4.8</div>
       </div>
-      <div class="price-tag">from $19/mo</div>
-      <p>The industry standard. Best for automation, time tracking, and professional client portals.</p>
-      <a href="https://freshbooks.com/?ref=YOURID" class="card-link">Visit Site</a>
+      <div class="price-tag" data-i18n="cards.freshbooks.price">from $19/mo</div>
+      <p data-i18n="cards.freshbooks.desc">The industry standard. Best for automation, time tracking, and professional client portals.</p>
+      <a href="https://freshbooks.com/?ref=YOURID" class="card-link" data-i18n="cards.visit">Visit Site</a>
     </div>
 
     <div class="card" data-rating="4.5" data-price="0">
@@ -332,9 +387,9 @@
         <h3>Wave</h3>
         <div class="rating-badge">⭐ 4.5</div>
       </div>
-      <div class="price-tag">Free Forever</div>
-      <p>Unbeatable for starters. 100% free invoicing without hidden subscription costs.</p>
-      <a href="https://waveapps.com/?ref=YOURID" class="card-link">Visit Site</a>
+      <div class="price-tag" data-i18n="cards.wave.price">Free Forever</div>
+      <p data-i18n="cards.wave.desc">Unbeatable for starters. 100% free invoicing without hidden subscription costs.</p>
+      <a href="https://waveapps.com/?ref=YOURID" class="card-link" data-i18n="cards.visit">Visit Site</a>
     </div>
 
     <div class="card" data-rating="4.7" data-price="1">
@@ -342,9 +397,9 @@
         <h3>Invoyce</h3>
         <div class="rating-badge">⭐ 4.7</div>
       </div>
-      <div class="price-tag">~1% Fee</div>
-      <p>Mobile-first AI. Perfect for creating invoices on the go directly from your phone.</p>
-      <a href="https://invoyce.ai/?ref=YOURID" class="card-link">Get App</a>
+      <div class="price-tag" data-i18n="cards.invoyce.price">~1% Fee</div>
+      <p data-i18n="cards.invoyce.desc">Mobile-first AI. Perfect for creating invoices on the go directly from your phone.</p>
+      <a href="https://invoyce.ai/?ref=YOURID" class="card-link" data-i18n="cards.getapp">Get App</a>
     </div>
 
     <div class="card" data-rating="4.4" data-price="0">
@@ -352,9 +407,9 @@
         <h3>Zoho Invoice</h3>
         <div class="rating-badge">⭐ 4.4</div>
       </div>
-      <div class="price-tag">Free Forever</div>
-      <p>Best for international freelancers. Multi-currency and multi-language support built-in.</p>
-      <a href="https://zoho.com/?ref=YOURID" class="card-link">Visit Site</a>
+      <div class="price-tag" data-i18n="cards.zoho.price">Free Forever</div>
+      <p data-i18n="cards.zoho.desc">Best for international freelancers. Multi-currency and multi-language support built-in.</p>
+      <a href="https://zoho.com/?ref=YOURID" class="card-link" data-i18n="cards.visit">Visit Site</a>
     </div>
 
     <div class="card" data-rating="4.9" data-price="17">
@@ -362,9 +417,9 @@
         <h3>Bonsai</h3>
         <div class="rating-badge">⭐ 4.9</div>
       </div>
-      <div class="price-tag">from $17/mo</div>
-      <p>The premium suite. Contracts, proposals, and tax/accounting all in one place.</p>
-      <a href="https://hellobonsai.com/?ref=YOURID" class="card-link">Visit Site</a>
+      <div class="price-tag" data-i18n="cards.bonsai.price">from $17/mo</div>
+      <p data-i18n="cards.bonsai.desc">The premium suite. Contracts, proposals, and tax/accounting all in one place.</p>
+      <a href="https://hellobonsai.com/?ref=YOURID" class="card-link" data-i18n="cards.visit">Visit Site</a>
     </div>
 
     <div class="card" data-rating="4.6" data-price="10">
@@ -372,9 +427,9 @@
         <h3>Invoicer.ai</h3>
         <div class="rating-badge">⭐ 4.6</div>
       </div>
-      <div class="price-tag">Low Cost</div>
-      <p>Pure speed. Generates invoices instantly with AI assistance. Unlimited clients.</p>
-      <a href="https://invoicer.ai/?ref=YOURID" class="card-link">Visit Site</a>
+      <div class="price-tag" data-i18n="cards.invoicerai.price">Low Cost</div>
+      <p data-i18n="cards.invoicerai.desc">Pure speed. Generates invoices instantly with AI assistance. Unlimited clients.</p>
+      <a href="https://invoicer.ai/?ref=YOURID" class="card-link" data-i18n="cards.visit">Visit Site</a>
     </div>
 
     <div class="card" data-rating="4.7" data-price="25">
@@ -382,28 +437,28 @@
         <h3>QuickBooks</h3>
         <div class="rating-badge">⭐ 4.7</div>
       </div>
-      <div class="price-tag">from $25/mo</div>
-      <p>For growing businesses. Heavy-duty accounting and tax preparation features.</p>
-      <a href="https://quickbooks.com/?ref=YOURID" class="card-link">Visit Site</a>
+      <div class="price-tag" data-i18n="cards.quickbooks.price">from $25/mo</div>
+      <p data-i18n="cards.quickbooks.desc">For growing businesses. Heavy-duty accounting and tax preparation features.</p>
+      <a href="https://quickbooks.com/?ref=YOURID" class="card-link" data-i18n="cards.visit">Visit Site</a>
     </div>
   </div>
 
-  <h2 class="section-title" style="margin-bottom:30px; font-weight:800; font-size:1.8em; color:white;">📊 Smart Comparison Matrix</h2>
+  <h2 class="section-title" style="margin-bottom:30px; font-weight:800; font-size:1.8em; color:white;" data-i18n="table.title">📊 Smart Comparison Matrix</h2>
   <div class="table-container">
     <table>
       <thead>
         <tr>
-          <th style="width:25%">Tool</th>
-          <th style="width:20%">Cost Model</th>
-          <th style="width:30%">Killer Feature</th>
-          <th style="width:25%">Efficiency Score</th>
+          <th style="width:25%" data-i18n="table.tool">Tool</th>
+          <th style="width:20%" data-i18n="table.cost">Cost Model</th>
+          <th style="width:30%" data-i18n="table.feature">Killer Feature</th>
+          <th style="width:25%" data-i18n="table.efficiency">Efficiency Score</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong style="color:white; font-size:1.1em;">FreshBooks</strong><br><span style="font-size:0.8em; color:var(--text-muted)">The Pro Standard</span></td>
+          <td><strong style="color:white; font-size:1.1em;">FreshBooks</strong><br><span style="font-size:0.8em; color:var(--text-muted)" data-i18n="table.freshbooks.subtitle">The Pro Standard</span></td>
           <td><span style="color:#fbbf24; background:rgba(251, 191, 36, 0.1); padding:4px 8px; border-radius:4px; font-size:0.9em;">$19/mo</span></td>
-          <td>🤖 <strong>Auto-Chase</strong><br><span style="font-size:0.85em; opacity:0.8">Chases late payments automatically</span></td>
+          <td>🤖 <strong data-i18n="table.freshbooks.feature">Auto-Chase</strong><br><span style="font-size:0.85em; opacity:0.8" data-i18n="table.freshbooks.desc">Chases late payments automatically</span></td>
           <td>
             <div style="display:flex; align-items:center; gap:10px;">
               <div style="flex-grow:1; background:rgba(255,255,255,0.1); height:6px; border-radius:10px; overflow:hidden;">
@@ -414,9 +469,9 @@
           </td>
         </tr>
         <tr>
-          <td><strong style="color:white; font-size:1.1em;">Wave</strong><br><span style="font-size:0.8em; color:var(--text-muted)">Zero Cost</span></td>
-          <td><span style="color:var(--success); background:rgba(52, 211, 153, 0.1); padding:4px 8px; border-radius:4px; font-size:0.9em;">Free Forever</span></td>
-          <td>💸 <strong>Free Banking</strong><br><span style="font-size:0.85em; opacity:0.8">Invoicing & Accounting combined</span></td>
+          <td><strong style="color:white; font-size:1.1em;">Wave</strong><br><span style="font-size:0.8em; color:var(--text-muted)" data-i18n="table.wave.subtitle">Zero Cost</span></td>
+          <td><span style="color:var(--success); background:rgba(52, 211, 153, 0.1); padding:4px 8px; border-radius:4px; font-size:0.9em;" data-i18n="table.wave.price">Free Forever</span></td>
+          <td>💸 <strong data-i18n="table.wave.feature">Free Banking</strong><br><span style="font-size:0.85em; opacity:0.8" data-i18n="table.wave.desc">Invoicing & Accounting combined</span></td>
           <td>
             <div style="display:flex; align-items:center; gap:10px;">
               <div style="flex-grow:1; background:rgba(255,255,255,0.1); height:6px; border-radius:10px; overflow:hidden;">
@@ -427,9 +482,9 @@
           </td>
         </tr>
         <tr>
-          <td><strong style="color:white; font-size:1.1em;">Bonsai</strong><br><span style="font-size:0.8em; color:var(--text-muted)">The Suite</span></td>
+          <td><strong style="color:white; font-size:1.1em;">Bonsai</strong><br><span style="font-size:0.8em; color:var(--text-muted)" data-i18n="table.bonsai.subtitle">The Suite</span></td>
           <td><span style="color:#fbbf24; background:rgba(251, 191, 36, 0.1); padding:4px 8px; border-radius:4px; font-size:0.9em;">$17/mo</span></td>
-          <td>📝 <strong>Smart Contracts</strong><br><span style="font-size:0.85em; opacity:0.8">Integrated legal contracts</span></td>
+          <td>📝 <strong data-i18n="table.bonsai.feature">Smart Contracts</strong><br><span style="font-size:0.85em; opacity:0.8" data-i18n="table.bonsai.desc">Integrated legal contracts</span></td>
           <td>
             <div style="display:flex; align-items:center; gap:10px;">
               <div style="flex-grow:1; background:rgba(255,255,255,0.1); height:6px; border-radius:10px; overflow:hidden;">
@@ -444,42 +499,410 @@
   </div>
 
   <div class="faq" style="max-width:800px; margin:0 auto 100px;">
-    <h2 class="section-title" style="margin-bottom:30px; font-weight:800; font-size:1.8em; color:white;">Frequently Asked</h2>
+    <h2 class="section-title" style="margin-bottom:30px; font-weight:800; font-size:1.8em; color:white;" data-i18n="faq.title">Frequently Asked</h2>
     <div class="faq-item" style="background:var(--card-bg); border-radius:16px; margin-bottom:15px; border:var(--glass-border);">
       <div class="faq-question" onclick="toggleFaq(this)" style="padding:25px; cursor:pointer; display:flex; justify-content:space-between; font-weight:600; color:white;">
-        Do I need AI for invoicing? <span>+</span>
+        <span data-i18n="faq.q1">Do I need AI for invoicing?</span> <span>+</span>
       </div>
-      <div class="faq-answer" style="padding:0 25px 25px; display:none; color:var(--text-muted);">
+      <div class="faq-answer" style="padding:0 25px 25px; display:none; color:var(--text-muted);" data-i18n="faq.a1">
         Yes. It reduces admin time by ~80% and ensures you get paid faster via auto-reminders.
       </div>
     </div>
     <div class="faq-item" style="background:var(--card-bg); border-radius:16px; margin-bottom:15px; border:var(--glass-border);">
       <div class="faq-question" onclick="toggleFaq(this)" style="padding:25px; cursor:pointer; display:flex; justify-content:space-between; font-weight:600; color:white;">
-        Which is truly free? <span>+</span>
+        <span data-i18n="faq.q2">Which is truly free?</span> <span>+</span>
       </div>
-      <div class="faq-answer" style="padding:0 25px 25px; display:none; color:var(--text-muted);">
+      <div class="faq-answer" style="padding:0 25px 25px; display:none; color:var(--text-muted);" data-i18n="faq.a2">
         Wave and Zoho Invoice are permanently free for their core invoicing features.
       </div>
     </div>
   </div>
 
   <footer>
-    <p>Contact: <a href="mailto:dukatlogical@gmail.com">dukatlogical@gmail.com</a></p>
-    <p style="font-size:0.8em; margin-top:15px; opacity:0.5;">© 2026 Freelancer AI Tools. Disclosure: Links are affiliate links.</p>
+    <p><span data-i18n="footer.contact">Contact:</span> <a href="mailto:dukatlogical@gmail.com">dukatlogical@gmail.com</a></p>
+    <p style="font-size:0.8em; margin-top:15px; opacity:0.5;" data-i18n="footer.copyright">© 2026 Freelancer AI Tools. Disclosure: Links are affiliate links.</p>
   </footer>
 
   <div id="social-toast">
     <div style="font-size:1.5em;">🚀</div>
     <div>
-      <div style="font-weight:bold; color:white;">New Sign-up</div>
-      <div style="color:var(--text-muted); font-size:0.85em;">Someone from Berlin just clicked FreshBooks</div>
+      <div style="font-weight:bold; color:white;" data-i18n="toast.title">New Sign-up</div>
+      <div style="color:var(--text-muted); font-size:0.85em;" data-i18n="toast.subtitle">Someone from Berlin just clicked FreshBooks</div>
     </div>
   </div>
 
 </div>
 
 <script>
-  // --- SECURITY: Anti-Spam Rate Limiting ---
+  // === TRANSLATIONS DATABASE ===
+  const translations = {
+    en: {
+      'hero.badge': '🚀 Updated for 2026',
+      'hero.title1': 'Invoicing.',
+      'hero.title2': 'Done in 10 Seconds.',
+      'hero.subtitle': 'Forget manual spreadsheets. These 7 AI tools automate 90% of your billing process. Smartly compared and tested.',
+      'hero.cta': 'Find My Perfect Tool',
+      'calc.title': 'How many invoices do you send per month?',
+      'calc.invoices': 'Invoices',
+      'calc.subtitle': 'With AI automation, you save approx:',
+      'calc.hours': 'Hours',
+      'calc.year': 'Year',
+      'calc.thats': "That's",
+      'calc.billable': 'in billable time!',
+      'quiz.title': '🎯 The Intelligence Engine',
+      'quiz.subtitle': 'Select your profile. We remember your choice.',
+      'quiz.starter': '🐣 Starter ($0)',
+      'quiz.pro': '💼 Pro (Scaling)',
+      'quiz.nomad': '🌍 Nomad',
+      'quiz.intl': '🌐 Global',
+      'quiz.launch': 'Launch Tool',
+      'quiz.match': '🏆 Match:',
+      'quiz.rec.starter': 'Free forever. Best for keeping costs at zero.',
+      'quiz.rec.pro': 'The pro standard. Automation saves you hours.',
+      'quiz.rec.nomad': 'Mobile-first AI. Invoicing from your pocket.',
+      'quiz.rec.intl': 'Global currencies supported. Free.',
+      'tools.title': '🔥 AI Tools Analysis',
+      'tools.sortby': 'Sort by:',
+      'tools.rating': '⭐ Rating',
+      'tools.price': '💰 Price',
+      'cards.freshbooks.price': 'from $19/mo',
+      'cards.freshbooks.desc': 'The industry standard. Best for automation, time tracking, and professional client portals.',
+      'cards.wave.price': 'Free Forever',
+      'cards.wave.desc': 'Unbeatable for starters. 100% free invoicing without hidden subscription costs.',
+      'cards.invoyce.price': '~1% Fee',
+      'cards.invoyce.desc': 'Mobile-first AI. Perfect for creating invoices on the go directly from your phone.',
+      'cards.zoho.price': 'Free Forever',
+      'cards.zoho.desc': 'Best for international freelancers. Multi-currency and multi-language support built-in.',
+      'cards.bonsai.price': 'from $17/mo',
+      'cards.bonsai.desc': 'The premium suite. Contracts, proposals, and tax/accounting all in one place.',
+      'cards.invoicerai.price': 'Low Cost',
+      'cards.invoicerai.desc': 'Pure speed. Generates invoices instantly with AI assistance. Unlimited clients.',
+      'cards.quickbooks.price': 'from $25/mo',
+      'cards.quickbooks.desc': 'For growing businesses. Heavy-duty accounting and tax preparation features.',
+      'cards.visit': 'Visit Site',
+      'cards.getapp': 'Get App',
+      'table.title': '📊 Smart Comparison Matrix',
+      'table.tool': 'Tool',
+      'table.cost': 'Cost Model',
+      'table.feature': 'Killer Feature',
+      'table.efficiency': 'Efficiency Score',
+      'table.freshbooks.subtitle': 'The Pro Standard',
+      'table.freshbooks.feature': 'Auto-Chase',
+      'table.freshbooks.desc': 'Chases late payments automatically',
+      'table.wave.subtitle': 'Zero Cost',
+      'table.wave.price': 'Free Forever',
+      'table.wave.feature': 'Free Banking',
+      'table.wave.desc': 'Invoicing & Accounting combined',
+      'table.bonsai.subtitle': 'The Suite',
+      'table.bonsai.feature': 'Smart Contracts',
+      'table.bonsai.desc': 'Integrated legal contracts',
+      'faq.title': 'Frequently Asked',
+      'faq.q1': 'Do I need AI for invoicing?',
+      'faq.a1': 'Yes. It reduces admin time by ~80% and ensures you get paid faster via auto-reminders.',
+      'faq.q2': 'Which is truly free?',
+      'faq.a2': 'Wave and Zoho Invoice are permanently free for their core invoicing features.',
+      'footer.contact': 'Contact:',
+      'footer.copyright': '© 2026 Freelancer AI Tools. Disclosure: Links are affiliate links.',
+      'toast.title': 'New Sign-up',
+      'toast.subtitle': 'Someone from Berlin just clicked FreshBooks'
+    },
+    es: {
+      'hero.badge': '🚀 Actualizado para 2026',
+      'hero.title1': 'Facturación.',
+      'hero.title2': 'Hecho en 10 Segundos.',
+      'hero.subtitle': 'Olvídate de las hojas de cálculo manuales. Estas 7 herramientas de IA automatizan el 90% de tu proceso de facturación. Comparadas y probadas inteligentemente.',
+      'hero.cta': 'Encuentra Mi Herramienta Perfecta',
+      'calc.title': '¿Cuántas facturas envías al mes?',
+      'calc.invoices': 'Facturas',
+      'calc.subtitle': 'Con automatización de IA, ahorras aprox:',
+      'calc.hours': 'Horas',
+      'calc.year': 'Año',
+      'calc.thats': 'Eso son',
+      'calc.billable': 'en tiempo facturable!',
+      'quiz.title': '🎯 El Motor de Inteligencia',
+      'quiz.subtitle': 'Selecciona tu perfil. Recordamos tu elección.',
+      'quiz.starter': '🐣 Principiante ($0)',
+      'quiz.pro': '💼 Pro (Escalando)',
+      'quiz.nomad': '🌍 Nómada',
+      'quiz.intl': '🌐 Global',
+      'quiz.launch': 'Lanzar Herramienta',
+      'quiz.match': '🏆 Coincidencia:',
+      'quiz.rec.starter': 'Gratis para siempre. Mejor para mantener los costos en cero.',
+      'quiz.rec.pro': 'El estándar profesional. La automatización te ahorra horas.',
+      'quiz.rec.nomad': 'IA móvil primero. Facturación desde tu bolsillo.',
+      'quiz.rec.intl': 'Monedas globales soportadas. Gratis.',
+      'tools.title': '🔥 Análisis de Herramientas IA',
+      'tools.sortby': 'Ordenar por:',
+      'tools.rating': '⭐ Valoración',
+      'tools.price': '💰 Precio',
+      'cards.freshbooks.price': 'desde $19/mes',
+      'cards.freshbooks.desc': 'El estándar de la industria. Mejor para automatización, seguimiento de tiempo y portales profesionales para clientes.',
+      'cards.wave.price': 'Gratis Para Siempre',
+      'cards.wave.desc': 'Insuperable para principiantes. Facturación 100% gratuita sin costos de suscripción ocultos.',
+      'cards.invoyce.price': '~1% Comisión',
+      'cards.invoyce.desc': 'IA móvil primero. Perfecto para crear facturas sobre la marcha directamente desde tu teléfono.',
+      'cards.zoho.price': 'Gratis Para Siempre',
+      'cards.zoho.desc': 'Mejor para freelancers internacionales. Soporte multimoneda y multiidioma integrado.',
+      'cards.bonsai.price': 'desde $17/mes',
+      'cards.bonsai.desc': 'La suite premium. Contratos, propuestas e impuestos/contabilidad todo en un solo lugar.',
+      'cards.invoicerai.price': 'Bajo Costo',
+      'cards.invoicerai.desc': 'Velocidad pura. Genera facturas instantáneamente con asistencia de IA. Clientes ilimitados.',
+      'cards.quickbooks.price': 'desde $25/mes',
+      'cards.quickbooks.desc': 'Para negocios en crecimiento. Funciones de contabilidad y preparación de impuestos de gran potencia.',
+      'cards.visit': 'Visitar Sitio',
+      'cards.getapp': 'Obtener App',
+      'table.title': '📊 Matriz de Comparación Inteligente',
+      'table.tool': 'Herramienta',
+      'table.cost': 'Modelo de Costo',
+      'table.feature': 'Función Principal',
+      'table.efficiency': 'Puntuación de Eficiencia',
+      'table.freshbooks.subtitle': 'El Estándar Pro',
+      'table.freshbooks.feature': 'Auto-Persecución',
+      'table.freshbooks.desc': 'Persigue pagos atrasados automáticamente',
+      'table.wave.subtitle': 'Costo Cero',
+      'table.wave.price': 'Gratis Para Siempre',
+      'table.wave.feature': 'Banca Gratis',
+      'table.wave.desc': 'Facturación y Contabilidad combinadas',
+      'table.bonsai.subtitle': 'La Suite',
+      'table.bonsai.feature': 'Contratos Inteligentes',
+      'table.bonsai.desc': 'Contratos legales integrados',
+      'faq.title': 'Preguntas Frecuentes',
+      'faq.q1': '¿Necesito IA para facturación?',
+      'faq.a1': 'Sí. Reduce el tiempo administrativo en ~80% y asegura que te paguen más rápido mediante recordatorios automáticos.',
+      'faq.q2': '¿Cuál es verdaderamente gratis?',
+      'faq.a2': 'Wave y Zoho Invoice son permanentemente gratuitos para sus funciones principales de facturación.',
+      'footer.contact': 'Contacto:',
+      'footer.copyright': '© 2026 Freelancer AI Tools. Divulgación: Los enlaces son enlaces de afiliados.',
+      'toast.title': 'Nuevo Registro',
+      'toast.subtitle': 'Alguien de Berlín acaba de hacer clic en FreshBooks'
+    },
+    fr: {
+      'hero.badge': '🚀 Mis à jour pour 2026',
+      'hero.title1': 'Facturation.',
+      'hero.title2': 'Fait en 10 Secondes.',
+      'hero.subtitle': 'Oubliez les feuilles de calcul manuelles. Ces 7 outils IA automatisent 90% de votre processus de facturation. Intelligemment comparés et testés.',
+      'hero.cta': 'Trouvez Mon Outil Parfait',
+      'calc.title': 'Combien de factures envoyez-vous par mois?',
+      'calc.invoices': 'Factures',
+      'calc.subtitle': "Avec l'automatisation IA, vous économisez environ:",
+      'calc.hours': 'Heures',
+      'calc.year': 'An',
+      'calc.thats': "C'est",
+      'calc.billable': 'en temps facturable!',
+      'quiz.title': "🎯 Le Moteur d'Intelligence",
+      'quiz.subtitle': 'Sélectionnez votre profil. Nous retenons votre choix.',
+      'quiz.starter': '🐣 Débutant ($0)',
+      'quiz.pro': '💼 Pro (Évolutif)',
+      'quiz.nomad': '🌍 Nomade',
+      'quiz.intl': '🌐 Global',
+      'quiz.launch': 'Lancer Outil',
+      'quiz.match': '🏆 Correspondance:',
+      'quiz.rec.starter': 'Gratuit pour toujours. Idéal pour maintenir les coûts à zéro.',
+      'quiz.rec.pro': "Le standard pro. L'automatisation vous fait gagner des heures.",
+      'quiz.rec.nomad': 'IA mobile en premier. Facturation depuis votre poche.',
+      'quiz.rec.intl': 'Devises mondiales prises en charge. Gratuit.',
+      'tools.title': "🔥 Analyse des Outils d'IA",
+      'tools.sortby': 'Trier par:',
+      'tools.rating': '⭐ Notation',
+      'tools.price': '💰 Prix',
+      'cards.freshbooks.price': 'à partir de $19/mois',
+      'cards.freshbooks.desc': "Le standard de l'industrie. Idéal pour l'automatisation, le suivi du temps et les portails clients professionnels.",
+      'cards.wave.price': 'Gratuit Pour Toujours',
+      'cards.wave.desc': 'Imbattable pour les débutants. Facturation 100% gratuite sans frais cachés.',
+      'cards.invoyce.price': '~1% Frais',
+      'cards.invoyce.desc': "IA mobile d'abord. Parfait pour créer des factures en déplacement directement depuis votre téléphone.",
+      'cards.zoho.price': 'Gratuit Pour Toujours',
+      'cards.zoho.desc': 'Idéal pour les freelances internationaux. Support multi-devises et multi-langues intégré.',
+      'cards.bonsai.price': 'à partir de $17/mois',
+      'cards.bonsai.desc': "La suite premium. Contrats, propositions et fiscalité/comptabilité le tout au même endroit.",
+      'cards.invoicerai.price': 'Bas Coût',
+      'cards.invoicerai.desc': "Vitesse pure. Génère des factures instantanément avec l'assistance IA. Clients illimités.",
+      'cards.quickbooks.price': 'à partir de $25/mois',
+      'cards.quickbooks.desc': 'Pour les entreprises en croissance. Fonctionnalités comptables et de préparation fiscale robustes.',
+      'cards.visit': 'Visiter le Site',
+      'cards.getapp': "Obtenir l'App",
+      'table.title': '📊 Matrice de Comparaison Intelligente',
+      'table.tool': 'Outil',
+      'table.cost': 'Modèle de Coût',
+      'table.feature': 'Fonctionnalité Phare',
+      'table.efficiency': "Score d'Efficacité",
+      'table.freshbooks.subtitle': 'Le Standard Pro',
+      'table.freshbooks.feature': 'Relance-Auto',
+      'table.freshbooks.desc': 'Relance les paiements en retard automatiquement',
+      'table.wave.subtitle': 'Coût Zéro',
+      'table.wave.price': 'Gratuit Pour Toujours',
+      'table.wave.feature': 'Banque Gratuite',
+      'table.wave.desc': 'Facturation et Comptabilité combinées',
+      'table.bonsai.subtitle': 'La Suite',
+      'table.bonsai.feature': 'Contrats Intelligents',
+      'table.bonsai.desc': 'Contrats légaux intégrés',
+      'faq.title': 'Questions Fréquentes',
+      'faq.q1': "Ai-je besoin d'IA pour la facturation?",
+      'faq.a1': "Oui. Cela réduit le temps administratif de ~80% et garantit que vous êtes payé plus rapidement grâce aux rappels automatiques.",
+      'faq.q2': 'Lequel est vraiment gratuit?',
+      'faq.a2': 'Wave et Zoho Invoice sont définitivement gratuits pour leurs fonctionnalités de facturation de base.',
+      'footer.contact': 'Contact:',
+      'footer.copyright': '© 2026 Freelancer AI Tools. Divulgation: Les liens sont des liens affiliés.',
+      'toast.title': 'Nouvelle Inscription',
+      'toast.subtitle': 'Quelqu\'un de Berlin vient de cliquer sur FreshBooks'
+    },
+    de: {
+      'hero.badge': '🚀 Aktualisiert für 2026',
+      'hero.title1': 'Rechnungsstellung.',
+      'hero.title2': 'In 10 Sekunden erledigt.',
+      'hero.subtitle': 'Vergiss manuelle Tabellen. Diese 7 KI-Tools automatisieren 90% deines Rechnungsprozesses. Smart verglichen und getestet.',
+      'hero.cta': 'Finde Mein Perfektes Tool',
+      'calc.title': 'Wie viele Rechnungen versendest du pro Monat?',
+      'calc.invoices': 'Rechnungen',
+      'calc.subtitle': 'Mit KI-Automatisierung sparst du ca.:',
+      'calc.hours': 'Stunden',
+      'calc.year': 'Jahr',
+      'calc.thats': 'Das sind',
+      'calc.billable': 'an abrechenbarer Zeit!',
+      'quiz.title': '🎯 Die Intelligenz-Engine',
+      'quiz.subtitle': 'Wähle dein Profil. Wir merken uns deine Wahl.',
+      'quiz.starter': '🐣 Einsteiger ($0)',
+      'quiz.pro': '💼 Pro (Skalierend)',
+      'quiz.nomad': '🌍 Nomade',
+      'quiz.intl': '🌐 Global',
+      'quiz.launch': 'Tool Starten',
+      'quiz.match': '🏆 Treffer:',
+      'quiz.rec.starter': 'Für immer kostenlos. Am besten, um die Kosten bei Null zu halten.',
+      'quiz.rec.pro': 'Der Pro-Standard. Automatisierung spart dir Stunden.',
+      'quiz.rec.nomad': 'Mobile-First KI. Rechnungsstellung aus der Tasche.',
+      'quiz.rec.intl': 'Globale Währungen unterstützt. Kostenlos.',
+      'tools.title': '🔥 KI-Tools Analyse',
+      'tools.sortby': 'Sortieren nach:',
+      'tools.rating': '⭐ Bewertung',
+      'tools.price': '💰 Preis',
+      'cards.freshbooks.price': 'ab $19/Monat',
+      'cards.freshbooks.desc': 'Der Industriestandard. Am besten für Automatisierung, Zeiterfassung und professionelle Kundenportale.',
+      'cards.wave.price': 'Für Immer Kostenlos',
+      'cards.wave.desc': 'Unschlagbar für Einsteiger. 100% kostenlose Rechnungsstellung ohne versteckte Abo-Kosten.',
+      'cards.invoyce.price': '~1% Gebühr',
+      'cards.invoyce.desc': 'Mobile-First KI. Perfekt zum Erstellen von Rechnungen unterwegs direkt vom Handy.',
+      'cards.zoho.price': 'Für Immer Kostenlos',
+      'cards.zoho.desc': 'Am besten für internationale Freelancer. Mehrwährungs- und Mehrsprachen-Support integriert.',
+      'cards.bonsai.price': 'ab $17/Monat',
+      'cards.bonsai.desc': 'Die Premium-Suite. Verträge, Angebote und Steuer/Buchhaltung alles an einem Ort.',
+      'cards.invoicerai.price': 'Niedrige Kosten',
+      'cards.invoicerai.desc': 'Pure Geschwindigkeit. Erstellt Rechnungen sofort mit KI-Unterstützung. Unbegrenzte Kunden.',
+      'cards.quickbooks.price': 'ab $25/Monat',
+      'cards.quickbooks.desc': 'Für wachsende Unternehmen. Umfangreiche Buchhaltungs- und Steuererstellungsfunktionen.',
+      'cards.visit': 'Seite Besuchen',
+      'cards.getapp': 'App Holen',
+      'table.title': '📊 Smarte Vergleichsmatrix',
+      'table.tool': 'Tool',
+      'table.cost': 'Kostenmodell',
+      'table.feature': 'Killer-Feature',
+      'table.efficiency': 'Effizienz-Score',
+      'table.freshbooks.subtitle': 'Der Pro-Standard',
+      'table.freshbooks.feature': 'Auto-Mahnung',
+      'table.freshbooks.desc': 'Mahnt verspätete Zahlungen automatisch an',
+      'table.wave.subtitle': 'Null Kosten',
+      'table.wave.price': 'Für Immer Kostenlos',
+      'table.wave.feature': 'Kostenloses Banking',
+      'table.wave.desc': 'Rechnungsstellung & Buchhaltung kombiniert',
+      'table.bonsai.subtitle': 'Die Suite',
+      'table.bonsai.feature': 'Intelligente Verträge',
+      'table.bonsai.desc': 'Integrierte rechtliche Verträge',
+      'faq.title': 'Häufig Gefragt',
+      'faq.q1': 'Brauche ich KI für die Rechnungsstellung?',
+      'faq.a1': 'Ja. Es reduziert die Verwaltungszeit um ~80% und stellt sicher, dass du schneller bezahlt wirst durch Auto-Erinnerungen.',
+      'faq.q2': 'Welches ist wirklich kostenlos?',
+      'faq.a2': 'Wave und Zoho Invoice sind dauerhaft kostenlos für ihre Kern-Rechnungsstellungsfunktionen.',
+      'footer.contact': 'Kontakt:',
+      'footer.copyright': '© 2026 Freelancer AI Tools. Offenlegung: Links sind Affiliate-Links.',
+      'toast.title': 'Neue Anmeldung',
+      'toast.subtitle': 'Jemand aus Berlin hat gerade auf FreshBooks geklickt'
+    }
+  };
+
+  let currentLanguage = 'en';
+
+  // === LANGUAGE SWITCHER ===
+  function switchLanguage(lang) {
+    currentLanguage = lang;
+    
+    // Update active button
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.remove('active-lang');
+      if(btn.getAttribute('data-lang') === lang) {
+        btn.classList.add('active-lang');
+      }
+    });
+
+    // Update all translatable elements
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      if(translations[lang] && translations[lang][key]) {
+        // Handle special cases (h1 with span)
+        if(key === 'hero.title2') {
+          element.innerHTML = translations[lang][key];
+        } else {
+          element.textContent = translations[lang][key];
+        }
+      }
+    });
+
+    // Update HTML lang attribute
+    document.documentElement.lang = lang === 'en' ? 'en' : lang === 'es' ? 'es' : lang === 'fr' ? 'fr' : 'de';
+    
+    // Update calculator with current values
+    updateCalc();
+    
+    // Save preference
+    localStorage.setItem('preferredLanguage', lang);
+
+    // Update quiz recommendation if active
+    const recBox = document.getElementById('recommendation');
+    if(recBox.style.display === 'block') {
+      const activeQuizBtn = document.querySelector('.quiz-btn.active');
+      if(activeQuizBtn) {
+        const quizType = activeQuizBtn.onclick.toString().match(/runQuiz\('(\w+)'/)[1];
+        updateQuizRecommendation(quizType);
+      }
+    }
+  }
+
+  // === QUIZ RECOMMENDATION UPDATER ===
+  function updateQuizRecommendation(type) {
+    const title = document.getElementById('rec-title');
+    const text = document.getElementById('rec-text');
+    
+    const recommendations = {
+      en: {
+        starter: { t: "🏆 Match: Wave App", d: "Free forever. Best for keeping costs at zero." },
+        pro: { t: "🏆 Match: FreshBooks", d: "The pro standard. Automation saves you hours." },
+        nomad: { t: "🏆 Match: Invoyce", d: "Mobile-first AI. Invoicing from your pocket." },
+        intl: { t: "🏆 Match: Zoho Invoice", d: "Global currencies supported. Free." }
+      },
+      es: {
+        starter: { t: "🏆 Coincidencia: Wave App", d: "Gratis para siempre. Mejor para mantener los costos en cero." },
+        pro: { t: "🏆 Coincidencia: FreshBooks", d: "El estándar profesional. La automatización te ahorra horas." },
+        nomad: { t: "🏆 Coincidencia: Invoyce", d: "IA móvil primero. Facturación desde tu bolsillo." },
+        intl: { t: "🏆 Coincidencia: Zoho Invoice", d: "Monedas globales soportadas. Gratis." }
+      },
+      fr: {
+        starter: { t: "🏆 Correspondance: Wave App", d: "Gratuit pour toujours. Idéal pour maintenir les coûts à zéro." },
+        pro: { t: "🏆 Correspondance: FreshBooks", d: "Le standard pro. L'automatisation vous fait gagner des heures." },
+        nomad: { t: "🏆 Correspondance: Invoyce", d: "IA mobile d'abord. Facturation depuis votre poche." },
+        intl: { t: "🏆 Correspondance: Zoho Invoice", d: "Devises mondiales prises en charge. Gratuit." }
+      },
+      de: {
+        starter: { t: "🏆 Treffer: Wave App", d: "Für immer kostenlos. Am besten, um die Kosten bei Null zu halten." },
+        pro: { t: "🏆 Treffer: FreshBooks", d: "Der Pro-Standard. Automatisierung spart dir Stunden." },
+        nomad: { t: "🏆 Treffer: Invoyce", d: "Mobile-First KI. Rechnungsstellung aus der Tasche." },
+        intl: { t: "🏆 Treffer: Zoho Invoice", d: "Globale Währungen unterstützt. Kostenlos." }
+      }
+    };
+
+    const data = recommendations[currentLanguage][type];
+    title.innerHTML = data.t;
+    text.textContent = data.d;
+  }
+
+  // === SECURITY: Anti-Spam Rate Limiting ===
   let clickCount = 0;
   let isBlocked = false;
   document.addEventListener('DOMContentLoaded', function() {
@@ -488,15 +911,27 @@
         clickCount++;
         if (clickCount > 10 && !isBlocked) {
           isBlocked = true;
-          alert('⚠️ Too many clicks detected. Please wait 60 seconds.');
+          const warnings = {
+            en: '⚠️ Too many clicks detected. Please wait 60 seconds.',
+            es: '⚠️ Demasiados clics detectados. Espera 60 segundos.',
+            fr: '⚠️ Trop de clics détectés. Veuillez patienter 60 secondes.',
+            de: '⚠️ Zu viele Klicks erkannt. Bitte warte 60 Sekunden.'
+          };
+          alert(warnings[currentLanguage]);
           e.preventDefault();
           setTimeout(() => { clickCount = 0; isBlocked = false; }, 60000);
         }
       });
     });
+
+    // Load saved language
+    const savedLang = localStorage.getItem('preferredLanguage');
+    if(savedLang && ['en', 'es', 'fr', 'de'].includes(savedLang)) {
+      switchLanguage(savedLang);
+    }
   });
 
-  // --- SECURITY: Console Warning ---
+  // === SECURITY: Console Warning ===
   (function() {
     let devtools = /./;
     devtools.toString = function() {
@@ -507,18 +942,19 @@
     console.log('%c ', devtools);
   })();
 
-  // --- Calculator ---
+  // === Calculator ===
   function updateCalc() {
     const val = document.getElementById('invoiceRange').value;
     document.getElementById('invoiceCount').innerText = val;
     const hours = Math.round(val * 4); 
     document.getElementById('hoursSaved').innerText = hours;
+    
+    const currencySymbols = { en: '$', es: '$', fr: '$', de: '$' };
     const money = (hours * 100).toLocaleString();
-    document.getElementById('moneySaved').innerText = "$" + money;
+    document.getElementById('moneySaved').innerText = currencySymbols[currentLanguage] + money + "+";
   }
-  updateCalc();
 
-  // --- Social Proof ---
+  // === Social Proof ===
   setTimeout(() => {
     document.getElementById('social-toast').style.transform = "translateY(0)";
     setTimeout(() => {
@@ -526,18 +962,18 @@
     }, 5000);
   }, 8000);
 
-  // --- Scroll ---
+  // === Scroll ===
   function scrollToSection(id) {
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
   }
 
-  // --- Sorting ---
+  // === Sorting ===
   function sortCards(criteria) {
     const grid = document.getElementById('tools-grid');
     const cards = Array.from(grid.getElementsByClassName('card'));
     
     document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active-sort'));
-    event.target.classList.add('active-sort');
+    event.target.closest('.sort-btn').classList.add('active-sort');
 
     cards.sort((a, b) => {
       const valA = parseFloat(a.getAttribute(`data-${criteria}`));
@@ -548,31 +984,29 @@
     cards.forEach(card => grid.appendChild(card));
   }
 
-  // --- Quiz ---
+  // === Quiz ===
   function runQuiz(type, btnElement) {
     const recBox = document.getElementById('recommendation');
-    const title = document.getElementById('rec-title');
-    const text = document.getElementById('rec-text');
     const link = document.getElementById('rec-link');
     
     document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('active'));
     btnElement.classList.add('active');
     recBox.style.display = 'block';
 
-    let data = {};
-    if(type === 'starter') data = { t: "🏆 Match: Wave App", d: "Free forever. Best for keeping costs at zero.", l: "https://waveapps.com/?ref=YOURID" };
-    else if(type === 'pro') data = { t: "🏆 Match: FreshBooks", d: "The pro standard. Automation saves you hours.", l: "https://freshbooks.com/?ref=YOURID" };
-    else if(type === 'nomad') data = { t: "🏆 Match: Invoyce", d: "Mobile-first AI. Invoicing from your pocket.", l: "https://invoyce.ai/?ref=YOURID" };
-    else if(type === 'intl') data = { t: "🏆 Match: Zoho Invoice", d: "Global currencies supported. Free.", l: "https://zoho.com/?ref=YOURID" };
+    const links = {
+      starter: "https://waveapps.com/?ref=YOURID",
+      pro: "https://freshbooks.com/?ref=YOURID",
+      nomad: "https://invoyce.ai/?ref=YOURID",
+      intl: "https://zoho.com/?ref=YOURID"
+    };
 
-    title.innerHTML = data.t;
-    text.innerText = data.d;
-    link.href = data.l;
+    updateQuizRecommendation(type);
+    link.href = links[type];
     
     localStorage.setItem('quizResult', JSON.stringify({type, index: Array.from(btnElement.parentNode.children).indexOf(btnElement)}));
   }
 
-  // --- Memory ---
+  // === Memory ===
   window.onload = function() {
     const saved = localStorage.getItem('quizResult');
     if(saved) {
@@ -580,17 +1014,20 @@
       const btns = document.querySelectorAll('.quiz-btn');
       if(btns[parsed.index]) runQuiz(parsed.type, btns[parsed.index]);
     }
+    
+    // Initialize calculator
+    updateCalc();
   };
 
-  // --- FAQ ---
+  // === FAQ ===
   function toggleFaq(el) {
     const ans = el.nextElementSibling;
     const isHidden = window.getComputedStyle(ans).display === 'none';
     document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
-    document.querySelectorAll('.faq-question span').forEach(s => s.innerText = '+');
+    document.querySelectorAll('.faq-question span:last-child').forEach(s => s.innerText = '+');
     if(isHidden) {
       ans.style.display = 'block';
-      el.querySelector('span').innerText = '-';
+      el.querySelector('span:last-child').innerText = '-';
     }
   }
 </script>
