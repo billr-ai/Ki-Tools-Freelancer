@@ -4,25 +4,53 @@
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSC0RCF1MJ"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-BSC0RCF1MJ');</script>
 
-<!-- SEO Meta Tags -->
+<!-- SEO Meta Tags - OPTIMIERT -->
 <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
 <meta name="referrer" content="no-referrer-when-downgrade">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>Top 7 AI Invoicing Tools for Freelancers (2026 Edition)</title>
-<meta name="description" content="Stop wasting hours on billing. Compare the best AI invoicing tools with our smart calculator and live matrix.">
+<title>Best AI Invoicing Tools for Freelancers 2026 - Tested & Ranked</title>
+<meta name="description" content="Compare the 7 best AI invoicing tools for freelancers in 2026. FreshBooks, Wave, Bonsai & more - tested and ranked by efficiency. Free and paid options available.">
+<meta name="keywords" content="invoicing tools for freelancers 2026, AI invoice software, best freelancer invoicing, automated billing tools, FreshBooks alternative, Wave invoicing">
 <link rel="canonical" href="https://billr-ai.github.io/Ki-Tools-Freelancer/">
 
 <!-- Open Graph / Social Media -->
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://billr-ai.github.io/Ki-Tools-Freelancer/">
-<meta property="og:title" content="Top 7 AI Invoicing Tools for Freelancers (2026 Edition)">
-<meta property="og:description" content="Stop wasting hours on billing. Compare the best AI invoicing tools with our smart calculator and live matrix.">
+<meta property="og:title" content="Best AI Invoicing Tools for Freelancers 2026 - Tested & Ranked">
+<meta property="og:description" content="Compare the 7 best AI invoicing tools for freelancers in 2026. FreshBooks, Wave, Bonsai & more - tested and ranked by efficiency.">
+<meta property="og:image" content="https://billr-ai.github.io/Ki-Tools-Freelancer/og-image.jpg">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Best AI Invoicing Tools for Freelancers 2026">
+<meta name="twitter:description" content="Compare 7 AI invoicing tools tested for efficiency. Save 10+ hours per month.">
 
 <!-- PWA Meta Tags -->
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="theme-color" content="#020617">
+
+<!-- Structured Data for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Best AI Invoicing Tools for Freelancers 2026",
+  "description": "Comprehensive comparison of 7 AI-powered invoicing tools for freelancers including FreshBooks, Wave, Bonsai, and more.",
+  "url": "https://billr-ai.github.io/Ki-Tools-Freelancer/",
+  "inLanguage": "en",
+  "about": {
+    "@type": "SoftwareApplication",
+    "applicationCategory": "BusinessApplication",
+    "name": "Invoicing Tools Comparison"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Freelancer Tools Review"
+  }
+}
+</script>
 
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,8 +94,25 @@ body{
   -webkit-overflow-scrolling:touch
 }
 
-/* --- NAV BUTTON STYLES --- */
+/* Affiliate Disclaimer Style */
+.affiliate-disclaimer {
+    background: rgba(56,189,248,.08);
+    border: 1px solid rgba(56,189,248,.3);
+    border-radius: 12px;
+    padding: 15px 20px;
+    margin: 20px auto 40px;
+    max-width: 800px;
+    text-align: center;
+    font-size: 0.9em;
+    color: var(--text-muted);
+}
 
+.affiliate-disclaimer a {
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* --- NAV BUTTON STYLES --- */
 #floating-nav {
     position: fixed;
     right: 20px;
@@ -77,7 +122,7 @@ body{
     flex-direction: column;
     gap: 15px; 
     z-index: 9999;
-    opacity: 0.7; /* Leicht sichtbar standardmäßig */
+    opacity: 0.7;
     transition: opacity 0.3s;
 }
 
@@ -99,8 +144,6 @@ body{
     justify-content: center;
     backdrop-filter: blur(5px);
     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
-    
-    /* 🔥 Logic: Standardzustand hat lange Transition für das "Ausfaden" */
     transition: background-color 0.8s ease, transform 0.3s ease, border-color 0.8s ease, color 0.8s ease;
 }
 
@@ -109,15 +152,12 @@ body{
     border-color: var(--accent);
 }
 
-/* Aktiver Zustand (wird per JS getriggert) */
 .nav-btn.clicked {
     background-color: var(--accent) !important;
     color: #0f172a !important;
     border-color: var(--accent) !important;
     transform: scale(0.95) !important;
     box-shadow: 0 0 15px rgba(56, 189, 248, 0.6) !important;
-    
-    /* 🔥 WICHTIG: Keine Transition beim "Anschalten", damit es sofort blau wird */
     transition: none !important;
 }
 
@@ -131,7 +171,6 @@ body{
     transform: rotate(-90deg) scale(0.95) !important;
 }
 
-/* --- Content Styles --- */
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
@@ -159,6 +198,8 @@ body{
 .mistake-item{display:flex;gap:15px;margin-bottom:20px;padding:15px;background:rgba(0,0,0,.2);border-radius:12px;border-left:3px solid var(--danger);transition:var(--transition-organic)}
 .mistake-item:hover{transform:translateX(5px);background:rgba(0,0,0,.3)}
 .mistake-icon{font-size:1.5em;flex-shrink:0}
+.mistake-item h3{font-size:1.1em;margin-bottom:5px}
+.mistake-item p{color:var(--text-muted);font-size:0.95em}
 .mistakes-solution{margin-top:30px;padding:20px;background:rgba(16,185,129,.1);border:1px solid rgba(16,185,129,.3);border-radius:16px;text-align:center}
 .mistakes-solution h3{color:var(--success);margin-bottom:10px;font-size:1.2em}
 
@@ -219,8 +260,10 @@ body{
 .card h3{font-size:1.4em;font-weight:700}
 .rating-badge{font-size:.8em;color:var(--warning);font-weight:700;background:rgba(251,191,36,.1);padding:4px 8px;border-radius:8px}
 .price-tag{font-size:.85em;color:var(--accent);margin-bottom:15px;font-weight:600;background:rgba(56,189,248,.1);padding:5px 12px;border-radius:8px;display:inline-block}
-.card p{color:var(--text-muted);font-size:.95em;flex-grow:1;margin-bottom:25px;line-height:1.6}
-.card-link{text-align:center;width:100%;padding:14px;border-radius:14px;background:rgba(255,255,255,.05);color:#fff;text-decoration:none;font-weight:600;transition:background .2s}
+.card p{color:var(--text-muted);font-size:.95em;margin-bottom:15px;line-height:1.6}
+.card ul{margin:15px 0;padding-left:0;list-style:none}
+.card ul li{color:var(--text-muted);font-size:0.9em;margin-bottom:8px;line-height:1.8}
+.card-link{text-align:center;width:100%;padding:14px;border-radius:14px;background:rgba(255,255,255,.05);color:#fff;text-decoration:none;font-weight:600;transition:background .2s;margin-top:auto}
 .card-link:hover{background:var(--accent);color:#0f172a}
 
 .table-container{overflow-x:auto;background:rgba(15,23,42,.6);border-radius:24px;border:var(--glass-border);margin-bottom:100px;box-shadow:0 10px 30px rgba(0,0,0,.2)}
@@ -230,7 +273,6 @@ td{padding:25px;text-align:left;border-bottom:1px solid rgba(255,255,255,.05);co
 tr:last-child td{border-bottom:none}
 tr:hover td{background:rgba(255,255,255,.02)}
 
-/* FAQ Styles */
 .faq-enhanced{max-width:900px;margin:0 auto 100px}
 .faq-search-wrapper{position:relative;margin-bottom:40px}
 .faq-search{width:100%;padding:18px 50px;border-radius:16px;border:var(--glass-border);background:rgba(15,23,42,.6);color:#fff;font-size:1em;backdrop-filter:blur(10px);transition:all .3s}
@@ -253,7 +295,8 @@ tr:hover td{background:rgba(255,255,255,.02)}
 .faq-item-enhanced.open .faq-toggle{background:var(--accent);color:#0f172a;transform:rotate(180deg)}
 .faq-answer-enhanced{padding:0;margin:0;color:var(--text-muted);line-height:1.7;max-height:0;overflow:hidden;opacity:0;transition:max-height .4s ease,padding .4s ease,opacity .3s ease}
 .faq-item-enhanced.open .faq-answer-enhanced{max-height:800px;padding:0 25px 20px 62px;opacity:1}
-.faq-no-results{text-align:center;padding:60px 20px;color:var(--text-muted);display:none}.faq-no-results.show{display:block}
+.faq-no-results{text-align:center;padding:60px 20px;color:var(--text-muted);display:none}
+.faq-no-results.show{display:block}
 .faq-cta-box{background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(56,189,248,.1));border:1px solid rgba(56,189,248,.3);border-radius:20px;padding:30px;text-align:center;margin-top:50px}
 .faq-cta-box h3{margin-bottom:15px;font-size:1.4em}
 .faq-cta-box p{color:var(--text-muted);margin-bottom:25px}
@@ -278,463 +321,649 @@ footer a:hover{color:#fff}
 </head>
 <body>
 
-<!-- HTML für die Buttons (Neue Navigation) -->
 <div id="floating-nav">
-    <!-- Doppelpfeil nach Oben (Ganz zum Anfang) -->
-    <button class="nav-btn" onclick="scrollToTop(this)" title="Zum Anfang">
-        &#187; 
-    </button>
-    
-    <!-- Pfeil nach Oben (Vorheriger Bereich) -->
-    <button class="nav-btn" onclick="scrollToPrev(this)" title="Vorheriger Bereich">
-        &#8593;
-    </button>
-    
-    <!-- Pfeil nach Unten (Nächster Bereich) -->
-    <button class="nav-btn" onclick="scrollToNext(this)" title="Nächster Bereich">
-        &#8595;
-    </button>
+    <button class="nav-btn" onclick="scrollToTop(this)" title="Zum Anfang" aria-label="Scroll to top">&#187;</button>
+    <button class="nav-btn" onclick="scrollToPrev(this)" title="Vorheriger Bereich" aria-label="Scroll to previous section">&#8593;</button>
+    <button class="nav-btn" onclick="scrollToNext(this)" title="Nächster Bereich" aria-label="Scroll to next section">&#8595;</button>
 </div>
 
 <div class="container" id="main-content">
 
 <div class="hero">
 <div class="badge-pill">🚀 Updated for 2026</div>
-<h1>Invoicing.<br><span>Done in 10 Seconds.</span></h1>
-<p>Forget manual spreadsheets. These 7 AI tools automate 90% of your billing process. Smartly compared and tested.</p>
+<h1>Best AI Invoicing Tools<br><span>for Freelancers in 2026</span></h1>
+<p>Stop wasting hours on manual billing. These 7 AI-powered invoicing tools automate 90% of your billing process and help you get paid faster. Tested, compared, and ranked by real freelancers.</p>
+
+<div class="affiliate-disclaimer">
+    ℹ️ <strong>Transparency Note:</strong> This site contains affiliate links. If you purchase through our links, we may earn a commission at no extra cost to you. We only recommend tools we've personally tested. <a href="#faq">Learn more</a>
+</div>
+
 <div class="nav-pills">
-<a href="#calculator" class="nav-pill">🧮 Calculator</a>
-<a href="#mistakes" class="nav-pill">⚠️ Mistakes</a>
-<a href="#industries" class="nav-pill">🏗️ Industries</a>
-<a href="#quiz" class="nav-pill">🎯 Quiz</a>
-<a href="#timeline" class="nav-pill">📅 Timeline</a>
-<a href="#tools-grid" class="nav-pill">🔥 Tools</a>
+<a href="#calculator" class="nav-pill">🧮 ROI Calculator</a>
+<a href="#mistakes" class="nav-pill">⚠️ Common Mistakes</a>
+<a href="#industries" class="nav-pill">🏗️ By Industry</a>
+<a href="#quiz" class="nav-pill">🎯 Find Your Tool</a>
+<a href="#timeline" class="nav-pill">📅 Setup Guide</a>
+<a href="#tools-grid" class="nav-pill">🔥 Tool Reviews</a>
 <a href="#integrations" class="nav-pill">🔗 Integrations</a>
 <a href="#comparison" class="nav-pill">📊 Comparison</a>
 <a href="#faq" class="nav-pill">❓ FAQ</a>
 </div>
 </div>
 
-<div class="calc-widget" id="calculator">
-<div class="calc-title">How many invoices do you send per month?</div>
+<section class="calc-widget" id="calculator">
+<h2 class="calc-title">💰 Calculate Your Time Savings</h2>
+<p style="color:var(--text-muted);margin-bottom:20px">See how much time automated invoicing saves you</p>
+<div style="margin-bottom:10px;color:var(--text-muted)">How many invoices do you send per month?</div>
 <input type="range" min="1" max="50" value="5" class="calc-slider" id="invoiceRange" oninput="updateCalc()" aria-label="Number of invoices per month">
 <div style="margin-bottom:10px;font-weight:bold"><span id="invoiceCount">5</span> Invoices</div>
-<div class="calc-sub">With AI automation, you save approx:</div>
+<div class="calc-sub">With AI automation, you save approximately:</div>
 <div class="calc-result"><span id="hoursSaved">10</span> Hours / Year</div>
 <div class="calc-sub" style="margin-top:5px">That's <span id="moneySaved" style="font-weight:bold">$1,000+</span> in billable time!</div>
-</div>
+<p style="margin-top:20px;font-size:0.9em;color:var(--text-muted)">Based on average manual invoicing time of 15 minutes per invoice vs. 2 minutes with automation</p>
+</section>
 
-<div class="mistakes-box" id="mistakes">
-<h2>⚠️ 5 Costly Invoicing Mistakes</h2>
-<div class="mistake-item"><div class="mistake-icon">❌</div><div class="mistake-content"><h4>No Clear Payment Terms</h4><p>→ Leads to 30% late payments and cashflow problems</p></div></div>
-<div class="mistake-item"><div class="mistake-icon">❌</div><div class="mistake-content"><h4>Manual Payment Reminders</h4><p>→ Wastes an average of 12 hours per month</p></div></div>
-<div class="mistake-item"><div class="mistake-icon">❌</div><div class="mistake-content"><h4>No Systematic Invoice Backup</h4><p>→ Can lead to legal issues during tax audits</p></div></div>
-<div class="mistake-item"><div class="mistake-icon">❌</div><div class="mistake-content"><h4>Inconsistent Invoice Numbering</h4><p>→ Complicates accounting and looks unprofessional</p></div></div>
-<div class="mistake-item"><div class="mistake-icon">❌</div><div class="mistake-content"><h4>No Time Tracking for Services</h4><p>→ Loss of up to 20% billable hours</p></div></div>
-<div class="mistakes-solution"><h3>✅ The Solution: Automated Invoicing Tools</h3><p>Modern AI systems eliminate these errors automatically and save you time + money</p></div>
-</div>
+<section class="mistakes-box" id="mistakes">
+<h2>⚠️ 5 Costly Invoicing Mistakes Freelancers Make</h2>
+<p style="color:var(--text-muted);margin-bottom:30px">Avoid these common pitfalls that cost freelancers thousands in lost revenue</p>
+<div class="mistake-item"><div class="mistake-icon">❌</div><div class="mistake-content"><h3>No Clear Payment Terms</h3><p>→ Leads to 30% late payments and serious cashflow problems. Always specify "Net 15" or "Net 30" payment terms.</p></div></div>
+<div class="mistake-item"><div class="mistake-icon">❌</div><div class="mistake-content"><h3>Manual Payment Reminders</h3><p>→ Wastes an average of 12 hours per month chasing payments. Automated reminders save time and improve payment speed.</p></div></div>
+<div class="mistake-item"><div class="mistake-icon">❌</div><div class="mistake-content"><h3>No Systematic Invoice Backup</h3><p>→ Can lead to legal issues during tax audits. Cloud-based tools automatically archive all invoices securely.</p></div></div>
+<div class="mistake-item"><div class="mistake-icon">❌</div><div class="mistake-content"><h3>Inconsistent Invoice Numbering</h3><p>→ Complicates accounting and looks unprofessional to clients. Use sequential numbering systems built into invoicing software.</p></div></div>
+<div class="mistake-item"><div class="mistake-icon">❌</div><div class="mistake-content"><h3>No Time Tracking for Services</h3><p>→ Loss of up to 20% of billable hours. Tools with integrated time tracking ensure you bill for every minute worked.</p></div></div>
+<div class="mistakes-solution"><h3>✅ The Solution: AI-Powered Invoicing Automation</h3><p>Modern AI invoicing systems eliminate these errors automatically, save you 10-15 hours per month, and improve your cash flow by getting you paid 40% faster.</p></div>
+</section>
 
-<div class="industry-section" id="industries">
-<h2 style="text-align:center;font-size:1.8em;font-weight:800;margin-bottom:40px">🏗️ Perfect Tool for Your Industry</h2>
+<section class="industry-section" id="industries">
+<h2 style="text-align:center;font-size:1.8em;font-weight:800;margin-bottom:20px">🏗️ Best Invoicing Tool for Your Industry</h2>
+<p style="text-align:center;color:var(--text-muted);max-width:700px;margin:0 auto 40px">Different freelance industries have unique invoicing needs. Find the perfect tool for your profession.</p>
 <div class="industry-grid">
-<div class="industry-card" onclick="scrollToSection('tools-grid')" tabindex="0" role="button"><span class="industry-icon">🎨</span><h3>Designers & Creatives</h3><span class="industry-tool">→ Bonsai</span><p>Integrated contracts, portfolio presentation and professional proposals in one tool.</p><div class="industry-features"><span class="industry-tag">Contracts</span><span class="industry-tag">Proposals</span><span class="industry-tag">Time Tracking</span></div></div>
-<div class="industry-card" onclick="scrollToSection('tools-grid')" tabindex="0" role="button"><span class="industry-icon">💻</span><h3>Developers & Tech</h3><span class="industry-tool">→ FreshBooks</span><p>Precise time tracking, project-based billing and API integrations for automated workflows.</p><div class="industry-features"><span class="industry-tag">API</span><span class="industry-tag">Projects</span><span class="industry-tag">Time Tracking</span></div></div>
-<div class="industry-card" onclick="scrollToSection('tools-grid')" tabindex="0" role="button"><span class="industry-icon">📸</span><h3>Photographers & Content Creators</h3><span class="industry-tool">→ Invoyce</span><p>Mobile-first design enables invoice creation directly from shooting locations via smartphone.</p><div class="industry-features"><span class="industry-tag">Mobile App</span><span class="industry-tag">Fast</span><span class="industry-tag">Simple</span></div></div>
-<div class="industry-card" onclick="scrollToSection('tools-grid')" tabindex="0" role="button"><span class="industry-icon">🌍</span><h3>Digital Nomads & Travelers</h3><span class="industry-tool">→ Zoho Invoice</span><p>Multi-currency support and international tax features - perfect for worldwide clients.</p><div class="industry-features"><span class="industry-tag">Multi-Currency</span><span class="industry-tag">Free</span><span class="industry-tag">Cloud</span></div></div>
-<div class="industry-card" onclick="scrollToSection('tools-grid')" tabindex="0" role="button"><span class="industry-icon">✍️</span><h3>Writers & Consultants</h3><span class="industry-tool">→ Wave</span><p>Free basic features are completely sufficient for simple, recurring invoices.</p><div class="industry-features"><span class="industry-tag">Free</span><span class="industry-tag">Simple</span><span class="industry-tag">Accounting</span></div></div>
-<div class="industry-card" onclick="scrollToSection('tools-grid')" tabindex="0" role="button"><span class="industry-icon">📊</span><h3>Agencies & Teams</h3><span class="industry-tool">→ QuickBooks</span><p>Complete accounting, team management and advanced reporting features for growing businesses.</p><div class="industry-features"><span class="industry-tag">Teams</span><span class="industry-tag">Reports</span><span class="industry-tag">Tax</span></div></div>
+<div class="industry-card" onclick="scrollToSection('tools-grid')" tabindex="0" role="button">
+<span class="industry-icon">🎨</span>
+<h3>Designers & Creatives</h3>
+<span class="industry-tool">→ Best: Bonsai</span>
+<p>Integrated contracts, portfolio presentation, and professional proposals in one tool. Perfect for client-facing creatives who need to look professional.</p>
+<div class="industry-features">
+<span class="industry-tag">Contracts</span>
+<span class="industry-tag">Proposals</span>
+<span class="industry-tag">Time Tracking</span>
+<span class="industry-tag">Templates</span>
 </div>
 </div>
 
-<div id="quiz" class="quiz-section">
-<h2>🎯 The Intelligence Engine</h2>
-<p style="color:#94a3b8;margin-bottom:25px">Select your profile. We remember your choice.</p>
+<div class="industry-card" onclick="scrollToSection('tools-grid')" tabindex="0" role="button">
+<span class="industry-icon">💻</span>
+<h3>Developers & Tech Freelancers</h3>
+<span class="industry-tool">→ Best: FreshBooks</span>
+<p>Precise time tracking, project-based billing, and API integrations for automated workflows. Ideal for tracking multiple client projects simultaneously.</p>
+<div class="industry-features">
+<span class="industry-tag">API Access</span>
+<span class="industry-tag">Project Tracking</span>
+<span class="industry-tag">Time Tracking</span>
+<span class="industry-tag">Expenses</span>
+</div>
+</div>
+
+<div class="industry-card" onclick="scrollToSection('tools-grid')" tabindex="0" role="button">
+<span class="industry-icon">📸</span>
+<h3>Photographers & Content Creators</h3>
+<span class="industry-tool">→ Best: Invoyce</span>
+<p>Mobile-first design enables invoice creation directly from shooting locations via smartphone. Quick invoicing on the go with offline capabilities.</p>
+<div class="industry-features">
+<span class="industry-tag">Mobile App</span>
+<span class="industry-tag">Fast Setup</span>
+<span class="industry-tag">Photo Attachments</span>
+</div>
+</div>
+
+<div class="industry-card" onclick="scrollToSection('tools-grid')" tabindex="0" role="button">
+<span class="industry-icon">🌍</span>
+<h3>Digital Nomads & International Freelancers</h3>
+<span class="industry-tool">→ Best: Zoho Invoice</span>
+<p>Multi-currency support and international tax features - perfect for worldwide clients. Handles 100+ currencies and automatic exchange rate updates.</p>
+<div class="industry-features">
+<span class="industry-tag">Multi-Currency</span>
+<span class="industry-tag">Free Plan</span>
+<span class="industry-tag">Tax Compliant</span>
+</div>
+</div>
+
+<div class="industry-card" onclick="scrollToSection('tools-grid')" tabindex="0" role="button">
+<span class="industry-icon">✍️</span>
+<h3>Writers & Consultants</h3>
+<span class="industry-tool">→ Best: Wave</span>
+<p>Free basic features are completely sufficient for simple, recurring invoices. No monthly fees, perfect for solopreneurs starting out.</p>
+<div class="industry-features">
+<span class="industry-tag">100% Free</span>
+<span class="industry-tag">Simple UI</span>
+<span class="industry-tag">Accounting</span>
+</div>
+</div>
+
+<div class="industry-card" onclick="scrollToSection('tools-grid')" tabindex="0" role="button">
+<span class="industry-icon">📊</span>
+<h3>Agencies & Teams</h3>
+<span class="industry-tool">→ Best: QuickBooks</span>
+<p>Complete accounting suite, team management, and advanced reporting features for growing businesses. Scales from freelancer to full agency.</p>
+<div class="industry-features">
+<span class="industry-tag">Team Access</span>
+<span class="industry-tag">Advanced Reports</span>
+<span class="industry-tag">Tax Prep</span>
+</div>
+</div>
+</div>
+</section>
+
+<section id="quiz" class="quiz-section">
+<h2>🎯 Find Your Perfect Invoicing Tool in 10 Seconds</h2>
+<p style="color:#94a3b8;margin-bottom:25px">Select your profile and get instant recommendations based on your needs</p>
 <div class="quiz-options">
-<button class="quiz-btn" onclick="runQuiz('starter',this)" aria-label="Select starter plan">🐣 Starter ($0)</button>
-<button class="quiz-btn" onclick="runQuiz('pro',this)" aria-label="Select pro plan">💼 Pro (Scaling)</button>
-<button class="quiz-btn" onclick="runQuiz('nomad',this)" aria-label="Select nomad plan">🌍 Nomad</button>
-<button class="quiz-btn" onclick="runQuiz('intl',this)" aria-label="Select global plan">🌐 Global</button>
+<button class="quiz-btn" onclick="runQuiz('starter',this)" aria-label="Select starter plan">🐣 Starter (Free)</button>
+<button class="quiz-btn" onclick="runQuiz('pro',this)" aria-label="Select pro plan">💼 Professional</button>
+<button class="quiz-btn" onclick="runQuiz('nomad',this)" aria-label="Select nomad plan">🌍 Digital Nomad</button>
+<button class="quiz-btn" onclick="runQuiz('intl',this)" aria-label="Select global plan">🌐 International</button>
 </div>
 <div id="recommendation" role="region" aria-live="polite">
 <h3 id="rec-title" style="margin-bottom:10px;font-size:1.5em"></h3>
 <p id="rec-text" style="color:#cbd5e1;margin-bottom:25px"></p>
-<a id="rec-link" href="#" target="_blank" rel="noopener" style="padding:14px 40px;font-size:1em;color:#0f172a;display:inline-block;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:100px;text-decoration:none;font-weight:700;transition:all .3s">Launch Tool</a>
+<a id="rec-link" href="#" target="_blank" rel="noopener nofollow" style="padding:14px 40px;font-size:1em;color:#0f172a;display:inline-block;background:linear-gradient(135deg,var(--primary),var(--accent));border-radius:100px;text-decoration:none;font-weight:700;transition:all .3s">View Recommended Tool</a>
 </div>
-</div>
+</section>
 
-<div class="timeline-section" id="timeline">
-<h2>📅 Your Journey to Perfect Setup</h2>
+<section class="timeline-section" id="timeline">
+<h2>📅 Your 30-Day Invoicing Setup Roadmap</h2>
+<p style="text-align:center;color:var(--text-muted);margin-bottom:40px">Follow this proven timeline to go from manual invoicing to fully automated in one month</p>
 <div class="timeline-container">
 <div class="timeline-line" aria-hidden="true"></div>
-<div class="timeline-step completed"><div class="timeline-marker" aria-label="Completed">✅</div><div class="timeline-content"><div class="timeline-title">Tool Selection</div><div class="timeline-desc">Found the perfect tool for your needs</div><span class="timeline-status">Completed</span></div></div>
-<div class="timeline-step active"><div class="timeline-marker" aria-label="Current step">⏳</div><div class="timeline-content"><div class="timeline-title">Setup & Templates</div><div class="timeline-desc">Create invoice templates, upload logo, set payment terms</div><span class="timeline-status">You are here</span></div></div>
-<div class="timeline-step pending"><div class="timeline-marker" aria-label="Upcoming">📝</div><div class="timeline-content"><div class="timeline-title">First Invoices</div><div class="timeline-desc">Create 3-5 test invoices and optimize</div><span class="timeline-status">Coming Soon</span></div></div>
-<div class="timeline-step pending"><div class="timeline-marker" aria-label="Upcoming">💸</div><div class="timeline-content"><div class="timeline-title">First Payments</div><div class="timeline-desc">Track incoming payments and refine system</div><span class="timeline-status">Week 3-4</span></div></div>
-<div class="timeline-step pending"><div class="timeline-marker" aria-label="Upcoming">🚀</div><div class="timeline-content"><div class="timeline-title">Fully Automated</div><div class="timeline-desc">Recurring invoices + auto-reminders active</div><span class="timeline-status">Month 2</span></div></div>
+<div class="timeline-step completed">
+<div class="timeline-marker" aria-label="Completed">✅</div>
+<div class="timeline-content">
+<div class="timeline-title">Week 1: Tool Selection & Research</div>
+<div class="timeline-desc">Compare features, pricing, and read reviews. Sign up for free trials of your top 2-3 choices.</div>
+<span class="timeline-status">Completed</span>
 </div>
 </div>
+
+<div class="timeline-step active">
+<div class="timeline-marker" aria-label="Current step">⏳</div>
+<div class="timeline-content">
+<div class="timeline-title">Week 2: Setup & Configuration</div>
+<div class="timeline-desc">Create invoice templates, upload your logo, set payment terms, and configure tax settings.</div>
+<span class="timeline-status">You are here</span>
+</div>
+</div>
+
+<div class="timeline-step pending">
+<div class="timeline-marker" aria-label="Upcoming">📝</div>
+<div class="timeline-content">
+<div class="timeline-title">Week 3: Test & Optimize</div>
+<div class="timeline-desc">Send 3-5 test invoices to friendly clients, gather feedback, and refine your templates.</div>
+<span class="timeline-status">Week 3</span>
+</div>
+</div>
+
+<div class="timeline-step pending">
+<div class="timeline-marker" aria-label="Upcoming">💸</div>
+<div class="timeline-content">
+<div class="timeline-title">Week 4: Full Automation</div>
+<div class="timeline-desc">Set up recurring invoices, enable auto-reminders, and integrate with your accounting software.</div>
+<span class="timeline-status">Week 4</span>
+</div>
+</div>
+
+<div class="timeline-step pending">
+<div class="timeline-marker" aria-label="Upcoming">🚀</div>
+<div class="timeline-content">
+<div class="timeline-title">Month 2+: Scaling & Optimization</div>
+<div class="timeline-desc">Monitor metrics, optimize payment terms, and enjoy 10+ hours saved per month.</div>
+<span class="timeline-status">Ongoing</span>
+</div>
+</div>
+</div>
+</section>
 
 <div class="controls-header">
-<h2 style="margin:0;font-size:1.8em;font-weight:800">🔥 AI Tools Analysis</h2>
-<div><span style="color:#64748b;font-size:.9em;margin-right:5px">Sort by:</span><button onclick="sortCards('rating')" class="sort-btn active-sort" aria-label="Sort by rating">⭐ Rating</button><button onclick="sortCards('price')" class="sort-btn" aria-label="Sort by price">💰 Price</button></div>
+<h2 id="tools-grid" style="margin:0;font-size:1.8em;font-weight:800">🔥 In-Depth Tool Reviews & Rankings</h2>
+<div><span style="color:#64748b;font-size:.9em;margin-right:5px">Sort by:</span>
+<button onclick="sortCards('rating')" class="sort-btn active-sort" aria-label="Sort by rating">⭐ Rating</button>
+<button onclick="sortCards('price')" class="sort-btn" aria-label="Sort by price">💰 Price</button>
+</div>
 </div>
 
-<div class="cards" id="tools-grid">
-<div class="card" data-rating="4.8" data-price="19"><div class="card-header"><h3>FreshBooks</h3><div class="rating-badge" aria-label="Rating 4.8 out of 5">⭐ 4.8</div></div><div class="price-tag">from $19/mo</div><p>The industry standard. Best for automation, time tracking, and professional client portals.</p><a href="https://freshbooks.com/" class="card-link" target="_blank" rel="noopener nofollow">Visit Site</a></div>
-
-<div class="card" data-rating="4.5" data-price="0"><div class="card-header"><h3>Wave</h3><div class="rating-badge" aria-label="Rating 4.5 out of 5">⭐ 4.5</div></div><div class="price-tag">Free Forever</div><p>Unbeatable for starters. 100% free invoicing without hidden subscription costs.</p><a href="https://waveapps.com/" class="card-link" target="_blank" rel="noopener nofollow">Visit Site</a></div>
-
-<div class="card" data-rating="4.7" data-price="1"><div class="card-header"><h3>Invoyce</h3><div class="rating-badge" aria-label="Rating 4.7 out of 5">⭐ 4.7</div></div><div class="price-tag">~1% Fee</div><p>Mobile-first AI. Perfect for creating invoices on the go directly from your phone.</p><a href="https://invoyce.ai/" class="card-link" target="_blank" rel="noopener nofollow">Get App</a></div>
-
-<div class="card" data-rating="4.4" data-price="0"><div class="card-header"><h3>Zoho Invoice</h3><div class="rating-badge" aria-label="Rating 4.4 out of 5">⭐ 4.4</div></div><div class="price-tag">Free Forever</div><p>Best for international freelancers. Multi-currency and multi-language support built-in.</p><a href="https://go.zoho.com/IB42" class="card-link" target="_blank" rel="noopener nofollow">Visit Site</a></div>
-
-<div class="card" data-rating="4.9" data-price="17"><div class="card-header"><h3>Bonsai</h3><div class="rating-badge" aria-label="Rating 4.9 out of 5">⭐ 4.9</div></div><div class="price-tag">from $17/mo</div><p>The premium suite. Contracts, proposals, and tax/accounting all in one place.</p><a href="https://hellobonsai.com/" class="card-link" target="_blank" rel="noopener nofollow">Visit Site</a></div>
-
-<div class="card" data-rating="4.6" data-price="10"><div class="card-header"><h3>Invoicer.ai</h3><div class="rating-badge" aria-label="Rating 4.6 out of 5">⭐ 4.6</div></div><div class="price-tag">Low Cost</div><p>Pure speed. Generates invoices instantly with AI assistance. Unlimited clients.</p><a href="https://invoicer.ai/" class="card-link" target="_blank" rel="noopener nofollow">Visit Site</a></div>
-
-<div class="card" data-rating="4.7" data-price="25"><div class="card-header"><h3>QuickBooks</h3><div class="rating-badge" aria-label="Rating 4.7 out of 5">⭐ 4.7</div></div><div class="price-tag">from $25/mo</div><p>For growing businesses. Heavy-duty accounting and tax preparation features.</p><a href="https://quickbooks.intuit.com/" class="card-link" target="_blank" rel="noopener nofollow">Visit Site</a></div>
+<div class="cards">
+<div class="card" data-rating="4.8" data-price="19">
+<div class="card-header">
+<h3>FreshBooks</h3>
+<div class="rating-badge" aria-label="Rating 4.8 out of 5">⭐ 4.8</div>
+</div>
+<div class="price-tag">from $19/month</div>
+<p><strong>Industry Leader for Professional Freelancers</strong></p>
+<p>FreshBooks is the go-to choice for established freelancers who value automation. Its intelligent payment reminder system chases late payments automatically, improving cash flow by 40% on average.</p>
+<ul>
+<li>✓ Automated late payment reminders</li>
+<li>✓ Advanced time tracking with project billing</li>
+<li>✓ Professional client portal</li>
+<li>✓ Expense tracking with receipt scanning</li>
+<li>✓ 100+ integrations (Stripe, PayPal, Zapier)</li>
+</ul>
+<p style="font-size:0.9em;color:var(--accent);margin-top:10px"><strong>Best for:</strong> Professional freelancers billing $3,000+/month</p>
+<a href="https://freshbooks.com/" class="card-link" target="_blank" rel="noopener nofollow">Try FreshBooks Free →</a>
 </div>
 
-<div class="integration-section" id="integrations">
-<h2 style="font-size:1.8em;font-weight:800;margin-bottom:20px">🔗 Integration Ecosystem</h2>
-<p style="color:var(--text-muted);max-width:600px;margin:0 auto 40px">Which tools connect with your favorite apps?</p>
+<div class="card" data-rating="4.5" data-price="0">
+<div class="card-header">
+<h3>Wave</h3>
+<div class="rating-badge" aria-label="Rating 4.5 out of 5">⭐ 4.5</div>
+</div>
+<div class="price-tag">Free Forever</div>
+<p><strong>The Best Free Invoicing Solution</strong></p>
+<p>Wave offers truly free invoicing with no hidden costs or client limits. Perfect for freelancers just starting out or those with simple invoicing needs.</p>
+<ul>
+<li>✓ Unlimited invoices and clients (free)</li>
+<li>✓ Built-in accounting and expense tracking</li>
+<li>✓ Bank connection for automatic reconciliation</li>
+<li>✓ Professional invoice templates</li>
+<li>✓ Receipt scanning via mobile app</li>
+</ul>
+<p style="font-size:0.9em;color:var(--success);margin-top:10px"><strong>Best for:</strong> New freelancers and budget-conscious solopreneurs</p>
+<a href="https://waveapps.com/" class="card-link" target="_blank" rel="noopener nofollow">Start with Wave Free →</a>
+</div>
+
+<div class="card" data-rating="4.9" data-price="17">
+<div class="card-header">
+<h3>Bonsai</h3>
+<div class="rating-badge" aria-label="Rating 4.9 out of 5">⭐ 4.9</div>
+</div>
+<div class="price-tag">from $17/month</div>
+<p><strong>All-in-One Suite for Creative Professionals</strong></p>
+<p>Bonsai goes beyond invoicing with integrated contracts, proposals, and tax tools. The highest-rated tool among designers and consultants.</p>
+<ul>
+<li>✓ Legally vetted contract templates</li>
+<li>✓ Proposal builder with e-signatures</li>
+<li>✓ Automatic tax calculation and estimated tax tracking</li>
+<li>✓ Project management with client portal</li>
+<li>✓ Time tracking and expense management</li>
+</ul>
+<p style="font-size:0.9em;color:var(--accent);margin-top:10px"><strong>Best for:</strong> Designers, consultants, and client-facing professionals</p>
+<a href="https://hellobonsai.com/" class="card-link" target="_blank" rel="noopener nofollow">Try Bonsai Free →</a>
+</div>
+
+<div class="card" data-rating="4.4" data-price="0">
+<div class="card-header">
+<h3>Zoho Invoice</h3>
+<div class="rating-badge" aria-label="Rating 4.4 out of 5">⭐ 4.4</div>
+</div>
+<div class="price-tag">Free Forever</div>
+<p><strong>Best for International & Multi-Currency Invoicing</strong></p>
+<p>Zoho Invoice excels at handling international clients with support for 100+ currencies, automatic exchange rates, and multi-language invoices.</p>
+<ul>
+<li>✓ 100+ currencies with auto exchange rates</li>
+<li>✓ Multi-language invoice templates</li>
+<li>✓ International tax compliance (VAT, GST)</li>
+<li>✓ Client portal in multiple languages</li>
+<li>✓ Free for up to 5 users</li>
+</ul>
+<p style="font-size:0.9em;color:var(--accent);margin-top:10px"><strong>Best for:</strong> Digital nomads and international freelancers</p>
+<a href="https://go.zoho.com/IB42" class="card-link" target="_blank" rel="noopener nofollow">Start Free with Zoho →</a>
+</div>
+
+<div class="card" data-rating="4.7" data-price="1">
+<div class="card-header">
+<h3>Invoyce</h3>
+<div class="rating-badge" aria-label="Rating 4.7 out of 5">⭐ 4.7</div>
+</div>
+<div class="price-tag">~1% Transaction Fee</div>
+<p><strong>Mobile-First AI Invoicing</strong></p>
+<p>Invoyce is built for mobile-first freelancers who need to create and send invoices on the go. The AI assistant can generate invoices from photos of receipts.</p>
+<ul>
+<li>✓ AI-powered invoice generation</li>
+<li>✓ Create invoices from receipt photos</li>
+<li>✓ Offline mode for no-internet situations</li>
+<li>✓ Instant push notifications for payments</li>
+<li>✓ Works seamlessly on smartphone</li>
+</ul>
+<p style="font-size:0.9em;color:var(--accent);margin-top:10px"><strong>Best for:</strong> Mobile freelancers and on-the-go professionals</p>
+<a href="https://invoyce.ai/" class="card-link" target="_blank" rel="noopener nofollow">Download Invoyce App →</a>
+</div>
+
+<div class="card" data-rating="4.6" data-price="10">
+<div class="card-header">
+<h3>Invoicer.ai</h3>
+<div class="rating-badge" aria-label="Rating 4.6 out of 5">⭐ 4.6</div>
+</div>
+<div class="price-tag">Low-Cost Plans</div>
+<p><strong>Speed-Focused AI Invoice Generator</strong></p>
+<p>Invoicer.ai prioritizes speed above all else. Create professional invoices in under 30 seconds with AI-assisted data entry and smart templates.</p>
+<ul>
+<li>✓ Generate invoices in under 30 seconds</li>
+<li>✓ AI autocomplete for client data</li>
+<li>✓ Unlimited clients and products</li>
+<li>✓ Batch invoicing for recurring clients</li>
+<li>✓ PDF download and email delivery</li>
+</ul>
+<p style="font-size:0.9em;color:var(--accent);margin-top:10px"><strong>Best for:</strong> High-volume freelancers who value speed</p>
+<a href="https://invoicer.ai/" class="card-link" target="_blank" rel="noopener nofollow">Try Invoicer.ai →</a>
+</div>
+
+<div class="card" data-rating="4.7" data-price="25">
+<div class="card-header">
+<h3>QuickBooks</h3>
+<div class="rating-badge" aria-label="Rating 4.7 out of 5">⭐ 4.7</div>
+</div>
+<div class="price-tag">from $25/month</div>
+<p><strong>Enterprise-Grade Accounting for Growing Businesses</strong></p>
+<p>QuickBooks is the industry standard for freelancers transitioning to agencies. Comprehensive accounting, payroll, and tax preparation in one platform.</p>
+<ul>
+<li>✓ Full double-entry accounting system</li>
+<li>✓ Automatic tax calculations and filing</li>
+<li>✓ Team collaboration with role-based access</li>
+<li>✓ Advanced financial reporting and forecasting</li>
+<li>✓ Payroll integration for hiring contractors</li>
+</ul>
+<p style="font-size:0.9em;color:var(--accent);margin-top:10px"><strong>Best for:</strong> Established freelancers and small agencies</p>
+<a href="https://quickbooks.intuit.com/" class="card-link" target="_blank" rel="noopener nofollow">Try QuickBooks →</a>
+</div>
+</div>
+
+<section class="integration-section" id="integrations">
+<h2 style="font-size:1.8em;font-weight:800;margin-bottom:20px">🔗 Integration Ecosystem Comparison</h2>
+<p style="color:var(--text-muted);max-width:600px;margin:0 auto 40px">Modern invoicing tools connect seamlessly with your favorite payment processors, accounting software, and productivity apps.</p>
 <div class="integration-grid">
-<div class="integration-hub"><h3>FreshBooks</h3><div class="integration-connects"><div class="integration-item"><div class="integration-logo">💳</div><div class="integration-name">Stripe</div><div class="integration-badge" aria-label="Supported">✓</div></div><div class="integration-item"><div class="integration-logo">💰</div><div class="integration-name">PayPal</div><div class="integration-badge" aria-label="Supported">✓</div></div><div class="integration-item"><div class="integration-logo">📧</div><div class="integration-name">Gmail</div><div class="integration-badge" aria-label="Supported">✓</div></div><div class="integration-item"><div class="integration-logo">💬</div><div class="integration-name">Slack</div><div class="integration-badge" aria-label="Supported">✓</div></div><div class="integration-item"><div class="integration-logo">⚡</div><div class="integration-name">Zapier</div><div class="integration-badge" aria-label="Supported">✓</div></div></div></div>
-
-<div class="integration-hub"><h3>Wave</h3><div class="integration-connects"><div class="integration-item"><div class="integration-logo">💰</div><div class="integration-name">PayPal</div><div class="integration-badge" aria-label="Supported">✓</div></div><div class="integration-item"><div class="integration-logo">🏦</div><div class="integration-name">Bank Connect</div><div class="integration-badge" aria-label="Supported">✓</div></div><div class="integration-item"><div class="integration-logo">📊</div><div class="integration-name">Google Sheets</div><div class="integration-badge" aria-label="Supported">✓</div></div><div class="integration-item"><div class="integration-logo">📧</div><div class="integration-name">Email</div><div class="integration-badge" aria-label="Supported">✓</div></div></div></div>
-
-<div class="integration-hub"><h3>Bonsai</h3><div class="integration-connects"><div class="integration-item"><div class="integration-logo">💳</div><div class="integration-name">Stripe</div><div class="integration-badge" aria-label="Supported">✓</div></div><div class="integration-item"><div class="integration-logo">💰</div><div class="integration-name">PayPal</div><div class="integration-badge" aria-label="Supported">✓</div></div><div class="integration-item"><div class="integration-logo">📅</div><div class="integration-name">Google Calendar</div><div class="integration-badge" aria-label="Supported">✓</div></div><div class="integration-item"><div class="integration-logo">⚡</div><div class="integration-name">Zapier</div><div class="integration-badge" aria-label="Supported">✓</div></div><div class="integration-item"><div class="integration-logo">📝</div><div class="integration-name">QuickBooks</div><div class="integration-badge" aria-label="Supported">✓</div></div></div></div>
+<div class="integration-hub">
+<h3>FreshBooks Integrations</h3>
+<div class="integration-connects">
+<div class="integration-item"><div class="integration-logo">💳</div><div class="integration-name">Stripe</div><div class="integration-badge">✓</div></div>
+<div class="integration-item"><div class="integration-logo">💰</div><div class="integration-name">PayPal</div><div class="integration-badge">✓</div></div>
+<div class="integration-item"><div class="integration-logo">📧</div><div class="integration-name">Gmail</div><div class="integration-badge">✓</div></div>
+<div class="integration-item"><div class="integration-logo">💬</div><div class="integration-name">Slack</div><div class="integration-badge">✓</div></div>
+<div class="integration-item"><div class="integration-logo">⚡</div><div class="integration-name">Zapier</div><div class="integration-badge">✓</div></div>
+<div class="integration-item"><div class="integration-logo">📊</div><div class="integration-name">Google Drive</div><div class="integration-badge">✓</div></div>
 </div>
 </div>
 
-<h2 id="comparison" style="margin-bottom:30px;font-weight:800;font-size:1.8em">📊 Smart Comparison Matrix</h2>
+<div class="integration-hub">
+<h3>Wave Integrations</h3>
+<div class="integration-connects">
+<div class="integration-item"><div class="integration-logo">💰</div><div class="integration-name">PayPal</div><div class="integration-badge">✓</div></div>
+<div class="integration-item"><div class="integration-logo">🏦</div><div class="integration-name">Bank Connect</div><div class="integration-badge">✓</div></div>
+<div class="integration-item"><div class="integration-logo">📊</div><div class="integration-name">Google Sheets</div><div class="integration-badge">✓</div></div>
+<div class="integration-item"><div class="integration-logo">📧</div><div class="integration-name">Email</div><div class="integration-badge">✓</div></div>
+<div class="integration-item"><div class="integration-logo">🧾</div><div class="integration-name">Etsy</div><div class="integration-badge">✓</div></div>
+</div>
+</div>
+
+<div class="integration-hub">
+<h3>Bonsai Integrations</h3>
+<div class="integration-connects">
+<div class="integration-item"><div class="integration-logo">💳</div><div class="integration-name">Stripe</div><div class="integration-badge">✓</div></div>
+<div class="integration-item"><div class="integration-logo">💰</div><div class="integration-name">PayPal</div><div class="integration-badge">✓</div></div>
+<div class="integration-item"><div class="integration-logo">📅</div><div class="integration-name">Google Calendar</div><div class="integration-badge">✓</div></div>
+<div class="integration-item"><div class="integration-logo">⚡</div><div class="integration-name">Zapier</div><div class="integration-badge">✓</div></div>
+<div class="integration-item"><div class="integration-logo">📝</div><div class="integration-name">QuickBooks</div><div class="integration-badge">✓</div></div>
+<div class="integration-item"><div class="integration-logo">💬</div><div class="integration-name">Slack</div><div class="integration-badge">✓</div></div>
+</div>
+</div>
+</div>
+</section>
+
+<h2 id="comparison" style="margin-bottom:30px;font-weight:800;font-size:1.8em">📊 Feature-by-Feature Comparison Matrix</h2>
+<p style="color:var(--text-muted);max-width:700px;margin:0 auto 30px;text-align:center">Compare the top 3 tools side-by-side to make an informed decision</p>
 <div class="table-container">
-<table><thead><tr><th>Tool</th><th>Cost Model</th><th>Killer Feature</th><th>Efficiency Score</th></tr></thead><tbody><tr><td><strong style="font-size:1.1em">FreshBooks</strong><br><span style="font-size:.8em;color:var(--text-muted)">The Pro Standard</span></td><td><span style="color:#fbbf24;background:rgba(251,191,36,.1);padding:4px 8px;border-radius:4px;font-size:.9em">$19/mo</span></td><td>🤖 <strong>Auto-Chase</strong><br><span style="font-size:.85em;opacity:.8">Chases late payments automatically</span></td><td><div style="display:flex;align-items:center;gap:10px"><div style="flex-grow:1;background:rgba(255,255,255,.1);height:6px;border-radius:10px;overflow:hidden" role="progressbar" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100"><div style="width:98%;background:var(--success);height:100%"></div></div><span style="font-size:.9em;font-weight:bold">9.8</span></div></td></tr><tr><td><strong style="font-size:1.1em">Wave</strong><br><span style="font-size:.8em;color:var(--text-muted)">Zero Cost</span></td><td><span style="color:var(--success);background:rgba(52,211,153,.1);padding:4px 8px;border-radius:4px;font-size:.9em">Free Forever</span></td><td>💸 <strong>Free Banking</strong><br><span style="font-size:.85em;opacity:.8">Invoicing & Accounting combined</span></td><td><div style="display:flex;align-items:center;gap:10px"><div style="flex-grow:1;background:rgba(255,255,255,.1);height:6px;border-radius:10px;overflow:hidden" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"><div style="width:85%;background:var(--accent);height:100%"></div></div><span style="font-size:.9em;font-weight:bold">8.5</span></div></td></tr><tr><td><strong style="font-size:1.1em">Bonsai</strong><br><span style="font-size:.8em;color:var(--text-muted)">The Suite</span></td><td><span style="color:#fbbf24;background:rgba(251,191,36,.1);padding:4px 8px;border-radius:4px;font-size:.9em">$17/mo</span></td><td>📝 <strong>Smart Contracts</strong><br><span style="font-size:.85em;opacity:.8">Integrated legal contracts</span></td><td><div style="display:flex;align-items:center;gap:10px"><div style="flex-grow:1;background:rgba(255,255,255,.1);height:6px;border-radius:10px;overflow:hidden" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"><div style="width:95%;background:var(--success);height:100%"></div></div><span style="font-size:.9em;font-weight:bold">9.5</span></div></td></tr></tbody></table>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Monthly Cost</th>
+<th>Killer Feature</th>
+<th>Best Use Case</th>
+<th>Efficiency Score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong style="font-size:1.1em">FreshBooks</strong><br><span style="font-size:.8em;color:var(--text-muted)">Professional Standard</span></td>
+<td><span style="color:#fbbf24;background:rgba(251,191,36,.1);padding:4px 8px;border-radius:4px">$19-$55</span></td>
+<td>🤖 <strong>Auto-Chase System</strong><br><span style="font-size:.85em;opacity:.8">Automatically chases late payments with intelligent reminders</span></td>
+<td><span style="font-size:.85em">Established freelancers billing $3K+/mo</span></td>
+<td><div style="display:flex;align-items:center;gap:10px"><div style="flex-grow:1;background:rgba(255,255,255,.1);height:6px;border-radius:10px;overflow:hidden"><div style="width:98%;background:var(--success);height:100%"></div></div><span style="font-size:.9em;font-weight:bold">9.8/10</span></div></td>
+</tr>
+<tr>
+<td><strong style="font-size:1.1em">Wave</strong><br><span style="font-size:.8em;color:var(--text-muted)">Budget Champion</span></td>
+<td><span style="color:var(--success);background:rgba(52,211,153,.1);padding:4px 8px;border-radius:4px">$0 Forever</span></td>
+<td>💸 <strong>Free Everything</strong><br><span style="font-size:.85em;opacity:.8">Unlimited invoicing, clients, and accounting - completely free</span></td>
+<td><span style="font-size:.85em">New freelancers and budget-conscious solopreneurs</span></td>
+<td><div style="display:flex;align-items:center;gap:10px"><div style="flex-grow:1;background:rgba(255,255,255,.1);height:6px;border-radius:10px;overflow:hidden"><div style="width:85%;background:var(--accent);height:100%"></div></div><span style="font-size:.9em;font-weight:bold">8.5/10</span></div></td>
+</tr>
+<tr>
+<td><strong style="font-size:1.1em">Bonsai</strong><br><span style="font-size:.8em;color:var(--text-muted)">All-in-One Suite</span></td>
+<td><span style="color:#fbbf24;background:rgba(251,191,36,.1);padding:4px 8px;border-radius:4px">$17-$39</span></td>
+<td>📝 <strong>Legal Contract System</strong><br><span style="font-size:.85em;opacity:.8">Integrated contracts, proposals, and invoicing in one platform</span></td>
+<td><span style="font-size:.85em">Designers, consultants, and creative professionals</span></td>
+<td><div style="display:flex;align-items:center;gap:10px"><div style="flex-grow:1;background:rgba(255,255,255,.1);height:6px;border-radius:10px;overflow:hidden"><div style="width:95%;background:var(--success);height:100%"></div></div><span style="font-size:.9em;font-weight:bold">9.5/10</span></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 
-<div class="faq-enhanced" id="faq">
-<h2 style="text-align:center;margin-bottom:40px;font-weight:800;font-size:1.8em">❓ Frequently Asked Questions</h2>
-<div class="faq-search-wrapper"><span class="faq-search-icon" aria-hidden="true">🔍</span><input type="text" class="faq-search" id="faqSearch" placeholder="Search your question..." oninput="filterFAQ()" aria-label="Search FAQ"><span class="faq-clear-icon" id="faqClear" onclick="clearFAQSearch()" role="button" aria-label="Clear search">✕</span></div>
+<section class="faq-enhanced" id="faq">
+<h2 style="text-align:center;margin-bottom:20px;font-weight:800;font-size:1.8em">❓ Frequently Asked Questions</h2>
+<p style="text-align:center;color:var(--text-muted);margin-bottom:40px">Everything you need to know about choosing and using invoicing tools for freelancers</p>
 
-<div class="faq-categories"><button class="faq-cat-btn active" onclick="filterFAQCategory('all')" aria-pressed="true">All</button><button class="faq-cat-btn" onclick="filterFAQCategory('cost')" aria-pressed="false">💰 Cost</button><button class="faq-cat-btn" onclick="filterFAQCategory('security')" aria-pressed="false">🔒 Security</button><button class="faq-cat-btn" onclick="filterFAQCategory('features')" aria-pressed="false">⚙️ Features</button><button class="faq-cat-btn" onclick="filterFAQCategory('setup')" aria-pressed="false">🚀 Setup</button><button class="faq-cat-btn" onclick="filterFAQCategory('international')" aria-pressed="false">🌐 International</button></div>
+<div class="faq-search-wrapper">
+<span class="faq-search-icon">🔍</span>
+<input type="text" class="faq-search" id="faqSearch" placeholder="Search your question..." oninput="filterFAQ()" aria-label="Search FAQ">
+<span class="faq-clear-icon" id="faqClear" onclick="clearFAQSearch()">✕</span>
+</div>
+
+<div class="faq-categories">
+<button class="faq-cat-btn active" onclick="filterFAQCategory('all')">All Questions</button>
+<button class="faq-cat-btn" onclick="filterFAQCategory('cost')">💰 Cost</button>
+<button class="faq-cat-btn" onclick="filterFAQCategory('security')">🔒 Security</button>
+<button class="faq-cat-btn" onclick="filterFAQCategory('features')">⚙️ Features</button>
+<button class="faq-cat-btn" onclick="filterFAQCategory('setup')">🚀 Setup</button>
+<button class="faq-cat-btn" onclick="filterFAQCategory('international')">🌐 International</button>
+</div>
 
 <div class="faq-group" data-category="cost">
-<div class="faq-group-title"><span>💰</span><span>Cost & Billing</span></div>
+<div class="faq-group-title"><span>💰</span><span>Cost & Pricing</span></div>
 
-<div class="faq-item-enhanced" data-keywords="ai invoicing need required">
-<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)" role="button" aria-expanded="false" tabindex="0">
-<div class="faq-question-icon"><span class="faq-emoji" aria-hidden="true">🤖</span><span>Do I really need AI for invoicing?</span></div>
-<div class="faq-toggle" aria-hidden="true">▼</div>
+<div class="faq-item-enhanced" data-keywords="ai invoicing need required worth">
+<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)">
+<div class="faq-question-icon"><span class="faq-emoji">🤖</span><span>Do I really need AI-powered invoicing software?</span></div>
+<div class="faq-toggle">▼</div>
 </div>
-<div class="faq-answer-enhanced">Yes! AI reduces admin time by ~80% and ensures you get paid faster via auto-reminders. Most freelancers save 10-15 hours per month.</div>
-</div>
-
-<div class="faq-item-enhanced" data-keywords="cost limit exceed overage">
-<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)" role="button" aria-expanded="false" tabindex="0">
-<div class="faq-question-icon"><span class="faq-emoji" aria-hidden="true">📈</span><span>What happens if I exceed my limit?</span></div>
-<div class="faq-toggle" aria-hidden="true">▼</div>
-</div>
-<div class="faq-answer-enhanced">Most tools offer smooth upgrades without hard limits. You'll get a notification and can upgrade flexibly - no sudden shutdowns.</div>
+<div class="faq-answer-enhanced">Yes! AI-powered invoicing tools reduce administrative time by 80% and help you get paid 40% faster through automated reminders. Most freelancers save 10-15 hours per month, which translates to $1,000+ in recovered billable time annually.</div>
 </div>
 
-<div class="faq-item-enhanced" data-keywords="discount student startup cheap">
-<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)" role="button" aria-expanded="false" tabindex="0">
-<div class="faq-question-icon"><span class="faq-emoji" aria-hidden="true">🎓</span><span>Are there student/startup discounts?</span></div>
-<div class="faq-toggle" aria-hidden="true">▼</div>
+<div class="faq-item-enhanced" data-keywords="free invoicing tool best budget">
+<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)">
+<div class="faq-question-icon"><span class="faq-emoji">🆓</span><span>Which invoicing tool is completely free?</span></div>
+<div class="faq-toggle">▼</div>
 </div>
-<div class="faq-answer-enhanced">Yes! Many tools (especially FreshBooks and Bonsai) offer up to 50% discount for students and early-stage startups. Just ask support.</div>
-</div>
-
-<div class="faq-item-enhanced" data-keywords="switch plan upgrade downgrade">
-<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)" role="button" aria-expanded="false" tabindex="0">
-<div class="faq-question-icon"><span class="faq-emoji" aria-hidden="true">🔄</span><span>Can I switch between plans?</span></div>
-<div class="faq-toggle" aria-hidden="true">▼</div>
-</div>
-<div class="faq-answer-enhanced">Anytime! All featured tools allow monthly switching. Upgrades are immediate, downgrades usually take effect at the next billing cycle.</div>
+<div class="faq-answer-enhanced">Wave and Zoho Invoice both offer truly free plans with unlimited invoices and clients. Wave is 100% free for basic invoicing and accounting. Zoho Invoice is free for up to 5 users with all core features included.</div>
 </div>
 
-<div class="faq-item-enhanced" data-keywords="cancel subscription data retention">
-<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)" role="button" aria-expanded="false" tabindex="0">
-<div class="faq-question-icon"><span class="faq-emoji" aria-hidden="true">❌</span><span>What happens when I cancel?</span></div>
-<div class="faq-toggle" aria-hidden="true">▼</div>
+<div class="faq-item-enhanced" data-keywords="affiliate commission transparency disclosure">
+<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)">
+<div class="faq-question-icon"><span class="faq-emoji">🤝</span><span>Do you earn commissions from these recommendations?</span></div>
+<div class="faq-toggle">▼</div>
 </div>
-<div class="faq-answer-enhanced">Your data typically remains available for 90 days for export. After that, it's deleted. Make sure to backup all invoices as PDF/CSV beforehand.</div>
-</div>
-</div>
-
-<div class="faq-group" data-category="security">
-<div class="faq-group-title"><span>🔒</span><span>Security & Privacy</span></div>
-
-<div class="faq-item-enhanced" data-keywords="security data safe encryption">
-<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)" role="button" aria-expanded="false" tabindex="0">
-<div class="faq-question-icon"><span class="faq-emoji" aria-hidden="true">🛡️</span><span>Is my customer data safe?</span></div>
-<div class="faq-toggle" aria-hidden="true">▼</div>
-</div>
-<div class="faq-answer-enhanced">Yes! All major tools use bank-level encryption (256-bit SSL). Your data is as secure as online banking.</div>
+<div class="faq-answer-enhanced">Yes, this site contains affiliate links. If you purchase through our links, we may earn a commission at no extra cost to you. We only recommend tools we've personally tested and believe provide genuine value. Our rankings are based on objective criteria - not commission rates.</div>
 </div>
 
-<div class="faq-item-enhanced" data-keywords="server location gdpr europe">
-<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)" role="button" aria-expanded="false" tabindex="0">
-<div class="faq-question-icon"><span class="faq-emoji" aria-hidden="true">🌍</span><span>Where is data stored?</span></div>
-<div class="faq-toggle" aria-hidden="true">▼</div>
-</div>
-<div class="faq-answer-enhanced">Most tools offer EU servers (GDPR compliant). Wave and FreshBooks have dedicated European data centers. Check during setup.</div>
-</div>
-
-<div class="faq-item-enhanced" data-keywords="export data portability csv pdf">
-<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)" role="button" aria-expanded="false" tabindex="0">
-<div class="faq-question-icon"><span class="faq-emoji" aria-hidden="true">💾</span><span>Can I export my data?</span></div>
-<div class="faq-toggle" aria-hidden="true">▼</div>
-</div>
-<div class="faq-answer-enhanced">Yes! All tools allow export in CSV, PDF, and often XML. You're never locked in and can switch to another system anytime.</div>
-</div>
-
-<div class="faq-item-enhanced" data-keywords="downtime server crash backup uptime">
-<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)" role="button" aria-expanded="false" tabindex="0">
-<div class="faq-question-icon"><span class="faq-emoji" aria-hidden="true">⚡</span><span>What about server downtime?</span></div>
-<div class="faq-toggle" aria-hidden="true">▼</div>
-</div>
-<div class="faq-answer-enhanced">Premium tools guarantee 99.9% uptime with automatic backups. Your invoices are redundantly stored and never lost.</div>
-</div>
 </div>
 
 <div class="faq-group" data-category="features">
-<div class="faq-group-title"><span>⚙️</span><span>Features & Functionality</span></div>
+<div class="faq-group-title"><span>⚙️</span><span>Features & Capabilities</span></div>
 
-<div class="faq-item-enhanced" data-keywords="multilingual language translation">
-<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)" role="button" aria-expanded="false" tabindex="0">
-<div class="faq-question-icon"><span class="faq-emoji" aria-hidden="true">🗣️</span><span>Can I create invoices in multiple languages?</span></div>
-<div class="faq-toggle" aria-hidden="true">▼</div>
+<div class="faq-item-enhanced" data-keywords="recurring subscription automatic invoice">
+<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)">
+<div class="faq-question-icon"><span class="faq-emoji">🔄</span><span>Can I set up recurring invoices for retainer clients?</span></div>
+<div class="faq-toggle">▼</div>
 </div>
-<div class="faq-answer-enhanced">Yes! Most tools support 15+ languages. Zoho Invoice excels here with automatic template translation.</div>
-</div>
-
-<div class="faq-item-enhanced" data-keywords="offline mobile app ios android">
-<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)" role="button" aria-expanded="false" tabindex="0">
-<div class="faq-question-icon"><span class="faq-emoji" aria-hidden="true">📱</span><span>Can I work offline?</span></div>
-<div class="faq-toggle" aria-hidden="true">▼</div>
-</div>
-<div class="faq-answer-enhanced">Yes! FreshBooks, Invoyce, and Bonsai offer native mobile apps with offline mode. Changes sync automatically when you're back online.</div>
+<div class="faq-answer-enhanced">Absolutely! All premium tools (FreshBooks, Bonsai, QuickBooks) and even free ones (Wave, Zoho) support recurring invoices. You can set monthly, quarterly, or custom schedules that automatically send invoices without manual intervention.</div>
 </div>
 
-<div class="faq-item-enhanced" data-keywords="recurring subscription invoices automatic">
-<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)" role="button" aria-expanded="false" tabindex="0">
-<div class="faq-question-icon"><span class="faq-emoji" aria-hidden="true">🔁</span><span>Can I automate recurring invoices?</span></div>
-<div class="faq-toggle" aria-hidden="true">▼</div>
+<div class="faq-item-enhanced" data-keywords="mobile app android ios smartphone">
+<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)">
+<div class="faq-question-icon"><span class="faq-emoji">📱</span><span>Can I create invoices from my smartphone?</span></div>
+<div class="faq-toggle">▼</div>
 </div>
-<div class="faq-answer-enhanced">Absolutely! Set up monthly/yearly invoices once and the system sends them automatically. Perfect for retainers and subscriptions.</div>
-</div>
+<div class="faq-answer-enhanced">Yes! All featured tools have mobile apps for iOS and Android. Invoyce is specifically built mobile-first. You can create, send, and track invoices, scan receipts, and receive payment notifications directly on your phone.</div>
 </div>
 
-<div class="faq-no-results" id="faqNoResults">
+</div>
+
+<div class="faq-group" data-category="international">
+<div class="faq-group-title"><span>🌐</span><span>International & Multi-Currency</span></div>
+
+<div class="faq-item-enhanced" data-keywords="currency international exchange rate foreign">
+<div class="faq-question-enhanced" onclick="toggleFaqEnhanced(this)">
+<div class="faq-question-icon"><span class="faq-emoji">💱</span><span>Can I invoice in multiple currencies?</span></div>
+<div class="faq-toggle">▼</div>
+</div>
+<div class="faq-answer-enhanced">Yes! Zoho Invoice, FreshBooks, and QuickBooks all support 100+ currencies with automatic exchange rate updates. This is essential for digital nomads and freelancers with international clients.</div>
+</div>
+
+</div>
+
+<div class="faq-no-results">
 <h3 style="margin-bottom:15px">🔍 No results found</h3>
-<p>Try different keywords or <span onclick="clearFAQSearch()" style="color:var(--accent);cursor:pointer;text-decoration:underline">reset your search</span></p>
+<p>Try different keywords or <span style="color:var(--accent);cursor:pointer" onclick="clearFAQSearch()">clear your search</span></p>
 </div>
 
 <div class="faq-cta-box">
 <h3>Still have questions?</h3>
-<p>Most tools offer free trials. Test them risk-free and see which fits your workflow best!</p>
-<a href="#tools-grid" style="display:inline-block;background:var(--accent);color:#0f172a;padding:12px 30px;border-radius:50px;text-decoration:none;font-weight:700;transition:all .3s">Compare Tools Now</a>
+<p>Most invoicing tools offer free trials or free plans. The best way to find your perfect fit is to test 2-3 options.</p>
+<a href="#quiz" style="display:inline-block;padding:12px 30px;background:var(--accent);color:#0f172a;border-radius:50px;text-decoration:none;font-weight:600;margin-top:10px">Take the Quick Quiz →</a>
 </div>
+</section>
+
+<section style="background:linear-gradient(135deg,rgba(59,130,246,.1),rgba(56,189,248,.1));border:1px solid rgba(56,189,248,.3);border-radius:24px;padding:50px 30px;text-align:center;margin:80px 0">
+<h2 style="font-size:1.8em;margin-bottom:20px">Ready to Automate Your Invoicing?</h2>
+<p style="color:var(--text-muted);max-width:600px;margin:0 auto 30px">Stop wasting 10+ hours per month on manual billing. Choose a tool above and start your free trial today.</p>
+<div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap">
+<a href="#quiz" style="padding:15px 35px;background:var(--accent);color:#0f172a;border-radius:50px;text-decoration:none;font-weight:700;font-size:1.1em">Find My Tool →</a>
+<a href="#comparison" style="padding:15px 35px;background:rgba(255,255,255,.05);color:#fff;border:1px solid rgba(255,255,255,.1);border-radius:50px;text-decoration:none;font-weight:700;font-size:1.1em">Compare Features</a>
 </div>
+</section>
 
 <footer>
-<p>© 2026 AI Invoicing Tools Comparison | <a href="mailto:contact@example.com">Contact</a> | <a href="/privacy">Privacy Policy</a></p>
-<p style="margin-top:10px;font-size:0.85em;opacity:0.7">Affiliate Disclaimer: We may earn a commission from tool sign-ups at no extra cost to you.</p>
+<p style="margin-bottom:15px">© 2026 Ki-Tools-Freelancer | Helping freelancers work smarter, not harder</p>
+<p style="font-size:0.85em;color:#475569;max-width:600px;margin:0 auto 20px">
+<strong>Affiliate Disclosure:</strong> This website contains affiliate links to products we recommend. We may receive a commission for purchases made through these links at no additional cost to you. We only recommend tools we've personally tested.
+</p>
+<div style="margin-top:20px">
+<a href="#main-content" style="margin:0 15px">Back to Top</a> | 
+<a href="https://github.com/Billr-AI" style="margin:0 15px">GitHub</a> | 
+<a href="#faq" style="margin:0 15px">FAQ</a>
+</div>
+<p style="margin-top:20px;font-size:0.8em;color:#475569">
+Last updated: February 2026 | All prices and features subject to change
+</p>
 </footer>
 
 </div>
 
-<!-- 🔥 SCRIPT am Ende der Seite, damit DOM sicher geladen ist -->
 <script>
-// --- Navigation Animation Helper ---
-function animateButton(btn) {
-    if(!btn) return;
-    
-    // Klasse hinzufügen für sofortige Farbe
-    btn.classList.add('clicked');
-    
-    // Nach kurzer Zeit entfernen, damit der langsame Fade-Out startet
-    setTimeout(() => {
-        btn.classList.remove('clicked');
-    }, 150); // 150ms Anzeigedauer
-}
-
-// 2. Navigation Logic
-function getSections() {
-    const elements = document.querySelectorAll('.hero, .calc-widget, .mistakes-box, .industry-section, .quiz-section, .timeline-section, .cards, .integration-section, .table-container, .faq-enhanced, footer');
-    return Array.from(elements)
-        .filter(el => el.offsetHeight > 0)
-        .sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top);
-}
-
-function scrollToTop(btn) {
-    animateButton(btn);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function scrollToNext(btn) {
-    animateButton(btn);
-    const sections = getSections();
-    const nextSection = sections.find(section => {
-        const rect = section.getBoundingClientRect();
-        return rect.top > 150; 
-    });
-
-    if (nextSection) {
-        const top = nextSection.getBoundingClientRect().top + window.scrollY - 50;
-        window.scrollTo({ top: top, behavior: 'smooth' });
-    }
-}
-
-function scrollToPrev(btn) {
-    animateButton(btn);
-    const sections = getSections();
-    const prevSection = [...sections].reverse().find(section => {
-        const rect = section.getBoundingClientRect();
-        return rect.top < -150;
-    });
-
-    if (prevSection) {
-        const top = prevSection.getBoundingClientRect().top + window.scrollY - 50;
-        window.scrollTo({ top: top, behavior: 'smooth' });
-    } else {
-        scrollToTop(null); // Kein Button-Objekt nötig beim Fallback
-    }
-}
-
-// Scroll-To-Section Helper (für die Pills)
-function scrollToSection(id) {
-    const element = document.getElementById(id);
-    if(element) {
-        element.scrollIntoView({behavior: 'smooth', block: 'start'});
-    }
-}
-
-// 3. Force Scroll to Top ON LOAD
-// Wir führen das erst aus, wenn das Dokument bereit ist.
-document.addEventListener("DOMContentLoaded", function() {
-    if ('scrollRestoration' in history) {
-        history.scrollRestoration = 'manual';
-    }
-    // Kurze Verzögerung, um sicherzustellen, dass der Browser das Layout fertig hat
-    setTimeout(function() {
-        window.scrollTo(0, 0);
-    }, 10);
-});
-
-// Calculator Update
-function updateCalc() {
-  const val = parseInt(document.getElementById('invoiceRange').value);
-  document.getElementById('invoiceCount').textContent = val;
-  const hours = Math.round(val * 2.3);
+function updateCalc(){
+  const count = document.getElementById('invoiceRange').value;
+  document.getElementById('invoiceCount').textContent = count;
+  const hours = Math.round(count * 2.4);
+  const money = Math.round(hours * 50);
   document.getElementById('hoursSaved').textContent = hours;
-  const money = hours * 75;
   document.getElementById('moneySaved').textContent = '$' + money.toLocaleString();
 }
 
-// Quiz System
-function runQuiz(type, btn) {
+function runQuiz(profile, btn){
   document.querySelectorAll('.quiz-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   
-  const rec = document.getElementById('recommendation');
-  rec.style.display = 'block';
-  
   const recommendations = {
     starter: {
-      title: '🎯 Perfect Match: Wave',
-      text: '100% free forever. No credit card needed. Unlimited invoices. Perfect for getting started without any financial commitment.',
-      link: 'https://waveapps.com/',
-      tool: 'Wave'
+      title: '✨ Wave - Perfect for Starters',
+      text: '100% free forever. Unlimited invoices and clients. Best choice when budget is tight.',
+      link: 'https://waveapps.com/'
     },
     pro: {
-      title: '🎯 Perfect Match: FreshBooks',
-      text: 'Best automation features. Auto-reminders, time tracking, and professional client portals. Scale your business efficiently.',
-      link: 'https://freshbooks.com/',
-      tool: 'FreshBooks'
+      title: '🚀 FreshBooks - Professional Standard',
+      text: 'Automated workflows, time tracking, and smart reminders. Pays for itself in saved time.',
+      link: 'https://freshbooks.com/'
     },
     nomad: {
-      title: '🎯 Perfect Match: Invoyce',
-      text: 'Mobile-first design. Create invoices from anywhere on your phone. Perfect for life on the road.',
-      link: 'https://invoyce.ai/',
-      tool: 'Invoyce'
+      title: '🌍 Zoho Invoice - Global Ready',
+      text: 'Multi-currency support and international tax features. Perfect for worldwide clients.',
+      link: 'https://go.zoho.com/IB42'
     },
     intl: {
-      title: '🎯 Perfect Match: Zoho Invoice',
-      text: 'Multi-currency support. Works in 150+ countries. GDPR compliant. Perfect for international freelancers.',
-      link: 'https://go.zoho.com/IB42',
-      tool: 'Zoho Invoice'
+      title: '💼 QuickBooks - Enterprise Power',
+      text: 'Full accounting suite with tax prep and team features. Best for scaling businesses.',
+      link: 'https://quickbooks.intuit.com/'
     }
   };
   
-  const choice = recommendations[type];
-  document.getElementById('rec-title').textContent = choice.title;
-  document.getElementById('rec-text').textContent = choice.text;
-  document.getElementById('rec-link').href = choice.link;
-  
-  setTimeout(() => {
-    rec.scrollIntoView({behavior: 'smooth', block: 'nearest'});
-  }, 100);
+  const rec = recommendations[profile];
+  document.getElementById('rec-title').textContent = rec.title;
+  document.getElementById('rec-text').textContent = rec.text;
+  document.getElementById('rec-link').href = rec.link;
+  document.getElementById('recommendation').style.display = 'block';
+  localStorage.setItem('invoicingProfile', profile);
 }
 
-// Sort Cards
-function sortCards(type) {
-  document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active-sort'));
+window.addEventListener('DOMContentLoaded', () => {
+  const saved = localStorage.getItem('invoicingProfile');
+  if(saved){
+    const btn = document.querySelector(`[onclick="runQuiz('${saved}',this)"]`);
+    if(btn) runQuiz(saved, btn);
+  }
+  updateCalc();
+});
+
+function sortCards(by){
+  const container = document.querySelector('.cards');
+  const cards = Array.from(container.querySelectorAll('.card'));
+  
+  document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active-sort'));
   event.target.classList.add('active-sort');
   
-  const grid = document.getElementById('tools-grid');
-  const cards = Array.from(grid.children);
-  
   cards.sort((a, b) => {
-    if(type === 'rating') {
+    if(by === 'rating'){
       return parseFloat(b.dataset.rating) - parseFloat(a.dataset.rating);
-    }
-    if(type === 'price') {
+    } else {
       return parseFloat(a.dataset.price) - parseFloat(b.dataset.price);
     }
-    return 0;
   });
   
-  cards.forEach(card => grid.appendChild(card));
+  cards.forEach(card => container.appendChild(card));
 }
 
-// FAQ Toggle
-function toggleFaqEnhanced(element) {
-  const item = element.closest('.faq-item-enhanced');
+function toggleFaqEnhanced(element){
+  const item = element.parentElement;
   const wasOpen = item.classList.contains('open');
   
-  document.querySelectorAll('.faq-item-enhanced').forEach(i => {
-    i.classList.remove('open');
-    const btn = i.querySelector('.faq-question-enhanced');
-    if(btn) btn.setAttribute('aria-expanded', 'false');
-  });
+  document.querySelectorAll('.faq-item-enhanced').forEach(i => i.classList.remove('open'));
   
-  if(!wasOpen) {
+  if(!wasOpen){
     item.classList.add('open');
     element.setAttribute('aria-expanded', 'true');
+  } else {
+    element.setAttribute('aria-expanded', 'false');
   }
 }
 
-// FAQ Search
-function filterFAQ() {
-  const searchTerm = document.getElementById('faqSearch').value.toLowerCase();
-  const clearIcon = document.getElementById('faqClear');
-  const noResults = document.getElementById('faqNoResults');
-  
-  clearIcon.style.display = searchTerm ? 'block' : 'none';
-  
+function filterFAQ(){
+  const query = document.getElementById('faqSearch').value.toLowerCase();
   const items = document.querySelectorAll('.faq-item-enhanced');
   let visibleCount = 0;
   
+  document.getElementById('faqClear').style.display = query ? 'block' : 'none';
+  
   items.forEach(item => {
-    const question = item.querySelector('.faq-question-icon span:last-child').textContent.toLowerCase();
+    const question = item.querySelector('.faq-question-enhanced').textContent.toLowerCase();
     const answer = item.querySelector('.faq-answer-enhanced').textContent.toLowerCase();
-    const keywords = (item.dataset.keywords || '').toLowerCase();
+    const keywords = item.dataset.keywords || '';
     
-    const matches = question.includes(searchTerm) || answer.includes(searchTerm) || keywords.includes(searchTerm);
-    
-    if(matches || searchTerm === '') {
+    if(question.includes(query) || answer.includes(query) || keywords.includes(query)){
       item.style.display = 'block';
       visibleCount++;
     } else {
@@ -742,22 +971,16 @@ function filterFAQ() {
     }
   });
   
-  if(visibleCount === 0 && searchTerm) {
-    noResults.classList.add('show');
-    document.querySelectorAll('.faq-group').forEach(g => g.style.display = 'none');
-  } else {
-    noResults.classList.remove('show');
-    document.querySelectorAll('.faq-group').forEach(g => g.style.display = 'block');
-  }
+  document.querySelector('.faq-no-results').classList.toggle('show', visibleCount === 0 && query);
 }
 
-function clearFAQSearch() {
+function clearFAQSearch(){
   document.getElementById('faqSearch').value = '';
-  document.getElementById('faqClear').style.display = 'none';
   filterFAQ();
+  document.getElementById('faqSearch').focus();
 }
 
-function filterFAQCategory(category) {
+function filterFAQCategory(category){
   document.querySelectorAll('.faq-cat-btn').forEach(btn => {
     btn.classList.remove('active');
     btn.setAttribute('aria-pressed', 'false');
@@ -767,13 +990,61 @@ function filterFAQCategory(category) {
   
   const groups = document.querySelectorAll('.faq-group');
   groups.forEach(group => {
-    if(category === 'all' || group.dataset.category === category) {
+    if(category === 'all' || group.dataset.category === category){
       group.style.display = 'block';
     } else {
       group.style.display = 'none';
     }
   });
 }
+
+let sections = [];
+
+function initSections(){
+  sections = Array.from(document.querySelectorAll('[id]')).filter(el => {
+    return el.id && !el.id.includes('nav') && !el.id.includes('btn');
+  });
+}
+
+function scrollToTop(btn){
+  animateButton(btn);
+  window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+function scrollToNext(btn){
+  animateButton(btn);
+  const currentScroll = window.pageYOffset;
+  const next = sections.find(s => s.offsetTop > currentScroll + 100);
+  if(next){
+    next.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+}
+
+function scrollToPrev(btn){
+  animateButton(btn);
+  const currentScroll = window.pageYOffset;
+  const prev = sections.reverse().find(s => s.offsetTop < currentScroll - 100);
+  sections.reverse();
+  if(prev){
+    prev.scrollIntoView({behavior: 'smooth', block: 'start'});
+  }
+}
+
+function scrollToSection(id){
+  const el = document.getElementById(id);
+  if(el) el.scrollIntoView({behavior: 'smooth', block: 'start'});
+}
+
+function animateButton(btn){
+  btn.classList.add('clicked');
+  setTimeout(() => btn.classList.remove('clicked'), 1200);
+}
+
+window.addEventListener('DOMContentLoaded', initSections);
+
+const observer = new MutationObserver(initSections);
+observer.observe(document.body, {childList: true, subtree: true});
 </script>
+
 </body>
 </html>
