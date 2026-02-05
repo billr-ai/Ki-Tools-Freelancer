@@ -97,6 +97,10 @@ body{
 .suggestion-text{flex:1;display:flex;flex-direction:column;gap:4px}
 .suggestion-name{color:var(--text-dark);font-weight:700;font-size:1rem}
 .suggestion-meta{font-size:0.85rem;color:var(--text-muted)}
+.search-tips{max-width:700px;margin:8px auto 0;text-align:center;font-size:0.85rem;color:var(--text-muted);display:flex;flex-wrap:wrap;justify-content:center;gap:8px;align-items:center;min-height:24px}
+.search-tip-item{background:rgba(59,130,246,0.08);padding:4px 12px;border-radius:20px;cursor:pointer;transition:var(--transition);border:1px solid transparent;white-space:nowrap;font-size:0.8rem}
+.search-tip-item:hover{background:rgba(59,130,246,0.15);border-color:var(--primary-light);transform:translateY(-1px)}
+.search-tips-label{color:var(--text-muted);font-size:0.8rem;margin-right:5px}
 .quick-navigation{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;max-width:1200px;margin:0 auto 30px;padding:0 20px}
 .quick-card{background:white;border-radius:var(--radius);padding:20px;transition:var(--transition);border:2px solid var(--card-border);display:flex;flex-direction:column;align-items:center;text-align:center;cursor:pointer;box-shadow:var(--shadow)}
 .quick-card:hover{transform:translateY(-5px);border-color:var(--primary);box-shadow:0 12px 25px rgba(59,130,246,0.15)}
@@ -272,8 +276,8 @@ body{
 .modal-submit{background:linear-gradient(135deg,var(--forum),var(--forum-light));color:white;border:none;padding:14px;border-radius:8px;font-weight:700;cursor:pointer;transition:var(--transition);font-size:1rem;}
 .modal-submit:hover{transform:translateY(-2px);box-shadow:0 6px 15px rgba(139,92,246,0.3);}
 
-@media (max-width:768px){.header{padding:50px 15px 15px}.header h1{font-size:1.8rem}.header p{font-size:1rem}.quick-navigation{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;padding:0 15px}.top-charts-section{padding:0 15px}.tools-container{padding:0 15px 30px}.compact-tools-header{flex-direction:column;align-items:stretch}.compact-filters{justify-content:center}.compact-tool-row{grid-template-columns:1fr;gap:12px}.tool-meta-compact{flex-direction:row;justify-content:space-between;align-items:center;min-width:auto;margin-top:10px}.tool-vote-compact{flex-direction:row;gap:15px;justify-content:center;min-width:auto;margin-bottom:10px}.forum-header{flex-direction:column;align-items:stretch;}.forum-stats{justify-content:center;}.modal-content{padding:20px;}}
-@media (max-width:480px){.header h1{font-size:1.6rem}.search-box{padding:14px 16px 14px 48px;font-size:0.95rem}.quick-navigation{grid-template-columns:1fr 1fr}.top-charts{grid-template-columns:1fr}.compact-tool-row{padding:15px}.vote-btn-compact{font-size:1.2rem}.forum-tabs{justify-content:center;}}
+@media (max-width:768px){.header{padding:50px 15px 15px}.header h1{font-size:1.8rem}.header p{font-size:1rem}.quick-navigation{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;padding:0 15px}.top-charts-section{padding:0 15px}.tools-container{padding:0 15px 30px}.compact-tools-header{flex-direction:column;align-items:stretch}.compact-filters{justify-content:center}.compact-tool-row{grid-template-columns:1fr;gap:12px}.tool-meta-compact{flex-direction:row;justify-content:space-between;align-items:center;min-width:auto;margin-top:10px}.tool-vote-compact{flex-direction:row;gap:15px;justify-content:center;min-width:auto;margin-bottom:10px}.forum-header{flex-direction:column;align-items:stretch;}.forum-stats{justify-content:center;}.search-tips{gap:6px;font-size:0.8rem;}.search-tip-item{padding:3px 10px;font-size:0.75rem;}.modal-content{padding:20px;}}
+@media (max-width:480px){.header h1{font-size:1.6rem}.search-box{padding:14px 16px 14px 48px;font-size:0.95rem}.quick-navigation{grid-template-columns:1fr 1fr}.top-charts{grid-template-columns:1fr}.compact-tool-row{padding:15px}.vote-btn-compact{font-size:1.2rem}.forum-tabs{justify-content:center;}.search-tips{flex-direction:column;gap:4px;align-items:center;}.search-tips-label{margin-right:0;margin-bottom:2px;}}
 </style>
 </head>
 <body>
@@ -322,6 +326,9 @@ body{
 <i class="fas fa-search search-icon"></i>
 <input type="text" class="search-box" id="searchInput" autocomplete="off" placeholder="What do you want to achieve with your invoicing software?">
 <div class="search-suggestions" id="searchSuggestions" role="listbox"></div>
+</div>
+<div class="search-tips" id="searchTips">
+<span class="search-tips-label" id="searchTipsLabel">Try searching for:</span>
 </div>
 </header>
 <section class="quick-navigation" id="quickNav">
@@ -752,6 +759,8 @@ const translations = {
     title: "Finde sofort dein perfektes Rechnungs-Tool",
     desc: "Echte Freelancer-Bewertungen, Top 5 Charts, intelligente Empfehlungen. Kein unnötiges Scrollen.",
     searchPlaceholder: "Was möchtest du mit deiner Rechnungssoftware erreichen?",
+    searchTipsLabel: "Versuche zu suchen nach:",
+    searchTips: ["kostenlos", "KI", "mobile", "Zeiterfassung", "international", "Automatisierung", "Verträge", "einfach"],
     navAuto: "Automatisierung",
     navAutoDesc: "Automatische Erinnerungen, wiederkehrende Rechnungen",
     navTime: "Zeiterfassung",
@@ -828,6 +837,8 @@ const translations = {
     title: "Find your perfect invoicing tool instantly",
     desc: "Real freelancer ratings, Top 5 charts, smart recommendations. No unnecessary scrolling.",
     searchPlaceholder: "What do you want to achieve with your invoicing software?",
+    searchTipsLabel: "Try searching for:",
+    searchTips: ["free", "AI", "mobile", "time tracking", "international", "automation", "contracts", "simple"],
     navAuto: "Automation",
     navAutoDesc: "Auto-reminders, recurring invoices",
     navTime: "Time Tracking",
@@ -924,6 +935,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderTopCharts();
   applyFilters();
   renderForum();
+  renderSearchTips();
 });
 
 function loadUserData() {
@@ -993,6 +1005,7 @@ function setupEvents() {
     renderTopCharts();
     applyFilters();
     renderForum();
+    renderSearchTips();
   });
 
   // Search functionality
@@ -1163,6 +1176,35 @@ function setupEvents() {
   });
   scrollBtn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
+function renderSearchTips() {
+  const tipsContainer = document.getElementById('searchTips');
+  const t = translations[lang];
+  
+  // Clear existing tips except label
+  const label = tipsContainer.querySelector('.search-tips-label');
+  tipsContainer.innerHTML = '';
+  if (label) tipsContainer.appendChild(label);
+  
+  // Get tips for current language
+  const tips = t.searchTips || [];
+  
+  // Add each tip as a clickable element
+  tips.forEach(tip => {
+    const tipElement = document.createElement('span');
+    tipElement.className = 'search-tip-item';
+    tipElement.textContent = tip;
+    tipElement.addEventListener('click', () => {
+      document.getElementById('searchInput').value = tip;
+      query = tip.toLowerCase();
+      applyFilters();
+      // Trigger input event to show suggestions
+      const event = new Event('input', { bubbles: true });
+      document.getElementById('searchInput').dispatchEvent(event);
+    });
+    tipsContainer.appendChild(tipElement);
   });
 }
 
@@ -1399,6 +1441,7 @@ function updateLang() {
   document.getElementById('pageTitle').textContent = t.title;
   document.getElementById('pageDescription').textContent = t.desc;
   document.getElementById('searchInput').placeholder = t.searchPlaceholder;
+  document.getElementById('searchTipsLabel').textContent = t.searchTipsLabel;
   document.getElementById('navAuto').textContent = t.navAuto;
   document.getElementById('navAutoDesc').textContent = t.navAutoDesc;
   document.getElementById('navTime').textContent = t.navTime;
