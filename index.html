@@ -3,47 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+<!-- CSP etwas gelockert für bessere Google-Dienste-Kompatibilität -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://google-analytics.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://google-analytics.com; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
 <title>Invoice Finder 2026 - Find Your Perfect Invoicing Tool for Freelancers</title>
 <meta name="description" content="Find your perfect invoicing tool in 2 clicks. Real freelancer reviews, Top 5 charts, intelligent recommendations for 2026.">
 <meta name="keywords" content="invoicing software freelancer, AI invoices, automated invoices, freelancer tools, free invoicing software">
 <meta name="google-site-verification" content="Wo_6LQQ8LoGlobalzVMjBHh_Z-VD3N_dFdqCZb2BYxV0" />
-<link rel="canonical" <link rel="canonical" href="https://billr-ai.github.io/Ki-Tools-Freelancer/">
+
+<!-- KORRIGIERT: Nur ein canonical Tag mit korrekter URL -->
+<link rel="canonical" href="https://billr-ai.github.io/Ki-Tools-Freelancer/">
+
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Invoice Finder 2026 - Find Your Perfect Invoicing Tool for Freelancers">
 <meta property="og:description" content="Find your perfect invoicing tool in 2 clicks. Real freelancer reviews, Top 5 charts, intelligent recommendations.">
-<meta property="og:url" content="https://billr-ai.github.io/invoice-finder/">
+<!-- KORRIGIERT: og:url auf die tatsächliche Seite -->
+<meta property="og:url" content="https://billr-ai.github.io/Ki-Tools-Freelancer/">
 <meta property="og:site_name" content="Invoice Finder">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Invoice Finder 2026">
 <meta name="twitter:description" content="Find your perfect invoicing tool in 2 clicks">
+
+<!-- Google Analytics mit erweitertem Tracking -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSC0RCF1MJ"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-  gtag('config', 'G-BSC0RCF1MJ', { anonymize_ip: true });
+  
+  // Erweitertes Google Analytics Setup
+  gtag('config', 'G-BSC0RCF1MJ', {
+    anonymize_ip: true,
+    page_title: document.title,
+    page_location: window.location.href,
+    page_path: window.location.pathname,
+    send_page_view: true
+  });
 </script>
+
+<!-- Sitemap Discovery -->
+<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- KORRIGIERT: JSON-LD mit korrekter URL -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": "Invoice Finder",
-  "url": "https://billr-ai.github.io/invoice-finder/",
+  "url": "https://billr-ai.github.io/Ki-Tools-Freelancer/",
   "description": "Find your perfect invoicing tool for freelancers in 2 clicks. Real user reviews, Top 5 charts, intelligent recommendations.",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://billr-ai.github.io/invoice-finder/?q={search_term_string}",
+    "target": "https://billr-ai.github.io/Ki-Tools-Freelancer/?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 }
 </script>
+
 <style>
+/* ... Ihr bestehender CSS-Code bleibt unverändert ... */
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
   --primary:#3b82f6;
