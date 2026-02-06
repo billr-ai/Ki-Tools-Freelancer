@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://google-analytics.com https://aqemezlbkktmtbxwqjtk.supabase.co; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://google-analytics.com https://aqemezlbkktmtbxwqjtk.supabase.co; base-uri 'self'; frame-ancestors 'none'; upgrade-insecure-requests">
+<meta http-equiv="Content-Security-Policy" content="
+  default-src 'self';
+  img-src 'self' https: data:;
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+  font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:;
+  script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://google-analytics.com https://aqemezlbkktmtbxwqjtk.supabase.co;
+  connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://google-analytics.com https://aqemezlbkktmtbxwqjtk.supabase.co;
+  base-uri 'self';
+  frame-ancestors 'none';
+  upgrade-insecure-requests">
 <title>Invoice Finder 2026 - Find Your Perfect Invoicing Tool for Freelancers</title>
 <meta name="description" content="Find your perfect invoicing tool in 2 clicks. Real freelancer reviews, Top 5 charts, intelligent recommendations for 2026.">
 <meta name="keywords" content="invoicing software freelancer, AI invoices, automated invoices, freelancer tools, free invoicing software">
@@ -205,27 +214,6 @@ body{
 .forum-reply-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
 .forum-new-post-btn{background:linear-gradient(135deg,var(--forum),var(--forum-light));color:white;border:none;padding:12px 24px;border-radius:8px;font-weight:700;cursor:pointer;transition:var(--transition);display:inline-flex;align-items:center;gap:8px;margin-top:20px;}
 .forum-new-post-btn:hover{transform:translateY(-2px);box-shadow:0 6px 15px rgba(139,92,246,0.3);}
-
-/* Tool Discussion Panel */
-.tool-discussion-panel{display:none;grid-template-columns:1fr;gap:15px;margin-top:15px;padding-top:15px;border-top:1px solid var(--card-border);}
-.tool-discussion-panel.active{display:grid;}
-.discussion-header{display:flex;align-items:center;justify-content:space-between;}
-.discussion-count{display:flex;align-items:center;gap:5px;font-size:0.9rem;color:var(--text-muted);}
-.discussion-count i{color:var(--forum);}
-.discussion-content{max-height:200px;overflow-y:auto;padding-right:10px;}
-.discussion-item{background:#f8fafc;border-radius:8px;padding:12px;margin-bottom:10px;}
-.discussion-item-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
-.discussion-author{font-weight:600;color:var(--text-dark);font-size:0.9rem;}
-.discussion-time{font-size:0.75rem;color:var(--text-muted);}
-.discussion-text{font-size:0.9rem;line-height:1.5;color:var(--text);}
-.discussion-form{display:flex;gap:10px;}
-.discussion-input{flex:1;padding:10px 14px;background:white;border:2px solid var(--card-border);border-radius:8px;font-size:0.9rem;transition:var(--transition);}
-.discussion-input:focus{outline:none;border-color:var(--forum);}
-.discussion-submit-btn{background:linear-gradient(135deg,var(--forum),var(--forum-light));color:white;border:none;padding:10px 18px;border-radius:8px;font-weight:600;cursor:pointer;transition:var(--transition);white-space:nowrap;}
-.discussion-submit-btn:hover{transform:translateY(-2px);box-shadow:0 4px 10px rgba(139,92,246,0.3);}
-.discussion-toggle-btn{background:rgba(139,92,246,0.1);color:var(--forum);border:2px solid var(--forum);padding:8px 16px;border-radius:8px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-weight:600;transition:var(--transition);font-size:0.85rem;margin-top:10px;}
-.discussion-toggle-btn:hover{background:var(--forum);color:white;}
-.discussion-toggle-btn.active{background:var(--forum);color:white;}
 
 .tools-container{max-width:1200px;margin:0 auto;padding:0 20px 50px}
 .compact-tools-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:25px;flex-wrap:wrap;gap:15px}
@@ -906,7 +894,6 @@ let invoiceTools = [
 
 // Shared Data
 let forumDiscussions = [];
-let toolComments = {};
 let userLikes = {};
 let userId = '';
 let username = '';
@@ -922,7 +909,6 @@ let forumFilter = 'all';
 let searchTimeout;
 let lastVotedToolId = null;
 let oldPositions = {};
-let openDiscussions = {};
 
 // Translations
 const translations = {
@@ -1185,22 +1171,6 @@ async function loadAllData() {
         comments: d.comments || 0,
         timestamp: d.created_at
       }));
-    }
-    
-    // Load tool comments
-    const commentsData = await supabaseFetch('tool_comments?select=*&order=created_at.desc');
-    if (commentsData) {
-      toolComments = {};
-      commentsData.forEach(comment => {
-        if (!toolComments[comment.tool_id]) {
-          toolComments[comment.tool_id] = [];
-        }
-        toolComments[comment.tool_id].push({
-          author: comment.author,
-          text: comment.comment,
-          timestamp: comment.created_at
-        });
-      });
     }
     
     // Load user likes
@@ -1628,44 +1598,6 @@ async function handleForumLike(discussionId) {
     showNotification('Fehler beim Speichern des Likes', 'error');
   }
 }
-
-// Tool Comments with Supabase
-async function handleCommentSubmit(toolId, commentText) {
-  if (!commentText.trim()) return;
-  
-  try {
-    await supabaseFetch('tool_comments', {
-      method: 'POST',
-      body: JSON.stringify({
-        tool_id: toolId,
-        author: username,
-        author_id: userId,
-        comment: commentText
-      })
-    });
-    
-    showNotification('Kommentar erfolgreich gespeichert!', 'success');
-    
-    // Reload comments
-    const commentsData = await supabaseFetch(`tool_comments?tool_id=eq.${toolId}&order=created_at.desc`);
-    if (commentsData) {
-      toolComments[toolId] = commentsData.map(comment => ({
-        author: comment.author,
-        text: comment.comment,
-        timestamp: comment.created_at
-      }));
-    }
-    
-    applyFilters();
-    return true;
-  } catch (error) {
-    console.error('Error submitting comment:', error);
-    showNotification('Fehler beim Speichern des Kommentars', 'error');
-    return false;
-  }
-}
-
-// Rest of your existing functions (setupSearchTipsScroll, renderSearchTips, openForumModal, renderForum, getTimeAgo, showSuggestions, hideSuggestions, highlight, catIcon, catName, updateLang, renderTopCharts, calculateScore, applyFilters, renderTools, resetFilters) remain the same but use the updated data structures
 
 function setupSearchTipsScroll() {
   const tipsContainer = document.getElementById('searchTips');
@@ -2160,10 +2092,6 @@ function renderTools(tools) {
   }
 
   grid.innerHTML = tools.map(tool => {
-    const comments = toolComments[tool.id] || [];
-    const isDiscussionOpen = openDiscussions[tool.id] === true;
-    const commentText = comments.length === 1 ? t.commentSingular : t.commentPlural;
-    
     return `
       <div class="compact-tool-row" data-id="${tool.id}">
         <div class="tool-vote-compact">
@@ -2194,36 +2122,6 @@ function renderTools(tools) {
           <div class="tool-price-compact">${tool.priceDisplay[lang]}</div>
           <a href="${tool.link}" class="tool-link-compact" target="_blank" rel="noopener noreferrer">${t.tryNow}</a>
         </div>
-        ${comments.length > 0 ? `
-        <div class="tool-discussion-panel ${isDiscussionOpen ? 'active' : ''}">
-          <div class="discussion-header">
-            <div class="discussion-count">
-              <i class="fas fa-comment"></i>
-              <span>${comments.length} ${commentText}</span>
-            </div>
-          </div>
-          <div class="discussion-content">
-            ${comments.map(comment => `
-              <div class="discussion-item">
-                <div class="discussion-item-header">
-                  <div class="discussion-author">${comment.author}</div>
-                  <div class="discussion-time">${comment.timestamp}</div>
-                </div>
-                <div class="discussion-text">${comment.text}</div>
-              </div>
-            `).join('')}
-          </div>
-          <div class="discussion-form">
-            <input type="text" class="discussion-input" placeholder="${t.commentPlaceholder}" id="comment-input-${tool.id}">
-            <button class="discussion-submit-btn" data-id="${tool.id}">${t.submitComment}</button>
-          </div>
-        </div>
-        <button class="discussion-toggle-btn ${isDiscussionOpen ? 'active' : ''}" data-id="${tool.id}">
-          <i class="fas fa-comment${isDiscussionOpen ? '-slash' : ''}"></i>
-          <span>${isDiscussionOpen ? t.hideDiscussion : t.viewDiscussion}</span>
-          <span>(${comments.length})</span>
-        </button>
-        ` : ''}
       </div>
     `;
   }).join('');
@@ -2233,29 +2131,6 @@ function renderTools(tools) {
       const toolId = parseInt(btn.dataset.id);
       const vote = parseInt(btn.dataset.vote);
       handleVote(toolId, vote);
-    });
-  });
-  
-  grid.querySelectorAll('.discussion-toggle-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      const toolId = parseInt(this.dataset.id);
-      openDiscussions[toolId] = !openDiscussions[toolId];
-      applyFilters();
-    });
-  });
-  
-  grid.querySelectorAll('.discussion-submit-btn').forEach(btn => {
-    btn.addEventListener('click', async function() {
-      const toolId = parseInt(this.dataset.id);
-      const input = document.getElementById(`comment-input-${toolId}`);
-      const commentText = input.value.trim();
-      
-      if (commentText) {
-        const success = await handleCommentSubmit(toolId, commentText);
-        if (success) {
-          input.value = '';
-        }
-      }
     });
   });
 }
