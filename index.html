@@ -28,19 +28,42 @@
 <meta name="twitter:title" content="Invoice Finder 2026">
 <meta name="twitter:description" content="Find your perfect invoicing tool in 2 clicks">
 
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-BSC0RCF1MJ"></script>
+<!-- Google Analytics - Wird nur nach Cookie-Zustimmung geladen -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-BSC0RCF1MJ', {
-    anonymize_ip: true,
-    page_title: document.title,
-    page_location: window.location.href,
-    page_path: window.location.pathname,
-    send_page_view: true
-  });
+  // Cookie-Präferenzen
+  window.cookiePreferences = {
+    necessary: true,
+    analytics: false,
+    functional: false,
+    marketing: false
+  };
+  
+  // Funktion zum Laden von Google Analytics nach Zustimmung
+  function loadGoogleAnalytics() {
+    if (window.cookiePreferences.analytics) {
+      // Google Analytics Script
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      
+      ga('create', 'G-BSC0RCF1MJ', 'auto');
+      ga('set', 'anonymizeIp', true);
+      ga('send', 'pageview');
+      
+      // GTM Fallback
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-BSC0RCF1MJ', {
+        anonymize_ip: true,
+        page_title: document.title,
+        page_location: window.location.href,
+        page_path: window.location.pathname,
+        send_page_view: true
+      });
+    }
+  }
 </script>
 
 <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
@@ -521,6 +544,479 @@ body{
   color: var(--text-dark);
 }
 
+/* Cookie Banner */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--dark-light);
+  color: white;
+  padding: 20px;
+  z-index: 10000;
+  box-shadow: 0 -4px 15px rgba(0,0,0,0.2);
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+
+.cookie-banner.active {
+  transform: translateY(0);
+}
+
+.cookie-banner-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cookie-banner-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.cookie-banner-text h3 {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.cookie-banner-text p {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.8);
+  line-height: 1.5;
+}
+
+.cookie-banner-text a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cookie-btn {
+  padding: 10px 24px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  font-size: 0.9rem;
+}
+
+.cookie-btn.accept-all {
+  background: var(--secondary);
+  color: white;
+}
+
+.cookie-btn.accept-necessary {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.cookie-btn.settings {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.cookie-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Cookie Settings Modal */
+.cookie-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.cookie-modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.cookie-modal-content {
+  background: white;
+  border-radius: var(--radius);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  color: var(--text);
+}
+
+.cookie-modal-overlay.active .cookie-modal-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cookie-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--card-border);
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.cookie-modal-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.cookie-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.cookie-modal-close:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+.cookie-modal-body {
+  padding: 20px;
+}
+
+.cookie-option {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--card-border);
+}
+
+.cookie-option:last-child {
+  border-bottom: none;
+}
+
+.cookie-option-info {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.cookie-option-title {
+  font-weight: 700;
+  margin-bottom: 5px;
+  color: var(--text-dark);
+}
+
+.cookie-option-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.cookie-switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.cookie-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.cookie-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: var(--transition);
+  border-radius: 34px;
+}
+
+.cookie-slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: var(--transition);
+  border-radius: 50%;
+}
+
+input:checked + .cookie-slider {
+  background-color: var(--secondary);
+}
+
+input:checked + .cookie-slider:before {
+  transform: translateX(26px);
+}
+
+input:disabled + .cookie-slider {
+  background-color: #e2e8f0;
+  cursor: not-allowed;
+}
+
+.cookie-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 25px;
+  padding-top: 20px;
+  border-top: 1px solid var(--card-border);
+}
+
+.cookie-modal-btn {
+  padding: 10px 24px;
+  border-radius: var(--radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+  font-size: 0.9rem;
+}
+
+.cookie-modal-btn.save {
+  background: var(--primary);
+  color: white;
+}
+
+.cookie-modal-btn.cancel {
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--card-border);
+}
+
+.cookie-modal-btn:hover {
+  transform: translateY(-2px);
+}
+
+/* Legal Pages Styling */
+.legal-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10002;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.legal-modal-overlay.active {
+  display: flex;
+  opacity: 1;
+}
+
+.legal-modal-content {
+  background: white;
+  border-radius: var(--radius);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.legal-modal-overlay.active .legal-modal-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.legal-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid var(--card-border);
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.legal-modal-title {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+
+.legal-modal-close {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: var(--transition);
+}
+
+.legal-modal-close:hover {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+.legal-modal-body {
+  padding: 20px;
+  color: var(--text);
+}
+
+.legal-modal-body h2 {
+  font-size: 1.2rem;
+  margin: 20px 0 10px;
+  color: var(--text-dark);
+}
+
+.legal-modal-body h3 {
+  font-size: 1.1rem;
+  margin: 15px 0 8px;
+  color: var(--text-dark);
+}
+
+.legal-modal-body p {
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+
+.legal-modal-body ul {
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+.legal-modal-body li {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.legal-modal-body a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* Privacy Badge */
+.privacy-badge {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: var(--primary);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.privacy-badge:hover {
+  transform: scale(1.1);
+  background: var(--primary-dark);
+}
+
+/* Enhanced Features */
+.ai-recommendation-badge {
+  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 8px;
+  animation: pulse 2s infinite;
+}
+
+.trending-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: 12px;
+  margin-left: 8px;
+  font-weight: 600;
+}
+
+.trending-up {
+  background: rgba(16, 185, 129, 0.1);
+  color: var(--secondary);
+}
+
+.trending-down {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+}
+
+.smart-filter-tag {
+  background: rgba(59, 130, 246, 0.1);
+  color: var(--primary);
+  padding: 4px 10px;
+  border-radius: 16px;
+  font-size: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-right: 8px;
+}
+
 /* Supabase Notification */
 .notification {
   position: fixed;
@@ -638,8 +1134,8 @@ body{
   100% { transform: rotate(360deg); }
 }
 
-@media (max-width:768px){.header{padding:50px 15px 15px}.header h1{font-size:1.8rem}.header p{font-size:1rem}.quick-navigation{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;padding:0 15px}.top-charts-section{padding:0 15px}.tools-container{padding:0 15px 30px}.compact-tools-header{flex-direction:column;align-items:stretch}.compact-filters{justify-content:center}.compact-tool-row{grid-template-columns:1fr;gap:12px}.tool-meta-compact{flex-direction:row;justify-content:space-between;align-items:center;min-width:auto;margin-top:10px}.tool-vote-compact{flex-direction:row;gap:15px;justify-content:center;min-width:auto;margin-bottom:10px}.search-tips{padding:0 2px;}.search-tip-item{padding:2px 8px;font-size:0.75rem;}.search-tips-scroll-btn{display:none !important;}.search-tips-label{font-size:0.75rem;margin-right:6px;}.sync-button{margin:10px 0 0 0;}.tool-popup-content{max-height:85vh;}}  
-@media (max-width:480px){.header h1{font-size:1.6rem}.search-box{padding:14px 16px 14px 48px;font-size:0.95rem}.quick-navigation{grid-template-columns:1fr 1fr}.top-charts{grid-template-columns:1fr}.compact-tool-row{padding:15px}.vote-btn-compact{font-size:1.2rem}.supabase-status{bottom:70px;}.tool-popup-actions{flex-direction:column;}}
+@media (max-width:768px){.header{padding:50px 15px 15px}.header h1{font-size:1.8rem}.header p{font-size:1rem}.quick-navigation{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;padding:0 15px}.top-charts-section{padding:0 15px}.tools-container{padding:0 15px 30px}.compact-tools-header{flex-direction:column;align-items:stretch}.compact-filters{justify-content:center}.compact-tool-row{grid-template-columns:1fr;gap:12px}.tool-meta-compact{flex-direction:row;justify-content:space-between;align-items:center;min-width:auto;margin-top:10px}.tool-vote-compact{flex-direction:row;gap:15px;justify-content:center;min-width:auto;margin-bottom:10px}.search-tips{padding:0 2px;}.search-tip-item{padding:2px 8px;font-size:0.75rem;}.search-tips-scroll-btn{display:none !important;}.search-tips-label{font-size:0.75rem;margin-right:6px;}.sync-button{margin:10px 0 0 0;}.tool-popup-content{max-height:85vh;}.cookie-banner-content{flex-direction:column;text-align:center;}.cookie-banner-actions{justify-content:center;}.privacy-badge{bottom:80px;}}  
+@media (max-width:480px){.header h1{font-size:1.6rem}.search-box{padding:14px 16px 14px 48px;font-size:0.95rem}.quick-navigation{grid-template-columns:1fr 1fr}.top-charts{grid-template-columns:1fr}.compact-tool-row{padding:15px}.vote-btn-compact{font-size:1.2rem}.supabase-status{bottom:70px;}.tool-popup-actions{flex-direction:column;}.cookie-btn{padding:8px 16px;}}
 </style>
 </head>
 <body>
@@ -662,24 +1158,130 @@ body{
         <i class="fas fa-times"></i>
       </button>
     </div>
-    <div class="tool-popup-body" id="popupBody">
-      <!-- Content will be inserted here by JavaScript -->
+    <div class="tool-popup-body" id="popupBody"></div>
+  </div>
+</div>
+
+<!-- Cookie Banner -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-banner-content">
+    <div class="cookie-banner-text">
+      <h3 id="cookieTitle">🍪 Cookie-Einstellungen</h3>
+      <p id="cookieText">Wir verwenden Cookies und ähnliche Technologien, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. Einige Cookies sind technisch notwendig, während andere uns helfen, die Nutzung der Website zu analysieren und zu verbessern. Sie können Ihre Einwilligung jederzeit widerrufen. Weitere Informationen finden Sie in unserer <a href="#" id="privacyLink">Datenschutzerklärung</a>.</p>
+    </div>
+    <div class="cookie-banner-actions">
+      <button class="cookie-btn settings" id="cookieSettingsBtn" type="button">Einstellungen</button>
+      <button class="cookie-btn accept-necessary" id="cookieNecessaryBtn" type="button">Nur notwendige</button>
+      <button class="cookie-btn accept-all" id="cookieAcceptAllBtn" type="button">Alle akzeptieren</button>
     </div>
   </div>
 </div>
 
+<!-- Cookie Settings Modal -->
+<div class="cookie-modal-overlay" id="cookieModal">
+  <div class="cookie-modal-content">
+    <div class="cookie-modal-header">
+      <h3 class="cookie-modal-title" id="cookieModalTitle">Cookie-Einstellungen</h3>
+      <button class="cookie-modal-close" id="cookieModalClose">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="cookie-modal-body">
+      <div class="cookie-option">
+        <div class="cookie-option-info">
+          <div class="cookie-option-title" id="cookieNecessaryTitle">Notwendige Cookies</div>
+          <div class="cookie-option-desc" id="cookieNecessaryDesc">Diese Cookies sind für die grundlegende Funktionalität der Website erforderlich und können nicht deaktiviert werden.</div>
+        </div>
+        <label class="cookie-switch">
+          <input type="checkbox" checked disabled>
+          <span class="cookie-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-option">
+        <div class="cookie-option-info">
+          <div class="cookie-option-title" id="cookieAnalyticsTitle">Analytics Cookies</div>
+          <div class="cookie-option-desc" id="cookieAnalyticsDesc">Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, indem sie Informationen anonym sammeln und melden.</div>
+        </div>
+        <label class="cookie-switch">
+          <input type="checkbox" id="analyticsCookies">
+          <span class="cookie-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-option">
+        <div class="cookie-option-info">
+          <div class="cookie-option-title" id="cookieFunctionalTitle">Funktionale Cookies</div>
+          <div class="cookie-option-desc" id="cookieFunctionalDesc">Diese Cookies ermöglichen erweiterte Funktionen wie das Speichern Ihrer Spracheinstellungen und Präferenzen.</div>
+        </div>
+        <label class="cookie-switch">
+          <input type="checkbox" id="functionalCookies">
+          <span class="cookie-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-option">
+        <div class="cookie-option-info">
+          <div class="cookie-option-title" id="cookieMarketingTitle">Marketing Cookies</div>
+          <div class="cookie-option-desc" id="cookieMarketingDesc">Diese Cookies werden verwendet, um Besuchern auf anderen Websites relevante Werbung anzuzeigen.</div>
+        </div>
+        <label class="cookie-switch">
+          <input type="checkbox" id="marketingCookies">
+          <span class="cookie-slider"></span>
+        </label>
+      </div>
+      <div class="cookie-modal-actions">
+        <button class="cookie-modal-btn cancel" id="cookieModalCancel" type="button">Abbrechen</button>
+        <button class="cookie-modal-btn save" id="cookieModalSave" type="button">Einstellungen speichern</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Privacy Policy Modal -->
+<div class="legal-modal-overlay" id="privacyModal">
+  <div class="legal-modal-content">
+    <div class="legal-modal-header">
+      <h3 class="legal-modal-title" id="privacyModalTitle">Datenschutzerklärung</h3>
+      <button class="legal-modal-close" id="privacyModalClose">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="legal-modal-body" id="privacyModalBody">
+      <!-- Content will be filled by JavaScript -->
+    </div>
+  </div>
+</div>
+
+<!-- Imprint Modal -->
+<div class="legal-modal-overlay" id="imprintModal">
+  <div class="legal-modal-content">
+    <div class="legal-modal-header">
+      <h3 class="legal-modal-title" id="imprintModalTitle">Impressum</h3>
+      <button class="legal-modal-close" id="imprintModalClose">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <div class="legal-modal-body" id="imprintModalBody">
+      <!-- Content will be filled by JavaScript -->
+    </div>
+  </div>
+</div>
+
+<!-- Privacy Badge -->
+<div class="privacy-badge" id="privacyBadge" title="Datenschutz-Einstellungen">
+  <i class="fas fa-shield-alt"></i>
+</div>
+
 <header class="header">
-<div class="badge" id="badgeText">🚀 16 Invoicing Tools for 2026</div>
-<h1 id="pageTitle">Find your perfect invoicing tool instantly</h1>
-<p id="pageDescription">Real freelancer ratings, Top 5 charts, smart recommendations. No unnecessary scrolling.</p>
+<div class="badge" id="badgeText">🚀 16 Rechnungs-Tools für 2026</div>
+<h1 id="pageTitle">Finde sofort dein perfektes Rechnungs-Tool</h1>
+<p id="pageDescription">Echte Freelancer-Bewertungen, Top 5 Charts, intelligente Empfehlungen. Kein unnötiges Scrollen.</p>
 <div class="search-container">
 <i class="fas fa-search search-icon"></i>
-<input type="text" class="search-box" id="searchInput" autocomplete="off" placeholder="What do you want to achieve with your invoicing software?">
+<input type="text" class="search-box" id="searchInput" autocomplete="off" placeholder="Was möchtest du mit deiner Rechnungssoftware erreichen?">
 <div class="search-suggestions" id="searchSuggestions" role="listbox"></div>
 </div>
 <div class="search-tips-wrapper">
 <div class="search-tips" id="searchTips">
-<span class="search-tips-label" id="searchTipsLabel">Try:</span>
+<span class="search-tips-label" id="searchTipsLabel">Suche nach:</span>
 </div>
 <button class="search-tips-scroll-btn left hidden" id="scrollLeftBtn">
 <i class="fas fa-chevron-left"></i>
@@ -692,39 +1294,39 @@ body{
 <section class="quick-navigation" id="quickNav">
 <div class="quick-card" data-usecase="automation">
 <div class="quick-icon"><i class="fas fa-robot"></i></div>
-<div class="quick-title" id="navAuto">Automation</div>
-<div class="quick-desc" id="navAutoDesc">Auto-reminders, recurring invoices</div>
+<div class="quick-title" id="navAuto">Automatisierung</div>
+<div class="quick-desc" id="navAutoDesc">Automatische Erinnerungen, wiederkehrende Rechnungen</div>
 </div>
 <div class="quick-card" data-usecase="time-tracking">
 <div class="quick-icon"><i class="fas fa-clock"></i></div>
-<div class="quick-title" id="navTime">Time Tracking</div>
-<div class="quick-desc" id="navTimeDesc">Track time & convert to invoices</div>
+<div class="quick-title" id="navTime">Zeiterfassung</div>
+<div class="quick-desc" id="navTimeDesc">Zeit tracken & direkt in Rechnungen umwandeln</div>
 </div>
 <div class="quick-card" data-usecase="international">
 <div class="quick-icon"><i class="fas fa-globe"></i></div>
 <div class="quick-title" id="navIntl">International</div>
-<div class="quick-desc" id="navIntlDesc">Multiple currencies, international taxes</div>
+<div class="quick-desc" id="navIntlDesc">Mehrere Währungen, internationale Steuern</div>
 </div>
 <div class="quick-card" data-usecase="mobile">
 <div class="quick-icon"><i class="fas fa-mobile-alt"></i></div>
 <div class="quick-title" id="navMobile">Mobile First</div>
-<div class="quick-desc" id="navMobileDesc">Create invoices on the go</div>
+<div class="quick-desc" id="navMobileDesc">Rechnungen unterwegs erstellen</div>
 </div>
 <div class="quick-card" data-usecase="contracts">
 <div class="quick-icon"><i class="fas fa-file-contract"></i></div>
-<div class="quick-title" id="navContract">Contracts</div>
-<div class="quick-desc" id="navContractDesc">Combine contracts & invoices</div>
+<div class="quick-title" id="navContract">Verträge</div>
+<div class="quick-desc" id="navContractDesc">Verträge & Rechnungen kombinieren</div>
 </div>
 <div class="quick-card" data-category="free">
 <div class="quick-icon"><i class="fas fa-gift"></i></div>
-<div class="quick-title" id="navFree">Free</div>
-<div class="quick-desc" id="navFreeDesc">Top free invoicing tools</div>
+<div class="quick-title" id="navFree">Kostenlos</div>
+<div class="quick-desc" id="navFreeDesc">Top kostenlose Rechnungs-Tools</div>
 </div>
 </section>
 <section class="top-charts-section">
 <div class="section-title">
 <i class="fas fa-trophy"></i>   
-<span id="topChartsTitle">Top 5 Invoicing Tools - Community Ranking</span>
+<span id="topChartsTitle">Top 5 Rechnungs-Tools - Community Ranking</span>
 <span class="shared-badge">LIVE</span>
 </div>
 <div class="top-charts" id="topCharts"></div>
@@ -733,7 +1335,7 @@ body{
 <section class="tools-container">
 <div class="compact-tools-header">
 <div class="compact-filters">
-<button class="filter-btn active" data-scope="all" type="button"><i class="fas fa-globe"></i> <span id="catAll">All</span></button>
+<button class="filter-btn active" data-scope="all" type="button"><i class="fas fa-globe"></i> <span id="catAll">Alle</span></button>
 <button class="filter-btn" data-category="basic" type="button"><i class="fas fa-file-invoice"></i> <span id="catBasic">Basic</span></button>
 <button class="filter-btn" data-category="advanced" type="button"><i class="fas fa-chart-line"></i> <span id="catAdvanced">Advanced</span></button>
 <button class="filter-btn" data-category="mobile" type="button"><i class="fas fa-mobile-alt"></i> <span id="catMobile">Mobile</span></button>
@@ -748,7 +1350,7 @@ body{
 <select id="sortFilter" class="filter-select"></select>
 </div>
 <button class="sync-button" id="refreshDataBtn">
-<i class="fas fa-sync-alt"></i> <span id="refreshText">Refresh</span>
+<i class="fas fa-sync-alt"></i> <span id="refreshText">Aktualisieren</span>
 </button>
 </div>
 <div class="tools-count"><span id="toolCount">16</span> <span id="toolsText">Tools</span></div>
@@ -757,9 +1359,15 @@ body{
 </section>
 
 <footer class="footer">
-<p id="footerCopy">© 2026 Invoice Finder | Community-driven invoicing tool recommendations</p>
-<p id="footerDiscl">Ratings based on user feedback (Supabase). All data is shared across all users.</p>
-<p><a href="#"><i class="fas fa-question-circle"></i> Help</a> | <a href="#"><i class="fas fa-envelope"></i> Feedback</a></p>
+<p id="footerCopy">© 2026 Invoice Finder | Community-gestützte Rechnungs-Tool Empfehlungen</p>
+<p id="footerDiscl">Bewertungen basieren auf User-Feedback (Supabase). Alle Daten werden mit allen Nutzern geteilt.</p>
+<p>
+<a href="#" id="imprintLink"><i class="fas fa-building"></i> Impressum</a> | 
+<a href="#" id="privacyFooterLink"><i class="fas fa-shield-alt"></i> Datenschutz</a> | 
+<a href="#" id="cookieSettingsLink"><i class="fas fa-cookie-bite"></i> Cookie-Einstellungen</a> |
+<a href="#"><i class="fas fa-question-circle"></i> Hilfe</a> | 
+<a href="#"><i class="fas fa-envelope"></i> Feedback</a>
+</p>
 </footer>
 
 <script>
@@ -785,7 +1393,8 @@ let invoiceTools = [
   badge:"popular",
   useCases:["automation","time-tracking","international"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"up"
 },
 {
   id:2,
@@ -803,7 +1412,8 @@ let invoiceTools = [
   badge:"popular",
   useCases:["basic","free"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"stable"
 },
 {
   id:3,
@@ -821,7 +1431,8 @@ let invoiceTools = [
   badge:"popular",
   useCases:["contracts","automation","time-tracking"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"up"
 },
 {
   id:4,
@@ -839,7 +1450,8 @@ let invoiceTools = [
   badge:"new",
   useCases:["international","automation"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"stable"
 },
 {
   id:5,
@@ -857,7 +1469,8 @@ let invoiceTools = [
   badge:"new",
   useCases:["mobile","automation"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"up"
 },
 {
   id:6,
@@ -875,7 +1488,8 @@ let invoiceTools = [
   badge:"popular",
   useCases:["advanced","international"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"stable"
 },
 {
   id:7,
@@ -893,7 +1507,8 @@ let invoiceTools = [
   badge:"new",
   useCases:["automation","basic"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"up"
 },
 {
   id:8,
@@ -911,7 +1526,8 @@ let invoiceTools = [
   badge:"free",
   useCases:["mobile","basic"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"stable"
 },
 {
   id:9,
@@ -929,7 +1545,8 @@ let invoiceTools = [
   badge:"free",
   useCases:["basic"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"down"
 },
 {
   id:10,
@@ -947,7 +1564,8 @@ let invoiceTools = [
   badge:"popular",
   useCases:["time-tracking","automation"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"stable"
 },
 {
   id:11,
@@ -965,7 +1583,8 @@ let invoiceTools = [
   badge:"free",
   useCases:["basic"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"down"
 },
 {
   id:12,
@@ -983,7 +1602,8 @@ let invoiceTools = [
   badge:"popular",
   useCases:["automation","advanced"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"stable"
 },
 {
   id:13,
@@ -1001,7 +1621,8 @@ let invoiceTools = [
   badge:"new",
   useCases:["contracts","time-tracking","automation"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"up"
 },
 {
   id:14,
@@ -1019,7 +1640,8 @@ let invoiceTools = [
   badge:"popular",
   useCases:["contracts","automation"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"stable"
 },
 {
   id:15,
@@ -1037,7 +1659,8 @@ let invoiceTools = [
   badge:"popular",
   useCases:["advanced","international"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"up"
 },
 {
   id:16,
@@ -1055,7 +1678,8 @@ let invoiceTools = [
   badge:"free",
   useCases:["basic","automation"],
   votes:0,
-  userVote:0
+  userVote:0,
+  trending:"stable"
 }
 ];
 
@@ -1073,6 +1697,14 @@ let activeUseCase = '';
 let searchTimeout;
 let lastVotedToolId = null;
 let oldPositions = {};
+
+// Cookie Preferences (globally accessible)
+window.cookiePreferences = {
+  necessary: true,
+  analytics: false,
+  functional: false,
+  marketing: false
+};
 
 // Translations
 const translations = {
@@ -1123,6 +1755,17 @@ const translations = {
     pros: "Vorteile: ",
     cons: "Nachteile: ",
     refreshText: "Aktualisieren",
+    // Cookie translations
+    cookieTitle: "🍪 Cookie-Einstellungen",
+    cookieText: "Wir verwenden Cookies und ähnliche Technologien, um Ihnen die bestmögliche Erfahrung auf unserer Website zu bieten. Einige Cookies sind technisch notwendig, während andere uns helfen, die Nutzung der Website zu analysieren und zu verbessern. Sie können Ihre Einwilligung jederzeit widerrufen.",
+    cookieNecessaryTitle: "Notwendige Cookies",
+    cookieNecessaryDesc: "Diese Cookies sind für die grundlegende Funktionalität der Website erforderlich und können nicht deaktiviert werden.",
+    cookieAnalyticsTitle: "Analytics Cookies",
+    cookieAnalyticsDesc: "Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, indem sie Informationen anonym sammeln und melden.",
+    cookieFunctionalTitle: "Funktionale Cookies",
+    cookieFunctionalDesc: "Diese Cookies ermöglichen erweiterte Funktionen wie das Speichern Ihrer Spracheinstellungen und Präferenzen.",
+    cookieMarketingTitle: "Marketing Cookies",
+    cookieMarketingDesc: "Diese Cookies werden verwendet, um Besuchern auf anderen Websites relevante Werbung anzuzeigen.",
     // Popup translations
     popupFeatures: "Features",
     popupPros: "Vorteile",
@@ -1130,7 +1773,11 @@ const translations = {
     popupUseCases: "Geeignet für",
     popupRating: "Bewertung",
     popupVotes: "Community Votes",
-    popupVisit: "Website besuchen"
+    popupVisit: "Website besuchen",
+    // Legal
+    imprint: "Impressum",
+    privacy: "Datenschutz",
+    cookieSettings: "Cookie-Einstellungen"
   },
   en: {
     badge: n => `🚀 ${n} Invoicing Tools for 2026`,
@@ -1179,6 +1826,17 @@ const translations = {
     pros: "Pros: ",
     cons: "Cons: ",
     refreshText: "Refresh",
+    // Cookie translations
+    cookieTitle: "🍪 Cookie Settings",
+    cookieText: "We use cookies and similar technologies to provide you with the best possible experience on our website. Some cookies are technically necessary, while others help us analyze and improve the use of the website. You can revoke your consent at any time.",
+    cookieNecessaryTitle: "Necessary Cookies",
+    cookieNecessaryDesc: "These cookies are required for the basic functionality of the website and cannot be disabled.",
+    cookieAnalyticsTitle: "Analytics Cookies",
+    cookieAnalyticsDesc: "These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.",
+    cookieFunctionalTitle: "Functional Cookies",
+    cookieFunctionalDesc: "These cookies enable advanced features such as saving your language settings and preferences.",
+    cookieMarketingTitle: "Marketing Cookies",
+    cookieMarketingDesc: "These cookies are used to show visitors relevant advertising on other websites.",
     // Popup translations
     popupFeatures: "Features",
     popupPros: "Pros",
@@ -1186,9 +1844,234 @@ const translations = {
     popupUseCases: "Ideal For",
     popupRating: "Rating",
     popupVotes: "Community Votes",
-    popupVisit: "Visit Website"
+    popupVisit: "Visit Website",
+    // Legal
+    imprint: "Imprint",
+    privacy: "Privacy Policy",
+    cookieSettings: "Cookie Settings"
   }
 };
+
+// Legal Content
+const legalContent = {
+  de: {
+    privacy: `
+      <h2>Datenschutzerklärung</h2>
+      
+      <h3>1. Verantwortlicher</h3>
+      <p>Max Mustermann<br>
+      Musterstraße 123<br>
+      12345 Musterstadt<br>
+      Deutschland<br>
+      E-Mail: max.mustermann@example.com</p>
+      
+      <h3>2. Erhebung und Verarbeitung personenbezogener Daten</h3>
+      <p>Bei der Nutzung unserer Website erheben wir nur personenbezogene Daten, die technisch notwendig sind, um die Funktionalität der Website zu gewährleisten. Hierzu gehören:</p>
+      <ul>
+        <li>IP-Adresse (anonymisiert)</li>
+        <li>Datum und Uhrzeit des Zugriffs</li>
+        <li>Verwendeter Browser und Betriebssystem</li>
+        <li>Ihre Cookie-Präferenzen</li>
+      </ul>
+      
+      <h3>3. Cookies und Tracking-Technologien</h3>
+      <p>Wir verwenden folgende Arten von Cookies:</p>
+      <ul>
+        <li><strong>Notwendige Cookies:</strong> Für die grundlegende Funktionalität der Website erforderlich</li>
+        <li><strong>Analytics Cookies:</strong> Zur Analyse der Nutzung unserer Website (Google Analytics)</li>
+        <li><strong>Funktionale Cookies:</strong> Zum Speichern Ihrer Einstellungen und Präferenzen</li>
+      </ul>
+      
+      <h3>4. Google Analytics</h3>
+      <p>Diese Website verwendet Google Analytics, einen Webanalysedienst der Google LLC. Die durch das Cookie erzeugten Informationen über Ihre Benutzung dieser Website werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Wir verwenden die Funktion "IP-Anonymisierung". Ihre IP-Adresse wird von Google innerhalb von Mitgliedstaaten der Europäischen Union oder in anderen Vertragsstaaten des Abkommens über den Europäischen Wirtschaftsraum zuvor gekürzt.</p>
+      
+      <h3>5. Supabase</h3>
+      <p>Für die Speicherung von Tool-Bewertungen verwenden wir Supabase, einen cloudbasierten Backend-Service. Die gespeicherten Daten (Tool-ID, Bewertungswert) enthalten keine personenbezogenen Informationen und sind anonymisiert.</p>
+      
+      <h3>6. Ihre Rechte</h3>
+      <p>Sie haben das Recht auf:</p>
+      <ul>
+        <li>Auskunft über Ihre gespeicherten Daten</li>
+        <li>Berichtigung unrichtiger Daten</li>
+        <li>Löschung Ihrer Daten</li>
+        <li>Einschränkung der Verarbeitung</li>
+        <li>Widerspruch gegen die Verarbeitung</li>
+        <li>Datenübertragbarkeit</li>
+      </ul>
+      
+      <h3>7. Kontakt</h3>
+      <p>Für Fragen zum Datenschutz kontaktieren Sie uns bitte unter: max.mustermann@example.com</p>
+      
+      <p><em>Stand: Februar 2026</em></p>
+    `,
+    imprint: `
+      <h2>Impressum</h2>
+      
+      <h3>Angaben gemäß § 5 TMG</h3>
+      <p>Max Mustermann<br>
+      Musterstraße 123<br>
+      12345 Musterstadt</p>
+      
+      <h3>Kontakt</h3>
+      <p>Telefon: +49 (0) 123 4567890<br>
+      E-Mail: max.mustermann@example.com</p>
+      
+      <h3>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
+      <p>Max Mustermann<br>
+      Musterstraße 123<br>
+      12345 Musterstadt</p>
+      
+      <h3>Haftungsausschluss</h3>
+      
+      <h4>Haftung für Inhalte</h4>
+      <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+      
+      <h4>Haftung für Links</h4>
+      <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+      
+      <h4>Urheberrecht</h4>
+      <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+      
+      <p><em>Stand: Februar 2026</em></p>
+    `
+  },
+  en: {
+    privacy: `
+      <h2>Privacy Policy</h2>
+      
+      <h3>1. Controller</h3>
+      <p>Max Mustermann<br>
+      123 Sample Street<br>
+      12345 Sample City<br>
+      Germany<br>
+      Email: max.mustermann@example.com</p>
+      
+      <h3>2. Collection and Processing of Personal Data</h3>
+      <p>When using our website, we only collect personal data that is technically necessary to ensure the functionality of the website. This includes:</p>
+      <ul>
+        <li>IP address (anonymized)</li>
+        <li>Date and time of access</li>
+        <li>Browser and operating system used</li>
+        <li>Your cookie preferences</li>
+      </ul>
+      
+      <h3>3. Cookies and Tracking Technologies</h3>
+      <p>We use the following types of cookies:</p>
+      <ul>
+        <li><strong>Necessary cookies:</strong> Required for basic website functionality</li>
+        <li><strong>Analytics cookies:</strong> For analyzing the use of our website (Google Analytics)</li>
+        <li><strong>Functional cookies:</strong> For saving your settings and preferences</li>
+      </ul>
+      
+      <h3>4. Google Analytics</h3>
+      <p>This website uses Google Analytics, a web analytics service provided by Google LLC. The information generated by the cookie about your use of this website is usually transmitted to and stored by Google on servers in the United States. We use the "IP anonymization" feature. Your IP address will be truncated by Google within member states of the European Union or other parties to the Agreement on the European Economic Area.</p>
+      
+      <h3>5. Supabase</h3>
+      <p>For storing tool ratings, we use Supabase, a cloud-based backend service. The stored data (tool ID, rating value) does not contain any personal information and is anonymized.</p>
+      
+      <h3>6. Your Rights</h3>
+      <p>You have the right to:</p>
+      <ul>
+        <li>Information about your stored data</li>
+        <li>Correction of incorrect data</li>
+        <li>Deletion of your data</li>
+        <li>Restriction of processing</li>
+        <li>Objection to processing</li>
+        <li>Data portability</li>
+      </ul>
+      
+      <h3>7. Contact</h3>
+      <p>For questions regarding data protection, please contact us at: max.mustermann@example.com</p>
+      
+      <p><em>As of: February 2026</em></p>
+    `,
+    imprint: `
+      <h2>Imprint</h2>
+      
+      <h3>Information according to § 5 TMG</h3>
+      <p>Max Mustermann<br>
+      123 Sample Street<br>
+      12345 Sample City</p>
+      
+      <h3>Contact</h3>
+      <p>Phone: +49 (0) 123 4567890<br>
+      Email: max.mustermann@example.com</p>
+      
+      <h3>Responsible for content according to § 55 Abs. 2 RStV</h3>
+      <p>Max Mustermann<br>
+      123 Sample Street<br>
+      12345 Sample City</p>
+      
+      <h3>Disclaimer</h3>
+      
+      <h4>Liability for Content</h4>
+      <p>As a service provider, we are responsible for our own content on these pages according to § 7 para.1 TMG. According to §§ 8 to 10 TMG, however, we as a service provider are not obliged to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity.</p>
+      
+      <h4>Liability for Links</h4>
+      <p>Our offer contains links to external third-party websites over whose content we have no influence. The content of the linked pages is always the responsibility of the respective provider or operator of the pages.</p>
+      
+      <h4>Copyright</h4>
+      <p>The content and works created by the site operators on these pages are subject to German copyright law. Reproduction, processing, distribution and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator.</p>
+      
+      <p><em>As of: February 2026</em></p>
+    `
+  }
+};
+
+// Cookie Management Functions
+function loadCookiePreferences() {
+  const savedPrefs = localStorage.getItem('cookiePreferences');
+  if (savedPrefs) {
+    try {
+      window.cookiePreferences = JSON.parse(savedPrefs);
+    } catch (e) {
+      console.error('Error parsing cookie preferences:', e);
+    }
+  }
+  
+  // Update UI based on preferences
+  updateCookieUI();
+  
+  // Load Google Analytics if analytics cookies are accepted
+  if (window.cookiePreferences.analytics) {
+    loadGoogleAnalytics();
+  }
+}
+
+function saveCookiePreferences() {
+  localStorage.setItem('cookiePreferences', JSON.stringify(window.cookiePreferences));
+  updateCookieUI();
+  
+  // Apply analytics based on preferences
+  if (window.cookiePreferences.analytics) {
+    loadGoogleAnalytics();
+  }
+  
+  showNotification('Cookie-Einstellungen wurden gespeichert.', 'success');
+}
+
+function showCookieBanner() {
+  const banner = document.getElementById('cookieBanner');
+  const cookieSet = localStorage.getItem('cookiePreferences');
+  
+  if (!cookieSet) {
+    setTimeout(() => {
+      banner.classList.add('active');
+    }, 1000);
+  }
+}
+
+function hideCookieBanner() {
+  const banner = document.getElementById('cookieBanner');
+  banner.classList.remove('active');
+}
+
+function updateCookieUI() {
+  // Update switches in cookie modal
+  document.getElementById('analyticsCookies').checked = window.cookiePreferences.analytics;
+  document.getElementById('functionalCookies').checked = window.cookiePreferences.functional;
+  document.getElementById('marketingCookies').checked = window.cookiePreferences.marketing;
+}
 
 // Tool Detail Popup Functions
 function openToolPopup(toolId) {
@@ -1209,6 +2092,10 @@ function openToolPopup(toolId) {
         <i class="fas fa-star"></i>
         ${tool.rating}/5
       </span>
+      ${tool.trending ? `<span class="trending-indicator trending-${tool.trending}">
+        <i class="fas fa-${tool.trending === 'up' ? 'arrow-up' : tool.trending === 'down' ? 'arrow-down' : 'minus'}"></i>
+        ${tool.trending === 'up' ? 'Trending' : tool.trending === 'down' ? 'Falling' : 'Stable'}
+      </span>` : ''}
     </div>
     
     <div class="tool-popup-section">
@@ -1284,14 +2171,6 @@ function openToolPopup(toolId) {
   const popup = document.getElementById('toolPopup');
   popup.classList.add('active');
   document.body.style.overflow = 'hidden';
-  
-  // Add event listeners for popup voting buttons
-  const voteButtons = document.querySelectorAll('.tool-popup-votes');
-  voteButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // You could add voting functionality here if needed
-    });
-  });
 }
 
 function closeToolPopup() {
@@ -1419,6 +2298,9 @@ function updateStatusIndicator(online) {
 
 // Initialize
 document.addEventListener('DOMContentLoaded', async () => {
+  // Load cookie preferences first
+  loadCookiePreferences();
+  
   await initializeUser();
   await loadAllData();
   setupEvents();
@@ -1427,6 +2309,9 @@ document.addEventListener('DOMContentLoaded', async () => {
   applyFilters();
   renderSearchTips();
   setupSearchTipsScroll();
+  
+  // Show cookie banner if no preferences set
+  showCookieBanner();
     
   // Auto-refresh every 30 seconds
   setInterval(async () => {
@@ -1585,6 +2470,112 @@ function setupEvents() {
       closeToolPopup();
     }
   });
+  
+  // Cookie Banner Events
+  document.getElementById('cookieAcceptAllBtn').addEventListener('click', () => {
+    window.cookiePreferences = {
+      necessary: true,
+      analytics: true,
+      functional: true,
+      marketing: true
+    };
+    saveCookiePreferences();
+    hideCookieBanner();
+  });
+  
+  document.getElementById('cookieNecessaryBtn').addEventListener('click', () => {
+    window.cookiePreferences = {
+      necessary: true,
+      analytics: false,
+      functional: false,
+      marketing: false
+    };
+    saveCookiePreferences();
+    hideCookieBanner();
+  });
+  
+  document.getElementById('cookieSettingsBtn').addEventListener('click', () => {
+    openCookieModal();
+  });
+  
+  // Cookie Modal Events
+  document.getElementById('cookieModalClose').addEventListener('click', closeCookieModal);
+  document.getElementById('cookieModalCancel').addEventListener('click', closeCookieModal);
+  document.getElementById('cookieModalSave').addEventListener('click', () => {
+    window.cookiePreferences.analytics = document.getElementById('analyticsCookies').checked;
+    window.cookiePreferences.functional = document.getElementById('functionalCookies').checked;
+    window.cookiePreferences.marketing = document.getElementById('marketingCookies').checked;
+    saveCookiePreferences();
+    closeCookieModal();
+    hideCookieBanner();
+  });
+  
+  // Legal Modal Events
+  document.getElementById('privacyModalClose').addEventListener('click', () => {
+    document.getElementById('privacyModal').classList.remove('active');
+    document.body.style.overflow = 'auto';
+  });
+  
+  document.getElementById('imprintModalClose').addEventListener('click', () => {
+    document.getElementById('imprintModal').classList.remove('active');
+    document.body.style.overflow = 'auto';
+  });
+  
+  // Legal Links
+  document.getElementById('privacyLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    openPrivacyModal();
+  });
+  
+  document.getElementById('privacyFooterLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    openPrivacyModal();
+  });
+  
+  document.getElementById('imprintLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    openImprintModal();
+  });
+  
+  document.getElementById('cookieSettingsLink').addEventListener('click', (e) => {
+    e.preventDefault();
+    openCookieModal();
+  });
+  
+  // Privacy Badge
+  document.getElementById('privacyBadge').addEventListener('click', () => {
+    openCookieModal();
+  });
+}
+
+// Cookie Modal Functions
+function openCookieModal() {
+  const modal = document.getElementById('cookieModal');
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCookieModal() {
+  const modal = document.getElementById('cookieModal');
+  modal.classList.remove('active');
+  document.body.style.overflow = 'auto';
+}
+
+// Legal Modal Functions
+function openPrivacyModal() {
+  const modal = document.getElementById('privacyModal');
+  const body = document.getElementById('privacyModalBody');
+  body.innerHTML = legalContent[lang].privacy;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function openImprintModal() {
+  const modal = document.getElementById('imprintModal');
+  const body = document.getElementById('imprintModalBody');
+  body.innerHTML = legalContent[lang].imprint;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
 
 // Voting System with Supabase
@@ -1860,6 +2851,25 @@ function updateLang() {
   document.getElementById('footerCopy').textContent = t.footerCopy;
   document.getElementById('footerDiscl').textContent = t.footerDiscl;
   document.getElementById('refreshText').textContent = t.refreshText;
+  
+  // Cookie translations
+  document.getElementById('cookieTitle').textContent = t.cookieTitle;
+  document.getElementById('cookieText').innerHTML = t.cookieText + ' Weitere Informationen finden Sie in unserer <a href="#" id="privacyLink">' + t.privacy + '</a>.';
+  document.getElementById('cookieModalTitle').textContent = t.cookieSettings;
+  document.getElementById('cookieNecessaryTitle').textContent = t.cookieNecessaryTitle;
+  document.getElementById('cookieNecessaryDesc').textContent = t.cookieNecessaryDesc;
+  document.getElementById('cookieAnalyticsTitle').textContent = t.cookieAnalyticsTitle;
+  document.getElementById('cookieAnalyticsDesc').textContent = t.cookieAnalyticsDesc;
+  document.getElementById('cookieFunctionalTitle').textContent = t.cookieFunctionalTitle;
+  document.getElementById('cookieFunctionalDesc').textContent = t.cookieFunctionalDesc;
+  document.getElementById('cookieMarketingTitle').textContent = t.cookieMarketingTitle;
+  document.getElementById('cookieMarketingDesc').textContent = t.cookieMarketingDesc;
+  
+  // Update legal links
+  document.getElementById('privacyLink').textContent = t.privacy;
+  document.getElementById('privacyFooterLink').textContent = t.privacy;
+  document.getElementById('imprintLink').textContent = t.imprint;
+  document.getElementById('cookieSettingsLink').textContent = t.cookieSettings;
 
   const pf = document.getElementById('priceFilter');
   pf.innerHTML = `
@@ -1920,7 +2930,7 @@ function renderTopCharts() {
           <span class="vote-count-display">${tool.votes}</span>
         </div>
       </div>
-      <div class="chart-tool-name">${tool.name}</div>
+      <div class="chart-tool-name">${tool.name} ${tool.trending === 'up' ? '<span class="trending-indicator trending-up"><i class="fas fa-arrow-up"></i> Trending</span>' : tool.trending === 'down' ? '<span class="trending-indicator trending-down"><i class="fas fa-arrow-down"></i> Falling</span>' : ''}</div>
       <div class="chart-category">${catName(tool.category)}</div>
       <div class="chart-price">${tool.priceDisplay[lang]}</div>
       <div class="chart-description">${tool.detailedDescription ? tool.detailedDescription[lang] : tool.description[lang]}</div>
@@ -2026,6 +3036,7 @@ function renderTools(tools) {
           <div class="tool-name-row">
             <div class="tool-name-compact">${tool.name}</div>
             <div class="tool-category-compact">${catName(tool.category)}</div>
+            ${tool.trending === 'up' ? '<span class="trending-indicator trending-up"><i class="fas fa-arrow-up"></i></span>' : tool.trending === 'down' ? '<span class="trending-indicator trending-down"><i class="fas fa-arrow-down"></i></span>' : ''}
           </div>
           <div class="tool-desc-compact">${tool.detailedDescription ? tool.detailedDescription[lang] : tool.description[lang]}</div>
           ${tool.pros ? `
