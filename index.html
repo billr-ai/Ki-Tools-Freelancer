@@ -4,14 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Security-Policy" content="
-  default-src 'self';
-  img-src 'self' https: data:;
-  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com;
-  font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com data:;
-  script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://google-analytics.com https://aqemezlbkktmtbxwqjtk.supabase.co;
-  connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com https://google-analytics.com https://aqemezlbkktmtbxwqjtk.supabase.co;
-  base-uri 'self';
-  frame-ancestors 'none';
+  default-src "self";
+  img-src "self" https: data:;
+  style-src "self" "unsafe-inline" https://fonts.googleapis.com https://cdnjs.cloudflare.com;
+  font-src "self" https://fonts.gstatic.com https://cdnjs.cloudflare.com data:;
+  script-src "self" "unsafe-inline" https://www.googletagmanager.com https://www.google-analytics.com https://google-analytics.com https://aqemezlbkktmtbxwqjtk.supabase.co;
+  connect-src "self" https://www.google-analytics.com https://www.googletagmanager.com https://google-analytics.com https://aqemezlbkktmtbxwqjtk.supabase.co;
+  base-uri "self";
+  frame-ancestors "none";
   upgrade-insecure-requests">
 <title>Invoice Finder 2026 - Find Your Perfect Invoicing Tool for Freelancers</title>
 <meta name="description" content="Find your perfect invoicing tool in 2 clicks. Real freelancer reviews, Top 5 charts, intelligent recommendations for 2026.">
@@ -42,20 +42,20 @@
   function loadGoogleAnalytics() {
     if (window.cookiePreferences.analytics) {
       // Google Analytics Script
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (function(i,s,o,g,r,a,m){i["GoogleAnalyticsObject"]=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      })(window,document,"script","https://www.google-analytics.com/analytics.js","ga");
       
-      ga('create', 'G-BSC0RCF1MJ', 'auto');
-      ga('set', 'anonymizeIp', true);
-      ga('send', 'pageview');
+      ga("create", "G-BSC0RCF1MJ", "auto");
+      ga("set", "anonymizeIp", true);
+      ga("send", "pageview");
       
       // GTM Fallback
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BSC0RCF1MJ', {
+      gtag("js", new Date());
+      gtag("config", "G-BSC0RCF1MJ", {
         anonymize_ip: true,
         page_title: document.title,
         page_location: window.location.href,
@@ -113,7 +113,7 @@
   --fast-transition:all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
 }
 body{
-  font-family:'Inter',sans-serif;
+  font-family:"Inter",sans-serif;
   background:linear-gradient(135deg,#f1f5f9 0%,#e2e8f0 100%);
   color:var(--text);
   min-height:100vh;
@@ -278,7 +278,7 @@ body.dark-mode .dark-mode-toggle {
 .filter-select{padding:10px 35px 10px 15px;background:white;border:2px solid var(--card-border);border-radius=8px;color:var(--text);font-size=0.9rem;transition:var(--fast-transition);cursor:pointer;appearance:none;min-width:160px;font-weight=600}
 .filter-select:focus{outline:none;border-color:var(--primary)}
 .filter-group{position:relative}
-.filter-group::after{content:'▼';position:absolute;right=15px;top:50%;transform:translateY(-50%);color:var(--primary);pointer-events:none;font-size=0.7rem}
+.filter-group::after{content:"▼";position:absolute;right=15px;top:50%;transform:translateY(-50%);color:var(--primary);pointer-events:none;font-size=0.7rem}
 .tools-count{font-size=1rem;color:var(--text-muted)}
 .tools-count span{color:var(--primary);font-weight=800}
 .compact-tools-grid{display:grid;grid-template-columns:1fr;gap:12px}
@@ -1579,8 +1579,8 @@ body.dark-mode .notification.info {
 
 <script>
 // Supabase Konfiguration
-const SUPABASE_URL = 'https://aqemezlbkktmtbxwqjtk.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_lqM39_8HE_4I_vAi5-4iKA_2jKZZbkH';
+const SUPABASE_URL = "https://aqemezlbkktmtbxwqjtk.supabase.co";
+const SUPABASE_ANON_KEY = "sb_publishable_lqM39_8HE_4I_vAi5-4iKA_2jKZZbkH";
 
 // Invoice Tools Database - ALL 16 TOOLS
 let invoiceTools = [
@@ -1892,15 +1892,15 @@ let invoiceTools = [
 
 // Shared Data
 let userLikes = {};
-let userId = '';
+let userId = "";
 
 // App State
-let lang = 'de';
-let cat = 'all';
-let price = 'all';
-let sort = 'votes';
-let query = '';
-let activeUseCase = '';
+let lang = "de";
+let cat = "all";
+let price = "all";
+let sort = "votes";
+let query = "";
+let activeUseCase = "";
 let searchTimeout;
 let lastVotedToolId = null;
 let oldPositions = {};
@@ -2179,7 +2179,7 @@ const legalContent = {
       <h3>2. Hosting by GitHub Pages</h3>
       <p>We host our website on <strong>GitHub Pages</strong>. The provider is GitHub Inc., 88 Colin P Kelly Jr St, San Francisco, CA 94107, USA (hereinafter "GitHub").</p>
       <p>When you visit our website, GitHub collects your IP address and technical information (log files) to ensure the security and delivery of the website. The use of GitHub Pages is based on Art. 6 para. 1 lit. f GDPR. We have a legitimate interest in the most reliable presentation of our website.</p>
-      <p>The data transfer to the USA is based on the standard contractual clauses of the EU Commission. For more details, please refer to GitHub's privacy policy: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement</a>.</p>
+      <p>The data transfer to the USA is based on the standard contractual clauses of the EU Commission. For more details, please refer to GitHub"s privacy policy: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement</a>.</p>
       
       <h3>3. Collection and Processing of Personal Data</h3>
       <p>When using our website, we only collect personal data that is technically necessary to ensure the functionality of the website. This includes:</p>
@@ -2267,12 +2267,12 @@ const legalContent = {
 
 // Cookie Management Functions
 function loadCookiePreferences() {
-  const savedPrefs = localStorage.getItem('cookiePreferences');
+  const savedPrefs = localStorage.getItem("cookiePreferences");
   if (savedPrefs) {
     try {
       window.cookiePreferences = JSON.parse(savedPrefs);
     } catch (e) {
-      console.error('Error parsing cookie preferences:', e);
+      console.error("Error parsing cookie preferences:", e);
     }
   }
   
@@ -2286,7 +2286,7 @@ function loadCookiePreferences() {
 }
 
 function saveCookiePreferences() {
-  localStorage.setItem('cookiePreferences', JSON.stringify(window.cookiePreferences));
+  localStorage.setItem("cookiePreferences", JSON.stringify(window.cookiePreferences));
   updateCookieUI();
   
   // Apply analytics based on preferences
@@ -2294,30 +2294,30 @@ function saveCookiePreferences() {
     loadGoogleAnalytics();
   }
   
-  showNotification('✓', 'success');
+  showNotification("✓", "success");
 }
 
 function showCookieBanner() {
-  const banner = document.getElementById('cookieBanner');
-  const cookieSet = localStorage.getItem('cookiePreferences');
+  const banner = document.getElementById("cookieBanner");
+  const cookieSet = localStorage.getItem("cookiePreferences");
   
   if (!cookieSet) {
     setTimeout(() => {
-      banner.classList.add('active');
+      banner.classList.add("active");
     }, 1000);
   }
 }
 
 function hideCookieBanner() {
-  const banner = document.getElementById('cookieBanner');
-  banner.classList.remove('active');
+  const banner = document.getElementById("cookieBanner");
+  banner.classList.remove("active");
 }
 
 function updateCookieUI() {
   // Update switches in cookie modal
-  document.getElementById('analyticsCookies').checked = window.cookiePreferences.analytics;
-  document.getElementById('functionalCookies').checked = window.cookiePreferences.functional;
-  document.getElementById('marketingCookies').checked = window.cookiePreferences.marketing;
+  document.getElementById("analyticsCookies").checked = window.cookiePreferences.analytics;
+  document.getElementById("functionalCookies").checked = window.cookiePreferences.functional;
+  document.getElementById("marketingCookies").checked = window.cookiePreferences.marketing;
 }
 
 // Tool Detail Popup Functions
@@ -2328,7 +2328,7 @@ function openToolPopup(toolId) {
   const t = translations[lang];
   
   // Set title
-  document.getElementById('popupTitle').textContent = tool.name;
+  document.getElementById("popupTitle").textContent = tool.name;
   
   // Build popup content
   let content = `
@@ -2340,20 +2340,20 @@ function openToolPopup(toolId) {
         ${tool.rating}/5
       </span>
       ${tool.trending ? `<span class="trending-indicator trending-${tool.trending}">
-        <i class="fas fa-${tool.trending === 'up' ? 'arrow-up' : tool.trending === 'down' ? 'arrow-down' : 'minus'}"></i>
-        ${tool.trending === 'up' ? 'Trending' : tool.trending === 'down' ? 'Falling' : 'Stable'}
-      </span>` : ''}
+        <i class="fas fa-${tool.trending === "up" ? "arrow-up" : tool.trending === "down" ? "arrow-down" : "minus"}"></i>
+        ${tool.trending === "up" ? "Trending" : tool.trending === "down" ? "Falling" : "Stable"}
+      </span>` : ""}
     </div>
     
     <div class="tool-popup-section">
-      <h3><i class="fas fa-info-circle"></i> ${lang === 'de' ? 'Beschreibung' : 'Description'}</h3>
+      <h3><i class="fas fa-info-circle"></i> ${lang === "de" ? "Beschreibung" : "Description"}</h3>
       <p class="tool-popup-description">${tool.detailedDescription ? tool.detailedDescription[lang] : tool.description[lang]}</p>
     </div>
     
     <div class="tool-popup-section">
       <h3><i class="fas fa-list-check"></i> ${t.popupFeatures}</h3>
       <div class="tool-popup-features">
-        ${tool.features.map(feature => `<span class="tool-popup-feature">${feature}</span>`).join('')}
+        ${tool.features.map(feature => `<span class="tool-popup-feature">${feature}</span>`).join("")}
       </div>
     </div>
     
@@ -2361,14 +2361,14 @@ function openToolPopup(toolId) {
       <div class="tool-popup-pros">
         <h4><i class="fas fa-thumbs-up"></i> ${t.popupPros}</h4>
         <ul>
-          ${tool.pros[lang].map(pro => `<li>${pro}</li>`).join('')}
+          ${tool.pros[lang].map(pro => `<li>${pro}</li>`).join("")}
         </ul>
       </div>
       
       <div class="tool-popup-cons">
         <h4><i class="fas fa-thumbs-down"></i> ${t.popupCons}</h4>
         <ul>
-          ${tool.cons[lang].map(con => `<li>${con}</li>`).join('')}
+          ${tool.cons[lang].map(con => `<li>${con}</li>`).join("")}
         </ul>
       </div>
     </div>
@@ -2377,21 +2377,21 @@ function openToolPopup(toolId) {
   // Add use cases if available
   if (tool.useCases && tool.useCases.length > 0) {
     const useCaseNames = {
-      'automation': lang === 'de' ? 'Automatisierung' : 'Automation',
-      'time-tracking': lang === 'de' ? 'Zeiterfassung' : 'Time Tracking',
-      'international': lang === 'de' ? 'International' : 'International',
-      'mobile': lang === 'de' ? 'Mobile' : 'Mobile',
-      'contracts': lang === 'de' ? 'Verträge' : 'Contracts',
-      'basic': lang === 'de' ? 'Basic' : 'Basic',
-      'free': lang === 'de' ? 'Kostenlos' : 'Free',
-      'advanced': lang === 'de' ? 'Advanced' : 'Advanced'
+      "automation": lang === "de" ? "Automatisierung" : "Automation",
+      "time-tracking": lang === "de" ? "Zeiterfassung" : "Time Tracking",
+      "international": lang === "de" ? "International" : "International",
+      "mobile": lang === "de" ? "Mobile" : "Mobile",
+      "contracts": lang === "de" ? "Verträge" : "Contracts",
+      "basic": lang === "de" ? "Basic" : "Basic",
+      "free": lang === "de" ? "Kostenlos" : "Free",
+      "advanced": lang === "de" ? "Advanced" : "Advanced"
     };
     
     content += `
       <div class="tool-popup-section">
         <h3><i class="fas fa-bullseye"></i> ${t.popupUseCases}</h3>
         <div class="tool-popup-use-cases">
-          ${tool.useCases.map(useCase => `<span class="tool-popup-use-case">${useCaseNames[useCase] || useCase}</span>`).join('')}
+          ${tool.useCases.map(useCase => `<span class="tool-popup-use-case">${useCaseNames[useCase] || useCase}</span>`).join("")}
         </div>
       </div>
     `;
@@ -2412,26 +2412,26 @@ function openToolPopup(toolId) {
   `;
   
   // Set content
-  document.getElementById('popupBody').innerHTML = content;
+  document.getElementById("popupBody").innerHTML = content;
   
   // Show popup
-  const popup = document.getElementById('toolPopup');
-  popup.classList.add('active');
-  document.body.style.overflow = 'hidden';
+  const popup = document.getElementById("toolPopup");
+  popup.classList.add("active");
+  document.body.style.overflow = "hidden";
 }
 
 function closeToolPopup() {
-  const popup = document.getElementById('toolPopup');
-  popup.classList.remove('active');
-  document.body.style.overflow = 'auto';
+  const popup = document.getElementById("toolPopup");
+  popup.classList.remove("active");
+  document.body.style.overflow = "auto";
 }
 
 // Supabase Helper Functions
 async function supabaseFetch(endpoint, options = {}) {
   const headers = {
-    'apikey': SUPABASE_ANON_KEY,
-    'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
-    'Content-Type': 'application/json',
+    "apikey": SUPABASE_ANON_KEY,
+    "Authorization": `Bearer ${SUPABASE_ANON_KEY}`,
+    "Content-Type": "application/json",
     ...options.headers
   };
     
@@ -2451,26 +2451,26 @@ async function supabaseFetch(endpoint, options = {}) {
       
     return await response.json();
   } catch (error) {
-    console.error('Supabase fetch error:', error);
+    console.error("Supabase fetch error:", error);
     throw error;
   }
 }
 
 async function initializeUser() {
   // Generate or load user ID
-  userId = localStorage.getItem('supabase_user_id');
+  userId = localStorage.getItem("supabase_user_id");
   if (!userId) {
-    userId = 'user_' + Math.random().toString(36).substr(2, 9);
-    localStorage.setItem('supabase_user_id', userId);
+    userId = "user_" + Math.random().toString(36).substr(2, 9);
+    localStorage.setItem("supabase_user_id", userId);
   }
 }
 
 async function loadAllData() {
   try {
-    showNotification('⚡', 'info');
+    showNotification("⚡", "info");
       
     // Load tool votes
-    const votesData = await supabaseFetch('tool_votes?select=*');
+    const votesData = await supabaseFetch("tool_votes?select=*");
     if (votesData) {
       votesData.forEach(vote => {
         const tool = invoiceTools.find(t => t.id === vote.tool_id);
@@ -2481,7 +2481,7 @@ async function loadAllData() {
     }
       
     // Load local user votes for UI state
-    const savedVotes = localStorage.getItem('invoiceToolsVotes');
+    const savedVotes = localStorage.getItem("invoiceToolsVotes");
     if (savedVotes) {
       const userVotes = JSON.parse(savedVotes);
       invoiceTools.forEach(tool => {
@@ -2493,17 +2493,17 @@ async function loadAllData() {
       
     // Update status indicator
     updateStatusIndicator(true);
-    showNotification('✓', 'success');
+    showNotification("✓", "success");
   } catch (error) {
-    console.error('Error loading data:', error);
+    console.error("Error loading data:", error);
     updateStatusIndicator(false);
-    showNotification('✗', 'error');
+    showNotification("✗", "error");
   }
 }
 
 // Notification System - Neu positioniert und dezenter
-function showNotification(message, type = 'info') {
-  const notification = document.createElement('div');
+function showNotification(message, type = "info") {
+  const notification = document.createElement("div");
   notification.className = `notification ${type}`;
   notification.innerHTML = `
     <span>${message}</span>
@@ -2513,58 +2513,58 @@ function showNotification(message, type = 'info') {
   document.body.appendChild(notification);
     
   // Add close event
-  notification.querySelector('.notification-close').addEventListener('click', () => {
-    notification.style.animation = 'fadeOut 0.2s ease';
+  notification.querySelector(".notification-close").addEventListener("click", () => {
+    notification.style.animation = "fadeOut 0.2s ease";
     setTimeout(() => notification.remove(), 200);
   });
     
   // Auto remove after 2 seconds (kürzer als vorher)
   setTimeout(() => {
     if (notification.parentNode) {
-      notification.style.animation = 'fadeOut 0.2s ease';
+      notification.style.animation = "fadeOut 0.2s ease";
       setTimeout(() => notification.remove(), 200);
     }
   }, 2000);
 }
 
 function updateStatusIndicator(online) {
-  const indicator = document.getElementById('supabaseStatusFooter');
+  const indicator = document.getElementById("supabaseStatusFooter");
   if (indicator) {
-    indicator.className = `supabase-status ${online ? 'online' : 'offline'}`;
+    indicator.className = `supabase-status ${online ? "online" : "offline"}`;
     indicator.innerHTML = `
       <i class="fas fa-database"></i>
-      <span>Supabase: ${online ? 'verbunden' : 'offline'}</span>
+      <span>Supabase: ${online ? "verbunden" : "offline"}</span>
     `;
   }
 }
 
 // Dark Mode Funktionen
 function toggleDarkMode() {
-  document.body.classList.toggle('dark-mode');
-  const isDark = document.body.classList.contains('dark-mode');
-  localStorage.setItem('darkMode', isDark);
+  document.body.classList.toggle("dark-mode");
+  const isDark = document.body.classList.contains("dark-mode");
+  localStorage.setItem("darkMode", isDark);
   updateDarkModeButton();
 }
 
 function updateDarkModeButton() {
-  const isDark = document.body.classList.contains('dark-mode');
-  const button = document.getElementById('darkModeToggle');
-  const text = document.getElementById('darkModeText');
+  const isDark = document.body.classList.contains("dark-mode");
+  const button = document.getElementById("darkModeToggle");
+  const text = document.getElementById("darkModeText");
   const t = translations[lang];
   
   if (isDark) {
-    button.innerHTML = '<i class="fas fa-sun"></i> <span id="darkModeText">' + (lang === 'de' ? 'Light' : 'Light') + '</span>';
+    button.innerHTML = "<i class="fas fa-sun"></i> <span id="darkModeText">" + (lang === "de" ? "Light" : "Light") + "</span>";
   } else {
-    button.innerHTML = '<i class="fas fa-moon"></i> <span id="darkModeText">' + t.darkMode + '</span>';
+    button.innerHTML = "<i class="fas fa-moon"></i> <span id="darkModeText">" + t.darkMode + "</span>";
   }
 }
 
 // Initialize
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener("DOMContentLoaded", async () => {
   // Load dark mode preference
-  const darkMode = localStorage.getItem('darkMode');
-  if (darkMode === 'true') {
-    document.body.classList.add('dark-mode');
+  const darkMode = localStorage.getItem("darkMode");
+  if (darkMode === "true") {
+    document.body.classList.add("dark-mode");
   }
   
   // Load cookie preferences first
@@ -2594,9 +2594,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 // Event Setup
 function setupEvents() {
   // Language switch
-  document.getElementById('langBtn').addEventListener('click', () => {
-    lang = lang === 'de' ? 'en' : 'de';
-    document.getElementById('langText').textContent = lang === 'de' ? 'EN' : 'DE';
+  document.getElementById("langBtn").addEventListener("click", () => {
+    lang = lang === "de" ? "en" : "de";
+    document.getElementById("langText").textContent = lang === "de" ? "EN" : "DE";
     updateLang();
     renderTopCharts();
     applyFilters();
@@ -2605,13 +2605,13 @@ function setupEvents() {
   });
 
   // Dark mode toggle
-  document.getElementById('darkModeToggle').addEventListener('click', () => {
+  document.getElementById("darkModeToggle").addEventListener("click", () => {
     toggleDarkMode();
   });
 
   // Search functionality
-  const searchInput = document.getElementById('searchInput');
-  searchInput.addEventListener('input', e => {
+  const searchInput = document.getElementById("searchInput");
+  searchInput.addEventListener("input", e => {
     clearTimeout(searchTimeout);
     const v = e.target.value.toLowerCase();
     searchTimeout = setTimeout(() => {
@@ -2621,25 +2621,25 @@ function setupEvents() {
       applyFilters();
     }, 300);
   });
-  searchInput.addEventListener('focus', () => {
+  searchInput.addEventListener("focus", () => {
     if (searchInput.value.length > 0) showSuggestions(searchInput.value);
   });
-  searchInput.addEventListener('blur', () => {
+  searchInput.addEventListener("blur", () => {
     setTimeout(hideSuggestions, 200);
   });
 
   // Keyboard shortcuts
-  document.addEventListener('keydown', e => {
-    if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+  document.addEventListener("keydown", e => {
+    if ((e.ctrlKey || e.metaKey) && e.key === "k") {
       e.preventDefault();
       searchInput.focus();
     }
-    if (e.key === 'Escape') {
-      if (document.getElementById('toolPopup').classList.contains('active')) {
+    if (e.key === "Escape") {
+      if (document.getElementById("toolPopup").classList.contains("active")) {
         closeToolPopup();
       } else {
-        searchInput.value = '';
-        query = '';
+        searchInput.value = "";
+        query = "";
         hideSuggestions();
         applyFilters();
       }
@@ -2647,108 +2647,108 @@ function setupEvents() {
   });
 
   // Quick navigation
-  document.getElementById('quickNav').addEventListener('click', e => {
-    const card = e.target.closest('.quick-card');
+  document.getElementById("quickNav").addEventListener("click", e => {
+    const card = e.target.closest(".quick-card");
     if (!card) return;
       
-    document.querySelectorAll('.quick-card').forEach(c => c.classList.remove('active'));
-    card.classList.add('active');
+    document.querySelectorAll(".quick-card").forEach(c => c.classList.remove("active"));
+    card.classList.add("active");
       
     const category = card.dataset.category;
     const useCase = card.dataset.usecase;
       
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    document.querySelector('[data-scope="all"]').classList.add('active');
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    document.querySelector("[data-scope="all"]").classList.add("active");
       
     if (category) {
-      cat = 'all';
+      cat = "all";
       price = category;
-      activeUseCase = '';
-      document.getElementById('priceFilter').value = price;
+      activeUseCase = "";
+      document.getElementById("priceFilter").value = price;
     } else if (useCase) {
-      cat = 'all';
-      price = 'all';
+      cat = "all";
+      price = "all";
       activeUseCase = useCase;
-      document.getElementById('priceFilter').value = price;
+      document.getElementById("priceFilter").value = price;
     }
       
-    query = '';
-    searchInput.value = '';
+    query = "";
+    searchInput.value = "";
       
     applyFilters();
-    window.scrollTo({ top: document.querySelector('.tools-container').offsetTop - 20, behavior: 'smooth' });
+    window.scrollTo({ top: document.querySelector(".tools-container").offsetTop - 20, behavior: "smooth" });
   });
 
   // Tool filters
-  document.querySelector('.compact-filters').addEventListener('click', e => {
-    const btn = e.target.closest('.filter-btn');
+  document.querySelector(".compact-filters").addEventListener("click", e => {
+    const btn = e.target.closest(".filter-btn");
     if (!btn) return;
       
-    document.querySelectorAll('.quick-card').forEach(c => c.classList.remove('active'));
-    document.querySelectorAll('.compact-filters .filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
+    document.querySelectorAll(".quick-card").forEach(c => c.classList.remove("active"));
+    document.querySelectorAll(".compact-filters .filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
       
-    if (btn.dataset.scope === 'all') {
-      cat = 'all';
+    if (btn.dataset.scope === "all") {
+      cat = "all";
     } else if (btn.dataset.category) {
       cat = btn.dataset.category;
     }
       
-    price = 'all';
-    activeUseCase = '';
-    document.getElementById('priceFilter').value = price;
+    price = "all";
+    activeUseCase = "";
+    document.getElementById("priceFilter").value = price;
       
     applyFilters();
   });
 
   // Price and sort filters
-  document.getElementById('priceFilter').addEventListener('change', function() {
+  document.getElementById("priceFilter").addEventListener("change", function() {
     price = this.value;
-    document.querySelectorAll('.quick-card').forEach(c => c.classList.remove('active'));
-    activeUseCase = '';
+    document.querySelectorAll(".quick-card").forEach(c => c.classList.remove("active"));
+    activeUseCase = "";
     applyFilters();
   });
     
-  document.getElementById('sortFilter').addEventListener('change', function() {
+  document.getElementById("sortFilter").addEventListener("change", function() {
     sort = this.value;
     applyFilters();
   });
 
   // Scroll to top button (jetzt rechts)
-  const scrollBtn = document.getElementById('scrollTop');
-  window.addEventListener('scroll', () => {
-    scrollBtn.classList.toggle('visible', window.pageYOffset > 300);
+  const scrollBtn = document.getElementById("scrollTop");
+  window.addEventListener("scroll", () => {
+    scrollBtn.classList.toggle("visible", window.pageYOffset > 300);
   });
-  scrollBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+  scrollBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
   // Refresh data button
-  document.getElementById('refreshDataBtn').addEventListener('click', async () => {
-    const btn = document.getElementById('refreshDataBtn');
-    btn.classList.add('data-refresh');
+  document.getElementById("refreshDataBtn").addEventListener("click", async () => {
+    const btn = document.getElementById("refreshDataBtn");
+    btn.classList.add("data-refresh");
       
     await loadAllData();
     renderTopCharts();
     applyFilters();
       
     setTimeout(() => {
-      btn.classList.remove('data-refresh');
+      btn.classList.remove("data-refresh");
     }, 1000);
   });
   
   // Tool popup close button
-  document.getElementById('popupClose').addEventListener('click', closeToolPopup);
+  document.getElementById("popupClose").addEventListener("click", closeToolPopup);
   
   // Close popup when clicking outside
-  document.getElementById('toolPopup').addEventListener('click', (e) => {
-    if (e.target === document.getElementById('toolPopup')) {
+  document.getElementById("toolPopup").addEventListener("click", (e) => {
+    if (e.target === document.getElementById("toolPopup")) {
       closeToolPopup();
     }
   });
   
   // Cookie Banner Events
-  document.getElementById('cookieAcceptAllBtn').addEventListener('click', () => {
+  document.getElementById("cookieAcceptAllBtn").addEventListener("click", () => {
     window.cookiePreferences = {
       necessary: true,
       analytics: true,
@@ -2759,7 +2759,7 @@ function setupEvents() {
     hideCookieBanner();
   });
   
-  document.getElementById('cookieNecessaryBtn').addEventListener('click', () => {
+  document.getElementById("cookieNecessaryBtn").addEventListener("click", () => {
     window.cookiePreferences = {
       necessary: true,
       analytics: false,
@@ -2770,55 +2770,55 @@ function setupEvents() {
     hideCookieBanner();
   });
   
-  document.getElementById('cookieSettingsBtn').addEventListener('click', () => {
+  document.getElementById("cookieSettingsBtn").addEventListener("click", () => {
     openCookieModal();
   });
   
   // Cookie Floating Button Event
-  document.getElementById('cookieFloatingBtn').addEventListener('click', () => {
+  document.getElementById("cookieFloatingBtn").addEventListener("click", () => {
     openCookieModal();
   });
   
   // Cookie Modal Events
-  document.getElementById('cookieModalClose').addEventListener('click', closeCookieModal);
-  document.getElementById('cookieModalCancel').addEventListener('click', closeCookieModal);
-  document.getElementById('cookieModalSave').addEventListener('click', () => {
-    window.cookiePreferences.analytics = document.getElementById('analyticsCookies').checked;
-    window.cookiePreferences.functional = document.getElementById('functionalCookies').checked;
-    window.cookiePreferences.marketing = document.getElementById('marketingCookies').checked;
+  document.getElementById("cookieModalClose").addEventListener("click", closeCookieModal);
+  document.getElementById("cookieModalCancel").addEventListener("click", closeCookieModal);
+  document.getElementById("cookieModalSave").addEventListener("click", () => {
+    window.cookiePreferences.analytics = document.getElementById("analyticsCookies").checked;
+    window.cookiePreferences.functional = document.getElementById("functionalCookies").checked;
+    window.cookiePreferences.marketing = document.getElementById("marketingCookies").checked;
     saveCookiePreferences();
     closeCookieModal();
     hideCookieBanner();
   });
   
   // Legal Modal Events
-  document.getElementById('privacyModalClose').addEventListener('click', () => {
-    document.getElementById('privacyModal').classList.remove('active');
-    document.body.style.overflow = 'auto';
+  document.getElementById("privacyModalClose").addEventListener("click", () => {
+    document.getElementById("privacyModal").classList.remove("active");
+    document.body.style.overflow = "auto";
   });
   
-  document.getElementById('imprintModalClose').addEventListener('click', () => {
-    document.getElementById('imprintModal').classList.remove('active');
-    document.body.style.overflow = 'auto';
+  document.getElementById("imprintModalClose").addEventListener("click", () => {
+    document.getElementById("imprintModal").classList.remove("active");
+    document.body.style.overflow = "auto";
   });
   
   // Legal Links
-  document.getElementById('privacyLink').addEventListener('click', (e) => {
+  document.getElementById("privacyLink").addEventListener("click", (e) => {
     e.preventDefault();
     openPrivacyModal();
   });
   
-  document.getElementById('privacyFooterLink').addEventListener('click', (e) => {
+  document.getElementById("privacyFooterLink").addEventListener("click", (e) => {
     e.preventDefault();
     openPrivacyModal();
   });
   
-  document.getElementById('imprintLink').addEventListener('click', (e) => {
+  document.getElementById("imprintLink").addEventListener("click", (e) => {
     e.preventDefault();
     openImprintModal();
   });
   
-  document.getElementById('cookieSettingsLink').addEventListener('click', (e) => {
+  document.getElementById("cookieSettingsLink").addEventListener("click", (e) => {
     e.preventDefault();
     openCookieModal();
   });
@@ -2826,32 +2826,32 @@ function setupEvents() {
 
 // Cookie Modal Functions
 function openCookieModal() {
-  const modal = document.getElementById('cookieModal');
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
+  const modal = document.getElementById("cookieModal");
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
 }
 
 function closeCookieModal() {
-  const modal = document.getElementById('cookieModal');
-  modal.classList.remove('active');
-  document.body.style.overflow = 'auto';
+  const modal = document.getElementById("cookieModal");
+  modal.classList.remove("active");
+  document.body.style.overflow = "auto";
 }
 
 // Legal Modal Functions
 function openPrivacyModal() {
-  const modal = document.getElementById('privacyModal');
-  const body = document.getElementById('privacyModalBody');
+  const modal = document.getElementById("privacyModal");
+  const body = document.getElementById("privacyModalBody");
   body.innerHTML = legalContent[lang].privacy;
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
 }
 
 function openImprintModal() {
-  const modal = document.getElementById('imprintModal');
-  const body = document.getElementById('imprintModalBody');
+  const modal = document.getElementById("imprintModal");
+  const body = document.getElementById("imprintModalBody");
   body.innerHTML = legalContent[lang].imprint;
-  modal.classList.add('active');
-  document.body.style.overflow = 'hidden';
+  modal.classList.add("active");
+  document.body.style.overflow = "hidden";
 }
 
 // OPTIMIERTES Voting System mit besserer Performance
@@ -2890,28 +2890,28 @@ async function handleVote(toolId, vote) {
   tool.votes = oldVotes + voteChange;
   
   // Save local user vote
-  const savedVotes = JSON.parse(localStorage.getItem('invoiceToolsVotes') || '{}');
+  const savedVotes = JSON.parse(localStorage.getItem("invoiceToolsVotes") || "{}");
   savedVotes[toolId] = { userVote: tool.userVote };
-  localStorage.setItem('invoiceToolsVotes', JSON.stringify(savedVotes));
+  localStorage.setItem("invoiceToolsVotes", JSON.stringify(savedVotes));
   
   // Sofortige UI-Aktualisierung (ohne komplette Re-Render)
   updateVoteUI(toolId, tool.votes, tool.userVote);
   
   // Animation für Vote-Button
-  const button = event.target.closest('.vote-btn, .vote-btn-compact');
+  const button = event.target.closest(".vote-btn, .vote-btn-compact");
   if (button) {
-    button.style.transform = 'scale(0.95)';
+    button.style.transform = "scale(0.95)";
     setTimeout(() => {
-      button.style.transform = '';
+      button.style.transform = "";
     }, 150);
   }
   
   // Animation für Vote-Zahl
   const voteCountElement = document.querySelector(`[data-id="${toolId}"] .vote-count, .chart-card[data-id="${toolId}"] .vote-count-display`);
   if (voteCountElement) {
-    voteCountElement.classList.add('vote-count-animation');
+    voteCountElement.classList.add("vote-count-animation");
     setTimeout(() => {
-      voteCountElement.classList.remove('vote-count-animation');
+      voteCountElement.classList.remove("vote-count-animation");
     }, 300);
   }
   
@@ -2954,7 +2954,7 @@ async function handleVote(toolId, vote) {
       const finalTotal = finalUpvotes - finalDownvotes;
       
       await supabaseFetch(`tool_votes?tool_id=eq.${toolId}`, {
-        method: 'PATCH',
+        method: "PATCH",
         body: JSON.stringify({
           upvotes: finalUpvotes,
           downvotes: finalDownvotes,
@@ -2971,17 +2971,17 @@ async function handleVote(toolId, vote) {
       lastVotedToolId = toolId;
       
       // Dezente Notification für Erfolg
-      showNotification('✓', 'success');
+      showNotification("✓", "success");
     }
   } catch (error) {
-    console.error('Error updating vote:', error);
+    console.error("Error updating vote:", error);
     
     // Bei Fehler: Zurücksetzen auf alten Zustand
     tool.votes = oldVotes;
     tool.userVote = oldUserVote;
     updateVoteUI(toolId, oldVotes, oldUserVote);
     
-    showNotification('✗', 'error');
+    showNotification("✗", "error");
   } finally {
     isVoting = false;
   }
@@ -2992,123 +2992,123 @@ function updateVoteUI(toolId, votes, userVote) {
   // Aktualisiere Top Charts
   const chartCard = document.querySelector(`.chart-card[data-id="${toolId}"]`);
   if (chartCard) {
-    const voteCount = chartCard.querySelector('.vote-count-display');
+    const voteCount = chartCard.querySelector(".vote-count-display");
     if (voteCount) voteCount.textContent = votes;
     
-    const upButton = chartCard.querySelector('.vote-btn.up');
-    const downButton = chartCard.querySelector('.vote-btn.down');
+    const upButton = chartCard.querySelector(".vote-btn.up");
+    const downButton = chartCard.querySelector(".vote-btn.down");
     
-    if (upButton) upButton.classList.toggle('active', userVote === 1);
-    if (downButton) downButton.classList.toggle('active', userVote === -1);
+    if (upButton) upButton.classList.toggle("active", userVote === 1);
+    if (downButton) downButton.classList.toggle("active", userVote === -1);
   }
   
   // Aktualisiere Compact View
   const compactRow = document.querySelector(`.compact-tool-row[data-id="${toolId}"]`);
   if (compactRow) {
-    const voteCount = compactRow.querySelector('.vote-count');
+    const voteCount = compactRow.querySelector(".vote-count");
     if (voteCount) {
       voteCount.textContent = votes;
-      voteCount.classList.toggle('upvoted', userVote === 1);
-      voteCount.classList.toggle('downvoted', userVote === -1);
+      voteCount.classList.toggle("upvoted", userVote === 1);
+      voteCount.classList.toggle("downvoted", userVote === -1);
     }
     
-    const upButton = compactRow.querySelector('.vote-btn-compact.up');
-    const downButton = compactRow.querySelector('.vote-btn-compact.down');
+    const upButton = compactRow.querySelector(".vote-btn-compact.up");
+    const downButton = compactRow.querySelector(".vote-btn-compact.down");
     
-    if (upButton) upButton.classList.toggle('active', userVote === 1);
-    if (downButton) downButton.classList.toggle('active', userVote === -1);
+    if (upButton) upButton.classList.toggle("active", userVote === 1);
+    if (downButton) downButton.classList.toggle("active", userVote === -1);
   }
   
   // Aktualisiere Popup falls geöffnet
-  const popupTitle = document.getElementById('popupTitle');
+  const popupTitle = document.getElementById("popupTitle");
   if (popupTitle && popupTitle.textContent === invoiceTools.find(t => t.id === toolId)?.name) {
-    const popupVotes = document.querySelector('.tool-popup-votes span');
+    const popupVotes = document.querySelector(".tool-popup-votes span");
     if (popupVotes && popupVotes.textContent === String(votes)) {
       // Nur aktualisieren wenn unterschiedlich
-      const votesSpan = document.querySelector('.tool-popup-votes span:nth-child(2)');
+      const votesSpan = document.querySelector(".tool-popup-votes span:nth-child(2)");
       if (votesSpan) votesSpan.textContent = votes;
     }
   }
 }
 
 function setupSearchTipsScroll() {
-  const tipsContainer = document.getElementById('searchTips');
-  const scrollLeftBtn = document.getElementById('scrollLeftBtn');
-  const scrollRightBtn = document.getElementById('scrollRightBtn');
+  const tipsContainer = document.getElementById("searchTips");
+  const scrollLeftBtn = document.getElementById("scrollLeftBtn");
+  const scrollRightBtn = document.getElementById("scrollRightBtn");
     
   function updateScrollButtons() {
-    const container = document.querySelector('.search-tips-wrapper');
-    const tips = document.getElementById('searchTips');
+    const container = document.querySelector(".search-tips-wrapper");
+    const tips = document.getElementById("searchTips");
       
     const isOverflowing = tips.scrollWidth > container.clientWidth;
       
     if (isOverflowing) {
-      scrollLeftBtn.classList.remove('hidden');
-      scrollRightBtn.classList.remove('hidden');
+      scrollLeftBtn.classList.remove("hidden");
+      scrollRightBtn.classList.remove("hidden");
     } else {
-      scrollLeftBtn.classList.add('hidden');
-      scrollRightBtn.classList.add('hidden');
+      scrollLeftBtn.classList.add("hidden");
+      scrollRightBtn.classList.add("hidden");
     }
       
     if (tips.scrollLeft <= 0) {
-      scrollLeftBtn.classList.add('hidden');
+      scrollLeftBtn.classList.add("hidden");
     } else {
-      scrollLeftBtn.classList.remove('hidden');
+      scrollLeftBtn.classList.remove("hidden");
     }
       
     if (tips.scrollLeft + tips.clientWidth >= tips.scrollWidth - 1) {
-      scrollRightBtn.classList.add('hidden');
+      scrollRightBtn.classList.add("hidden");
     } else {
-      scrollRightBtn.classList.remove('hidden');
+      scrollRightBtn.classList.remove("hidden");
     }
   }
     
-  scrollLeftBtn.addEventListener('click', () => {
-    tipsContainer.scrollBy({ left: -100, behavior: 'smooth' });
+  scrollLeftBtn.addEventListener("click", () => {
+    tipsContainer.scrollBy({ left: -100, behavior: "smooth" });
   });
     
-  scrollRightBtn.addEventListener('click', () => {
-    tipsContainer.scrollBy({ left: 100, behavior: 'smooth' });
+  scrollRightBtn.addEventListener("click", () => {
+    tipsContainer.scrollBy({ left: 100, behavior: "smooth" });
   });
     
-  window.addEventListener('resize', updateScrollButtons);
+  window.addEventListener("resize", updateScrollButtons);
     
   setTimeout(updateScrollButtons, 100);
   setTimeout(updateScrollButtons, 500);
 }
 
 function renderSearchTips() {
-  const tipsContainer = document.getElementById('searchTips');
+  const tipsContainer = document.getElementById("searchTips");
   const t = translations[lang];
     
-  const label = tipsContainer.querySelector('.search-tips-label');
-  tipsContainer.innerHTML = '';
+  const label = tipsContainer.querySelector(".search-tips-label");
+  tipsContainer.innerHTML = "";
   if (label) tipsContainer.appendChild(label);
     
   const tips = t.searchTips || [];
     
   tips.forEach(tip => {
-    const tipElement = document.createElement('span');
-    tipElement.className = 'search-tip-item';
+    const tipElement = document.createElement("span");
+    tipElement.className = "search-tip-item";
     tipElement.textContent = tip;
-    tipElement.addEventListener('click', () => {
-      document.querySelectorAll('.search-tip-item').forEach(item => {
-        item.classList.remove('active');
+    tipElement.addEventListener("click", () => {
+      document.querySelectorAll(".search-tip-item").forEach(item => {
+        item.classList.remove("active");
       });
         
-      tipElement.classList.add('active');
+      tipElement.classList.add("active");
         
-      document.getElementById('searchInput').value = tip;
+      document.getElementById("searchInput").value = tip;
       query = tip.toLowerCase();
       applyFilters();
         
-      const event = new Event('input', { bubbles: true });
-      document.getElementById('searchInput').dispatchEvent(event);
+      const event = new Event("input", { bubbles: true });
+      document.getElementById("searchInput").dispatchEvent(event);
         
-      document.getElementById('searchInput').focus();
+      document.getElementById("searchInput").focus();
         
       setTimeout(() => {
-        tipElement.classList.remove('active');
+        tipElement.classList.remove("active");
       }, 2000);
     });
     tipsContainer.appendChild(tipElement);
@@ -3120,9 +3120,9 @@ function renderSearchTips() {
 }
 
 function showSuggestions(q) {
-  const div = document.getElementById('searchSuggestions');
+  const div = document.getElementById("searchSuggestions");
   const matches = invoiceTools.filter(t => {
-    const txt = `${t.name} ${t.category} ${t.description[lang]} ${t.features.join(' ')}`.toLowerCase();
+    const txt = `${t.name} ${t.category} ${t.description[lang]} ${t.features.join(" ")}`.toLowerCase();
     return txt.includes(q);
   }).slice(0, 6);
     
@@ -3135,52 +3135,52 @@ function showSuggestions(q) {
           <div class="suggestion-meta">${catName(t.category)} • ${t.priceDisplay[lang]}</div>
         </div>
       </div>
-    `).join('');
+    `).join("");
       
-    div.querySelectorAll('.suggestion-item').forEach(el => {
-      el.addEventListener('click', () => {
+    div.querySelectorAll(".suggestion-item").forEach(el => {
+      el.addEventListener("click", () => {
         const toolId = parseInt(el.dataset.tool);
         const tool = invoiceTools.find(t => t.id === toolId);
         if (tool) {
-          document.getElementById('searchInput').value = tool.name;
+          document.getElementById("searchInput").value = tool.name;
           query = tool.name.toLowerCase();
           hideSuggestions();
           applyFilters();
           setTimeout(() => {
             const toolElement = document.querySelector(`[data-id="${toolId}"]`);
             if (toolElement) {
-              toolElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              toolElement.style.boxShadow = '0 0 0 2px var(--primary)';
-              setTimeout(() => toolElement.style.boxShadow = '', 2000);
+              toolElement.scrollIntoView({ behavior: "smooth", block: "center" });
+              toolElement.style.boxShadow = "0 0 0 2px var(--primary)";
+              setTimeout(() => toolElement.style.boxShadow = "", 2000);
             }
           }, 100);
         }
       });
     });
-    div.classList.add('active');
+    div.classList.add("active");
   } else {
     hideSuggestions();
   }
 }
 
 function hideSuggestions() {
-  document.getElementById('searchSuggestions').classList.remove('active');
+  document.getElementById("searchSuggestions").classList.remove("active");
 }
 
 function highlight(txt, q) {
-  const rx = new RegExp(`(${q})`, 'gi');
-  return txt.replace(rx, '<span style="color:var(--primary-light)">$1</span>');
+  const rx = new RegExp(`(${q})`, "gi");
+  return txt.replace(rx, "<span style="color:var(--primary-light)">$1</span>");
 }
 
 function catIcon(c) {
   const m = {
-    basic: 'fas fa-file-invoice',
-    advanced: 'fas fa-chart-line',
-    mobile: 'fas fa-mobile-alt',
-    'all-in-one': 'fas fa-box',
-    enterprise: 'fas fa-building'
+    basic: "fas fa-file-invoice",
+    advanced: "fas fa-chart-line",
+    mobile: "fas fa-mobile-alt",
+    "all-in-one": "fas fa-box",
+    enterprise: "fas fa-building"
   };
-  return m[c] || 'fas fa-star';
+  return m[c] || "fas fa-star";
 }
 
 function catName(c) {
@@ -3188,7 +3188,7 @@ function catName(c) {
     basic: translations[lang].catBasic,
     advanced: translations[lang].catAdvanced,
     mobile: translations[lang].catMobile,
-    'all-in-one': translations[lang].catAllInOne,
+    "all-in-one": translations[lang].catAllInOne,
     enterprise: translations[lang].catEnterprise
   };
   return m[c] || c;
@@ -3196,55 +3196,55 @@ function catName(c) {
 
 function updateLang() {
   const t = translations[lang];
-  document.getElementById('badgeText').textContent = t.badge(invoiceTools.length);
-  document.getElementById('pageTitle').textContent = t.title;
-  document.getElementById('pageDescription').textContent = t.desc;
-  document.getElementById('searchInput').placeholder = t.searchPlaceholder;
-  document.getElementById('searchTipsLabel').textContent = t.searchTipsLabel;
-  document.getElementById('navAuto').textContent = t.navAuto;
-  document.getElementById('navAutoDesc').textContent = t.navAutoDesc;
-  document.getElementById('navTime').textContent = t.navTime;
-  document.getElementById('navTimeDesc').textContent = t.navTimeDesc;
-  document.getElementById('navIntl').textContent = t.navIntl;
-  document.getElementById('navIntlDesc').textContent = t.navIntlDesc;
-  document.getElementById('navMobile').textContent = t.navMobile;
-  document.getElementById('navMobileDesc').textContent = t.navMobileDesc;
-  document.getElementById('navContract').textContent = t.navContract;
-  document.getElementById('navContractDesc').textContent = t.navContractDesc;
-  document.getElementById('navFree').textContent = t.navFree;
-  document.getElementById('navFreeDesc').textContent = t.navFreeDesc;
-  document.getElementById('topChartsTitle').textContent = t.topChartsTitle;
-  document.getElementById('catAll').textContent = t.catAll;
-  document.getElementById('catBasic').textContent = t.catBasic;
-  document.getElementById('catAdvanced').textContent = t.catAdvanced;
-  document.getElementById('catMobile').textContent = t.catMobile;
-  document.getElementById('catAllInOne').textContent = t.catAllInOne;
-  document.getElementById('catEnterprise').textContent = t.catEnterprise;
-  document.getElementById('toolsText').textContent = t.toolsFound;
-  document.getElementById('footerCopy').textContent = t.footerCopy;
-  document.getElementById('footerDiscl').textContent = t.footerDiscl;
-  document.getElementById('refreshText').textContent = t.refreshText;
+  document.getElementById("badgeText").textContent = t.badge(invoiceTools.length);
+  document.getElementById("pageTitle").textContent = t.title;
+  document.getElementById("pageDescription").textContent = t.desc;
+  document.getElementById("searchInput").placeholder = t.searchPlaceholder;
+  document.getElementById("searchTipsLabel").textContent = t.searchTipsLabel;
+  document.getElementById("navAuto").textContent = t.navAuto;
+  document.getElementById("navAutoDesc").textContent = t.navAutoDesc;
+  document.getElementById("navTime").textContent = t.navTime;
+  document.getElementById("navTimeDesc").textContent = t.navTimeDesc;
+  document.getElementById("navIntl").textContent = t.navIntl;
+  document.getElementById("navIntlDesc").textContent = t.navIntlDesc;
+  document.getElementById("navMobile").textContent = t.navMobile;
+  document.getElementById("navMobileDesc").textContent = t.navMobileDesc;
+  document.getElementById("navContract").textContent = t.navContract;
+  document.getElementById("navContractDesc").textContent = t.navContractDesc;
+  document.getElementById("navFree").textContent = t.navFree;
+  document.getElementById("navFreeDesc").textContent = t.navFreeDesc;
+  document.getElementById("topChartsTitle").textContent = t.topChartsTitle;
+  document.getElementById("catAll").textContent = t.catAll;
+  document.getElementById("catBasic").textContent = t.catBasic;
+  document.getElementById("catAdvanced").textContent = t.catAdvanced;
+  document.getElementById("catMobile").textContent = t.catMobile;
+  document.getElementById("catAllInOne").textContent = t.catAllInOne;
+  document.getElementById("catEnterprise").textContent = t.catEnterprise;
+  document.getElementById("toolsText").textContent = t.toolsFound;
+  document.getElementById("footerCopy").textContent = t.footerCopy;
+  document.getElementById("footerDiscl").textContent = t.footerDiscl;
+  document.getElementById("refreshText").textContent = t.refreshText;
   
   // Cookie translations
-  document.getElementById('cookieTitle').textContent = t.cookieTitle;
-  document.getElementById('cookieText').innerHTML = t.cookieText + ' Weitere Informationen finden Sie in unserer <a href="#" id="privacyLink">' + t.privacy + '</a>.';
-  document.getElementById('cookieModalTitle').textContent = t.cookieSettings;
-  document.getElementById('cookieNecessaryTitle').textContent = t.cookieNecessaryTitle;
-  document.getElementById('cookieNecessaryDesc').textContent = t.cookieNecessaryDesc;
-  document.getElementById('cookieAnalyticsTitle').textContent = t.cookieAnalyticsTitle;
-  document.getElementById('cookieAnalyticsDesc').textContent = t.cookieAnalyticsDesc;
-  document.getElementById('cookieFunctionalTitle').textContent = t.cookieFunctionalTitle;
-  document.getElementById('cookieFunctionalDesc').textContent = t.cookieFunctionalDesc;
-  document.getElementById('cookieMarketingTitle').textContent = t.cookieMarketingTitle;
-  document.getElementById('cookieMarketingDesc').textContent = t.cookieMarketingDesc;
+  document.getElementById("cookieTitle").textContent = t.cookieTitle;
+  document.getElementById("cookieText").innerHTML = t.cookieText + " Weitere Informationen finden Sie in unserer <a href="#" id="privacyLink">" + t.privacy + "</a>.";
+  document.getElementById("cookieModalTitle").textContent = t.cookieSettings;
+  document.getElementById("cookieNecessaryTitle").textContent = t.cookieNecessaryTitle;
+  document.getElementById("cookieNecessaryDesc").textContent = t.cookieNecessaryDesc;
+  document.getElementById("cookieAnalyticsTitle").textContent = t.cookieAnalyticsTitle;
+  document.getElementById("cookieAnalyticsDesc").textContent = t.cookieAnalyticsDesc;
+  document.getElementById("cookieFunctionalTitle").textContent = t.cookieFunctionalTitle;
+  document.getElementById("cookieFunctionalDesc").textContent = t.cookieFunctionalDesc;
+  document.getElementById("cookieMarketingTitle").textContent = t.cookieMarketingTitle;
+  document.getElementById("cookieMarketingDesc").textContent = t.cookieMarketingDesc;
   
   // Update legal links
-  document.getElementById('privacyLink').textContent = t.privacy;
-  document.getElementById('privacyFooterLink').textContent = t.privacy;
-  document.getElementById('imprintLink').textContent = t.imprint;
-  document.getElementById('cookieSettingsLink').textContent = t.cookieSettings;
+  document.getElementById("privacyLink").textContent = t.privacy;
+  document.getElementById("privacyFooterLink").textContent = t.privacy;
+  document.getElementById("imprintLink").textContent = t.imprint;
+  document.getElementById("cookieSettingsLink").textContent = t.cookieSettings;
 
-  const pf = document.getElementById('priceFilter');
+  const pf = document.getElementById("priceFilter");
   pf.innerHTML = `
     <option value="all">${t.priceAll}</option>
     <option value="free">${t.priceFree}</option>
@@ -3254,7 +3254,7 @@ function updateLang() {
   `;
   pf.value = price;
 
-  const sf = document.getElementById('sortFilter');
+  const sf = document.getElementById("sortFilter");
   sf.innerHTML = `
     <option value="votes">${t.sortVotes}</option>
     <option value="popular">${t.sortPopular}</option>
@@ -3266,7 +3266,7 @@ function updateLang() {
 }
 
 function renderTopCharts() {
-  const container = document.getElementById('topCharts');
+  const container = document.getElementById("topCharts");
     
   const oldTopTools = [...invoiceTools]
     .sort((a, b) => calculateScore(b) - calculateScore(a))
@@ -3284,13 +3284,13 @@ function renderTopCharts() {
   container.innerHTML = sortedTools.map((tool, index) => {
     const newPosition = index + 1;
     const oldPosition = oldPositions[tool.id];
-    let positionClass = '';
+    let positionClass = "";
       
     if (lastVotedToolId === tool.id) {
       if (oldPosition && newPosition < oldPosition) {
-        positionClass = 'moving-up';
+        positionClass = "moving-up";
       } else if (oldPosition && newPosition > oldPosition) {
-        positionClass = 'moving-down';
+        positionClass = "moving-down";
       }
     }
       
@@ -3303,33 +3303,33 @@ function renderTopCharts() {
           <span class="vote-count-display">${tool.votes}</span>
         </div>
       </div>
-      <div class="chart-tool-name">${tool.name} ${tool.trending === 'up' ? '<span class="trending-indicator trending-up"><i class="fas fa-arrow-up"></i> Trending</span>' : tool.trending === 'down' ? '<span class="trending-indicator trending-down"><i class="fas fa-arrow-down"></i> Falling</span>' : ''}</div>
+      <div class="chart-tool-name">${tool.name} ${tool.trending === "up" ? "<span class="trending-indicator trending-up"><i class="fas fa-arrow-up"></i> Trending</span>" : tool.trending === "down" ? "<span class="trending-indicator trending-down"><i class="fas fa-arrow-down"></i> Falling</span>" : ""}</div>
       <div class="chart-category">${catName(tool.category)}</div>
       <div class="chart-price">${tool.priceDisplay[lang]}</div>
       <div class="chart-description">${tool.detailedDescription ? tool.detailedDescription[lang] : tool.description[lang]}</div>
       ${tool.pros ? `
       <div class="chart-pros-cons">
-        <div class="pros-list"><strong>${translations[lang].pros}</strong> ${tool.pros[lang].slice(0,2).join(', ')}</div>
-        <div class="cons-list"><strong>${translations[lang].cons}</strong> ${tool.cons[lang].slice(0,1).join(', ')}</div>
+        <div class="pros-list"><strong>${translations[lang].pros}</strong> ${tool.pros[lang].slice(0,2).join(", ")}</div>
+        <div class="cons-list"><strong>${translations[lang].cons}</strong> ${tool.cons[lang].slice(0,1).join(", ")}</div>
       </div>
-      ` : ''}
+      ` : ""}
       <div class="chart-actions">
-        <button class="vote-btn up ${tool.userVote === 1 ? 'active' : ''}" data-id="${tool.id}" data-vote="1" onclick="event.stopPropagation(); handleVote(${tool.id}, 1)">
+        <button class="vote-btn up ${tool.userVote === 1 ? "active" : ""}" data-id="${tool.id}" data-vote="1" onclick="event.stopPropagation(); handleVote(${tool.id}, 1)">
           <i class="fas fa-thumbs-up"></i> ${translations[lang].helpful}
         </button>
-        <button class="vote-btn down ${tool.userVote === -1 ? 'active' : ''}" data-id="${tool.id}" data-vote="-1" onclick="event.stopPropagation(); handleVote(${tool.id}, -1)">
+        <button class="vote-btn down ${tool.userVote === -1 ? "active" : ""}" data-id="${tool.id}" data-vote="-1" onclick="event.stopPropagation(); handleVote(${tool.id}, -1)">
           <i class="fas fa-thumbs-down"></i>
         </button>
       </div>
     </div>
-  `}).join('');
+  `}).join("");
 
   setTimeout(() => {
-    container.querySelectorAll('.chart-card.moving-up, .chart-card.moving-down').forEach(card => {
-      card.classList.remove('moving-up', 'moving-down');
+    container.querySelectorAll(".chart-card.moving-up, .chart-card.moving-down").forEach(card => {
+      card.classList.remove("moving-up", "moving-down");
     });
-    container.querySelectorAll('.chart-rank.moving-up, .chart-rank.moving-down').forEach(rank => {
-      rank.classList.remove('moving-up', 'moving-down');
+    container.querySelectorAll(".chart-rank.moving-up, .chart-rank.moving-down").forEach(rank => {
+      rank.classList.remove("moving-up", "moving-down");
     });
   }, 1500);
 }
@@ -3340,30 +3340,30 @@ function calculateScore(tool) {
 
 function applyFilters() {
   let filtered = invoiceTools.filter(tool => {
-    if (cat !== 'all' && tool.category !== cat) return false;
-    if (price !== 'all' && tool.price !== price) return false;
+    if (cat !== "all" && tool.category !== cat) return false;
+    if (price !== "all" && tool.price !== price) return false;
       
     if (activeUseCase && (!tool.useCases || !tool.useCases.includes(activeUseCase))) {
       return false;
     }
       
     if (query) {
-      const txt = `${tool.name} ${tool.category} ${tool.description[lang]} ${tool.features.join(' ')}`.toLowerCase();
+      const txt = `${tool.name} ${tool.category} ${tool.description[lang]} ${tool.features.join(" ")}`.toLowerCase();
       if (!txt.includes(query)) return false;
     }
     return true;
   });
 
   filtered.sort((a, b) => {
-    if (sort === 'rating') return b.rating - a.rating;
-    if (sort === 'votes') return calculateScore(b) - calculateScore(a);
-    if (sort === 'popular') return (b.badge === 'popular' ? 1 : 0) - (a.badge === 'popular' ? 1 : 0);
-    if (sort === 'price-low' || sort === 'price-high') {
-      const aPrice = a.priceDisplay[lang].includes('Free') || a.priceDisplay[lang].includes('Kostenlos') ? 0 : 
-                    parseFloat(a.priceDisplay[lang].replace(/[^\d.]/g, '')) || 999;
-      const bPrice = b.priceDisplay[lang].includes('Free') || b.priceDisplay[lang].includes('Kostenlos') ? 0 : 
-                    parseFloat(b.priceDisplay[lang].replace(/[^\d.]/g, '')) || 999;
-      return sort === 'price-low' ? aPrice - bPrice : bPrice - aPrice;
+    if (sort === "rating") return b.rating - a.rating;
+    if (sort === "votes") return calculateScore(b) - calculateScore(a);
+    if (sort === "popular") return (b.badge === "popular" ? 1 : 0) - (a.badge === "popular" ? 1 : 0);
+    if (sort === "price-low" || sort === "price-high") {
+      const aPrice = a.priceDisplay[lang].includes("Free") || a.priceDisplay[lang].includes("Kostenlos") ? 0 : 
+                    parseFloat(a.priceDisplay[lang].replace(/[^\d.]/g, "")) || 999;
+      const bPrice = b.priceDisplay[lang].includes("Free") || b.priceDisplay[lang].includes("Kostenlos") ? 0 : 
+                    parseFloat(b.priceDisplay[lang].replace(/[^\d.]/g, "")) || 999;
+      return sort === "price-low" ? aPrice - bPrice : bPrice - aPrice;
     }
     return 0;
   });
@@ -3372,9 +3372,9 @@ function applyFilters() {
 }
 
 function renderTools(tools) {
-  const grid = document.getElementById('toolsGrid');
+  const grid = document.getElementById("toolsGrid");
   const t = translations[lang];
-  document.getElementById('toolCount').textContent = tools.length;
+  document.getElementById("toolCount").textContent = tools.length;
 
   if (tools.length === 0) {
     grid.innerHTML = `
@@ -3387,7 +3387,7 @@ function renderTools(tools) {
         </button>
       </div>
     `;
-    document.getElementById('resetFiltersBtn').addEventListener('click', resetFilters);
+    document.getElementById("resetFiltersBtn").addEventListener("click", resetFilters);
     return;
   }
 
@@ -3395,12 +3395,12 @@ function renderTools(tools) {
     return `
       <div class="compact-tool-row" data-id="${tool.id}" onclick="openToolPopup(${tool.id})">
         <div class="tool-vote-compact">
-          <div class="vote-count ${tool.userVote === 1 ? 'upvoted' : tool.userVote === -1 ? 'downvoted' : ''}">${tool.votes}</div>
+          <div class="vote-count ${tool.userVote === 1 ? "upvoted" : tool.userVote === -1 ? "downvoted" : ""}">${tool.votes}</div>
           <div>
-            <button class="vote-btn-compact up ${tool.userVote === 1 ? 'active' : ''}" data-id="${tool.id}" data-vote="1" onclick="event.stopPropagation(); handleVote(${tool.id}, 1)">
+            <button class="vote-btn-compact up ${tool.userVote === 1 ? "active" : ""}" data-id="${tool.id}" data-vote="1" onclick="event.stopPropagation(); handleVote(${tool.id}, 1)">
               <i class="fas fa-thumbs-up"></i>
             </button>
-            <button class="vote-btn-compact down ${tool.userVote === -1 ? 'active' : ''}" data-id="${tool.id}" data-vote="-1" onclick="event.stopPropagation(); handleVote(${tool.id}, -1)">
+            <button class="vote-btn-compact down ${tool.userVote === -1 ? "active" : ""}" data-id="${tool.id}" data-vote="-1" onclick="event.stopPropagation(); handleVote(${tool.id}, -1)">
               <i class="fas fa-thumbs-down"></i>
             </button>
           </div>
@@ -3409,15 +3409,15 @@ function renderTools(tools) {
           <div class="tool-name-row">
             <div class="tool-name-compact">${tool.name}</div>
             <div class="tool-category-compact">${catName(tool.category)}</div>
-            ${tool.trending === 'up' ? '<span class="trending-indicator trending-up"><i class="fas fa-arrow-up"></i></span>' : tool.trending === 'down' ? '<span class="trending-indicator trending-down"><i class="fas fa-arrow-down"></i></span>' : ''}
+            ${tool.trending === "up" ? "<span class="trending-indicator trending-up"><i class="fas fa-arrow-up"></i></span>" : tool.trending === "down" ? "<span class="trending-indicator trending-down"><i class="fas fa-arrow-down"></i></span>" : ""}
           </div>
           <div class="tool-desc-compact">${tool.detailedDescription ? tool.detailedDescription[lang] : tool.description[lang]}</div>
           ${tool.pros ? `
           <div class="tool-pros-cons-compact">
-            <span class="pros">${t.pros}</span>${tool.pros[lang].slice(0,2).join(', ')} 
-            <span class="cons">${t.cons}</span>${tool.cons[lang].slice(0,1).join(', ')}
+            <span class="pros">${t.pros}</span>${tool.pros[lang].slice(0,2).join(", ")} 
+            <span class="cons">${t.cons}</span>${tool.cons[lang].slice(0,1).join(", ")}
           </div>
-          ` : ''}
+          ` : ""}
         </div>
         <div class="tool-meta-compact">
           <div class="tool-price-compact">${tool.priceDisplay[lang]}</div>
@@ -3425,21 +3425,21 @@ function renderTools(tools) {
         </div>
       </div>
     `;
-  }).join('');
+  }).join("");
 }
 
 function resetFilters() {
-  cat = 'all';
-  price = 'all';
-  sort = 'votes';
-  query = '';
-  activeUseCase = '';
-  document.getElementById('searchInput').value = '';
-  document.getElementById('priceFilter').value = 'all';
-  document.getElementById('sortFilter').value = 'votes';
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  document.querySelector('[data-scope="all"]').classList.add('active');
-  document.querySelectorAll('.quick-card').forEach(c => c.classList.remove('active'));
+  cat = "all";
+  price = "all";
+  sort = "votes";
+  query = "";
+  activeUseCase = "";
+  document.getElementById("searchInput").value = "";
+  document.getElementById("priceFilter").value = "all";
+  document.getElementById("sortFilter").value = "votes";
+  document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+  document.querySelector("[data-scope="all"]").classList.add("active");
+  document.querySelectorAll(".quick-card").forEach(c => c.classList.remove("active"));
   applyFilters();
 }
 </script>
